@@ -17,11 +17,11 @@ int main()
 
     print_list(list);
 
-    printf("Pop elements.\n");
-    for (int i = 0; i < 13; i++) {
-        char buffer[1000];
-        pop_node_v(list, buffer);
-        printf("Buffer is: %s\n", buffer);
+    printf("\nPop elements.\n");
+    for (int i = 1; i < 8; i++) {
+        pop_node(list);
+        printf("\n\nAfter Pop %d\n", i);
+        print_list(list);
     }
 
     print_list(list);
