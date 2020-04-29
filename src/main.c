@@ -18,13 +18,15 @@ int main()
     print_list(list);
 
     printf("Pop elements.\n");
-    pop_node(list);
-    pop_node(list);
-    pop_node(list);
-    pop_node(list);
-
+    for (int i = 0; i < 13; i++) {
+        char buffer[1000];
+        pop_node_v(list, buffer);
+        printf("Buffer is: %s\n", buffer);
+    }
 
     print_list(list);
+
+    free_list(list);
 
     return 0;
 }
