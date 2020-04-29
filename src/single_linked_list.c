@@ -35,21 +35,8 @@ SingleLinkedListNode* push_node(SingleLinkedList* list, char* data)
 
 void pop_node(SingleLinkedList* list)
 {
-    if (list->front) { 
-        SingleLinkedListNode* node = list->front;
-        for (int i = 1; i < list->size - 1; i++, node = node->next)
-            ;
-        node->next = NULL;
-        free(list->rear);
-        list->rear = node;
-        list->size--;
-
-        if (list->size == 0) {
-            list->front = NULL;
-            list->rear = NULL;
-        }
-    } else
-        printf("error: the list is empty. insert something.\n");
+    char buffer[MAX_BUFFER];
+    pop_node_v(list, buffer);
 }
 
 char* pop_node_v(SingleLinkedList* list, char* buffer)
