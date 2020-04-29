@@ -37,9 +37,9 @@ void pop_node(SingleLinkedList* list)
 {
     if (list->front) { 
         SingleLinkedListNode* node = list->front;
-        for (int i = 1; i < list->size; i++, node = node->next)
+        for (int i = 1; i < list->size - 1; i++, node = node->next)
             ;
-
+        node->next = NULL;
         free(list->rear);
         list->rear = node;
         list->size--;
@@ -49,18 +49,19 @@ void pop_node(SingleLinkedList* list)
             list->rear = NULL;
         }
     } else
-        printf("error: the list is empty.\n");
+        printf("error: the list is empty. insert something.\n");
 }
 
 char* pop_node_v(SingleLinkedList* list, char* buffer)
 {
     if (list->front) { 
         SingleLinkedListNode* node = list->front;
-        for (int i = 1; i < list->size; i++, node = node->next)
+        for (int i = 1; i < list->size - 1; i++, node = node->next)
             ;
 
         strcpy(buffer, list->rear->data);
-
+        
+        node->next = NULL;
         free(list->rear);
         list->rear = node;
         list->size--;
@@ -70,7 +71,7 @@ char* pop_node_v(SingleLinkedList* list, char* buffer)
             list->rear = NULL;
         }
     } else {
-        printf("error: the list is empty.\n");
+        printf("error: the list is empty. insert something.\n");
         strcpy(buffer, "");
     }
 
@@ -86,7 +87,8 @@ void free_list(SingleLinkedList* list)
                 free(node);
                 node = nxtNode;
             }
-        }
+        } else 
+            printf("error: the list is empty. insert something.\n");
 
         free(list);
     }
@@ -97,6 +99,6 @@ void print_list(SingleLinkedList* list)
     for (SingleLinkedListNode* node = list->front; node; node = node->next)
         printf("%s|%p => ", node->data, node->next);
 
-    printf("\b\b\b\b\n");
+    printf("\b\b\b\b");
     fflush(stdout);
 }
