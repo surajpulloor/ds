@@ -17,16 +17,20 @@ int main()
 
     print_list(list);
 
-    printf("\nPop elements.\n");
-    for (int i = 1; i < 8; i++) {
-        pop_node(list);
-        printf("\n\nAfter Pop %d\n", i);
-        print_list(list);
+    set(list, 8, "This is serious.");
+
+    print_list(list);
+
+    printf("\nGet elements.\n");
+    for (int i = -7; i < 0; i++) {
+        char buffer[MAX_BUFFER];
+        get(list, i, buffer);
+        printf("\n\nData: %s\n", buffer);
     }
 
     print_list(list);
 
-    free_list(list);
+    free_list(&list);
 
     return 0;
 }
