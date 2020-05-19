@@ -16,11 +16,22 @@ typedef struct {
 } SingleLinkedList;
 
 SingleLinkedList* init_list();
-SingleLinkedListNode* push_node(SingleLinkedList*, char*);
-void pop_node(SingleLinkedList*);
-char* pop_node_v(SingleLinkedList*, char*);
+
+SingleLinkedListNode* push_before(SingleLinkedList*, char*, int);
+SingleLinkedListNode* push_after(SingleLinkedList*, char*, int);
+SingleLinkedListNode* push(SingleLinkedList*, char*);
+
+void pop_before(SingleLinkedList*, int);
+void pop_after(SingleLinkedList*, int);
+void pop(SingleLinkedList*);
+
+char* pop_before_v(SingleLinkedList*, int, char*);
+char* pop_after_v(SingleLinkedList*, int, char*);
+char* pop_v(SingleLinkedList*, char*);
+
 char* get(SingleLinkedList*, int, char*);
 void set(SingleLinkedList*, int, char*);
+
 void free_list(SingleLinkedList**);
 void print_list(SingleLinkedList*);
 
