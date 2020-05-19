@@ -18,9 +18,13 @@ int main()
     print_list(list);
 
     char buffer[MAX_BUFFER];
-    printf("popped node value = %s\n", pop_after_v(list, 1, buffer));
-    printf("popped node value = %s\n", pop_after_v(list, 2, buffer));
-    printf("popped node value = %s\n", pop_after_v(list, 3, buffer));
+    printf("get(1) = %s\n", get(list, 1, buffer));
+    printf("get(2) = %s\n", get(list, 2, buffer));
+
+    set(list, 21, "KK the singer.");
+    set(list, -2, "Luke is great.");
+
+    print_list(list);
 
     free_list(&list);
 

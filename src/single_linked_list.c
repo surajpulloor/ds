@@ -265,82 +265,81 @@ char* pop_v(SingleLinkedList* list, char* buffer)
 
 char* get(SingleLinkedList* list, int index, char* buffer)
 {
-    if (list) {
-
-        if (list->front) {
-
-            if (index < 1) {
-                printf("error: Index has underflowed. It has to be greater than 0\n");
-                strcpy(buffer, "");
-            } else if (index > list->size) {
-                printf("error: Index has overflowed. It has to be less than %d\n", list->size);
-                strcpy(buffer, "");
-            } else {
-
-                if (index == 1)
-                    strcpy(buffer, list->front->data);
-                else if (index == list->size)
-                    strcpy(buffer, list->rear->data);
-                else {
-                    int i = 2;
-                    for (SingleLinkedListNode* node = list->front->next; i < list->size; i++, node = node->next)
-                        if (i == index) {
-                            strcpy(buffer, node->data);
-                            break;
-                        }
-                }
-            }
-
-
-        } else {
-            printf("error: List is empty. Please insert something in it.\n");
-            strcpy(buffer, "");
-        }
-
-
-    } else {
-        printf("error: List doesn't exist. Please create one.\n");
-        strcpy(buffer, "");
+    if (list == NULL) {
+        printf("error: List is empty. Please insert something in it.\n");
+        return NULL;
     }
 
+    if (list->front == NULL) {
+        printf("error: List doesn't exist. Please create one.\n");
+        return NULL;
+    }
+
+    if (index < 1) {
+        printf("error: Index has underflowed. It has to be greater than 0\n");
+        return NULL;
+    }
+
+    if (index > list->size) {
+        printf("error: Index has overflowed. It has to be less than %d\n", list->size);
+        return NULL;
+    }
+
+            
+    if (index == 1)
+        strcpy(buffer, list->front->data);
+    else if (index == list->size)
+        strcpy(buffer, list->rear->data);
+    else {
+        int i = 2;
+        for (SingleLinkedListNode* node = list->front->next; i < list->size; i++, node = node->next)
+            if (i == index) {
+
+                if (buffer)
+                    strcpy(buffer, node->data);
+                break;
+
+            }
+    }
+        
     return buffer;
 }
 
 void set(SingleLinkedList* list, int index, char* value)
 {
-    if (list) {
-
-        if (list->front) {
-
-            if (index < 1) {
-                printf("error: Index has underflowed. It has to be greater than 0\n");
-            } else if (index > list->size) {
-                printf("error: Index has overflowed. It has to be less than %d\n", list->size);
-            } else {
-
-                if (index == 1)
-                    strcpy(list->front->data, value);
-                else if (index == list->size)
-                    strcpy(list->rear->data, value);
-                else {
-                    int i = 2;
-                    for (SingleLinkedListNode* node = list->front->next; i < list->size; i++, node = node->next)
-                        if (i == index) {
-                            strcpy(node->data, value);
-                            break;
-                        }
-                }
-            }
-
-
-        } else {
-            printf("error: List is empty. Please insert something in it.\n");
-        }
-
-
-    } else {
-        printf("error: List doesn't exist. Please create one.\n");
+    if (list == NULL) {
+        printf("error: List is empty. Please insert something in it.\n");
+        return;
     }
+
+    if (list->front == NULL) {
+        printf("error: List doesn't exist. Please create one.\n");
+        return;
+    }
+
+    if (index < 1) {
+        printf("error: Index has underflowed. It has to be greater than 0\n");
+        return;
+    }
+
+    if (index > list->size) {
+        printf("error: Index has overflowed. It has to be less than %d\n", list->size);
+        return;
+    }
+
+    if (index == 1)
+        strcpy(list->front->data, value);
+    else if (index == list->size)
+        strcpy(list->rear->data, value);
+    else {
+        int i = 2;
+        for (SingleLinkedListNode* node = list->front->next; i < list->size; i++, node = node->next)
+            if (i == index) {
+                strcpy(node->data, value);
+                break;
+            }
+    }
+
 }
 
 
