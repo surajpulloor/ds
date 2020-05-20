@@ -18,11 +18,14 @@ int main()
     print_list(list);
 
     char buffer[MAX_BUFFER];
-    printf("get(1) = %s\n", get(list, 1, buffer));
-    printf("get(2) = %s\n", get(list, 2, buffer));
+    push_front(list, "Kick this shit");
+    push_front(list, "The quick brown");
+    push_front(list, "fox jumped over the lazy dog.");
 
-    set(list, 21, "KK the singer.");
-    set(list, -2, "Luke is great.");
+    printf("Value = %s\n", pop_front_v(list, buffer));
+    printf("Value = %s\n", pop_front_v(list, buffer));
+    printf("Value = %s\n", pop_front_v(list, buffer));
+    printf("Value = %s\n", pop_front_v(list, buffer));
 
     print_list(list);
 

@@ -117,6 +117,11 @@ SingleLinkedListNode* push_back(SingleLinkedList* list, char* data)
     }
 }
 
+SingleLinkedListNode* push_front(SingleLinkedList* list, char* value)
+{
+    push_before(list, value, 1);
+}
+
 void pop_before(SingleLinkedList* list, int index)
 {
     pop_before_v(list, index, NULL);
@@ -131,6 +136,11 @@ void pop_after(SingleLinkedList* list, int index)
 void pop_back(SingleLinkedList* list)
 {
     pop_v(list, NULL);
+}
+
+void pop_front(SingleLinkedList* list)
+{
+    pop_before(list, 2);
 }
 
 char* pop_before_v(SingleLinkedList* list, int index, char* buffer)
@@ -261,6 +271,11 @@ char* pop_v(SingleLinkedList* list, char* buffer)
     }
 
     return buffer;
+}
+
+char* pop_front_v(SingleLinkedList* list, char* buffer)
+{
+    return pop_before_v(list, 2, buffer);
 }
 
 char* get(SingleLinkedList* list, int index, char* buffer)
