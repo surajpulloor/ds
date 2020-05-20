@@ -19,11 +19,11 @@ SingleLinkedList* init_list();
 
 SingleLinkedListNode* push_before(SingleLinkedList*, char*, int);
 SingleLinkedListNode* push_after(SingleLinkedList*, char*, int);
-SingleLinkedListNode* push(SingleLinkedList*, char*);
+SingleLinkedListNode* push_back(SingleLinkedList*, char*);
 
 void pop_before(SingleLinkedList*, int);
 void pop_after(SingleLinkedList*, int);
-void pop(SingleLinkedList*);
+void pop_back(SingleLinkedList*);
 
 char* pop_before_v(SingleLinkedList*, int, char*);
 char* pop_after_v(SingleLinkedList*, int, char*);

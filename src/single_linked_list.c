@@ -92,7 +92,7 @@ SingleLinkedListNode* push_after(SingleLinkedList* list, char* value, int index)
 }
 
 
-SingleLinkedListNode* push(SingleLinkedList* list, char* data)
+SingleLinkedListNode* push_back(SingleLinkedList* list, char* data)
 {
     if (list) {
 
@@ -128,7 +128,7 @@ void pop_after(SingleLinkedList* list, int index)
 }
 
 
-void pop(SingleLinkedList* list)
+void pop_back(SingleLinkedList* list)
 {
     pop_v(list, NULL);
 }

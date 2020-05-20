@@ -7,13 +7,13 @@ int main()
     SingleLinkedList* list = init_list();
 
     printf("Push Elements\n");
-    push(list, "Hello, World");
-    push(list, "Why so");
-    push(list, "serious");
-    push(list, "Greatest jack");
-    push(list, "World is poor");
-    push(list, "Oh my god");
-    push(list, "Stan");
+    push_back(list, "Hello, World");
+    push_back(list, "Why so");
+    push_back(list, "serious");
+    push_back(list, "Greatest jack");
+    push_back(list, "World is poor");
+    push_back(list, "Oh my god");
+    push_back(list, "Stan");
 
     print_list(list);
 
