@@ -22,10 +22,11 @@ int main()
     push_front(list, "The quick brown");
     push_front(list, "fox jumped over the lazy dog.");
 
-    printf("Value = %s\n", pop_front_v(list, buffer));
-    printf("Value = %s\n", pop_front_v(list, buffer));
-    printf("Value = %s\n", pop_front_v(list, buffer));
-    printf("Value = %s\n", pop_front_v(list, buffer));
+    print_list(list);
+
+    for (int i = 1; i < 10; i++) {
+        set(list, i, "This will repeat 9 times.");
+    }
 
     print_list(list);
 
