@@ -29,7 +29,7 @@ void pop_front(SingleLinkedList*);
 
 char* pop_before_v(SingleLinkedList*, int, char*);
 char* pop_after_v(SingleLinkedList*, int, char*);
-char* pop_v(SingleLinkedList*, char*);
+char* pop_back_v(SingleLinkedList*, char*);
 char* pop_front_v(SingleLinkedList*, char*);
 
 char* get(SingleLinkedList*, int, char*);
