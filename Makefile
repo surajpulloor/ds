@@ -4,9 +4,11 @@ CFLAGS=-I$(IDIR)
 IDIR=include
 SRC=src
 SRC_SLL=sll
+SRC_DLL=dll
 
 ODIR=obj
 ODIR_SLL=sll
+ODIR_DLL=dll
 
 # Include files recipe
 _DEPS = single_linked_list.h
@@ -20,8 +22,20 @@ $(ODIR)/$(ODIR_SLL)/%.o: $(SRC)/$(SRC_SLL)/%.c $(DEPS)
 		@mkdir -p $(@D)
 		$(CC) -g -c -o $@ $< $(CFLAGS)
 
+# Double Linked List objects recipes
+_OBJ_DLL = push.o pop.o misc.o get_set.o dll.o
+OBJ_DLL = $(patsubst %,$(ODIR)/$(ODIR_DLL)/%,$(_OBJ_DLL))
+
+$(ODIR)/$(ODIR_DLL)/%.o: $(SRC)/$(SRC_DLL)/%.c $(DEPS)
+		@mkdir -p $(@D)
+		$(CC) -g -c -o $@ $< $(CFLAGS)
+
 # build recipe for Single Linked List
 ll: $(OBJ_SLL)
+		$(CC) -g -o $@ $^ $(CFLAGS)
+
+# build recipe for Single Linked List
+dll: $(OBJ_DLL)
 		$(CC) -g -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
