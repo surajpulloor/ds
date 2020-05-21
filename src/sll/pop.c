@@ -118,6 +118,9 @@ char* pop_after_v(SingleLinkedList* list, int index, char* buffer)
 
     free(nextNode);
 
+    if (index == list->size)
+        list->rear = node;
+
     return buffer;
 }
 
