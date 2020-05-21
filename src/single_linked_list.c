@@ -94,32 +94,48 @@ SingleLinkedListNode* push_after(SingleLinkedList* list, char* value, int index)
 
 SingleLinkedListNode* push_back(SingleLinkedList* list, char* data)
 {
-    if (list) {
-
-        SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-        strcpy(node->data, data);
-        node->next = NULL;
-
-        list->size++;
-
-        if (list->front == NULL) {
-            list->front = list->rear = node;
-        } else {
-            list->rear->next = node;
-            list->rear = node;
-        }
-
-        return node;
-
-    } else {
+    if (list == NULL) {
         printf("error: the list doesn't exist. please create one.\n");
         return NULL;
     }
+
+    SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
+    strcpy(node->data, data);
+    node->next = NULL;
+
+    list->size++;
+
+    if (list->front == NULL) {
+        list->front = list->rear = node;
+    } else {
+        list->rear->next = node;
+        list->rear = node;
+    }
+
+    return node;
 }
 
 SingleLinkedListNode* push_front(SingleLinkedList* list, char* value)
 {
-    push_before(list, value, 1);
+    if (list == NULL) {
+        printf("error: the list doesn't exists. please create one.\n");
+        return NULL;
+    }
+
+    SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
+    strcpy(node->data, value);
+
+    list->size++;
+
+    if (list->front == NULL) {
+        node->next = NULL;
+        list->front = list->rear = node;
+    } else {
+        node->next = list->front;
+        list->front = node;
+    }
+
+    return node;
 }
 
 void pop_before(SingleLinkedList* list, int index)
@@ -135,18 +151,18 @@ void pop_after(SingleLinkedList* list, int index)
 
 void pop_back(SingleLinkedList* list)
 {
-    pop_v(list, NULL);
+    pop_back_v(list, NULL);
 }
 
 void pop_front(SingleLinkedList* list)
 {
-    pop_before(list, 2);
+    pop_front_v(list, NULL);
 }
 
 char* pop_before_v(SingleLinkedList* list, int index, char* buffer)
 {
     if (list == NULL) {
-        printf("error: list doesn't exists\n");
+        printf("error: list doesn't exists. please create one\n");
         return NULL;
     }
 
@@ -241,7 +257,7 @@ char* pop_after_v(SingleLinkedList* list, int index, char* buffer)
 }
 
 
-char* pop_v(SingleLinkedList* list, char* buffer)
+char* pop_back_v(SingleLinkedList* list, char* buffer)
 {
     if (list == NULL) {
         printf("error: the list doesn't exist. please create one.\n");
@@ -275,7 +291,32 @@ char* pop_v(SingleLinkedList* list, char* buffer)
 
 char* pop_front_v(SingleLinkedList* list, char* buffer)
 {
-    return pop_before_v(list, 2, buffer);
+    if (list == NULL) {
+        printf("error: list doesn't exists. please create one\n");
+        return NULL;
+    }
+
+    if (list->front == NULL) {
+        printf("error: list is empty. please insert something.\n");
+        return NULL;
+    }
+
+    // copy data to buffer
+    if (buffer)
+        strcpy(buffer, list->front->data);
+
+    SingleLinkedListNode* nextNode = list->front->next;
+    free(list->front);
+    list->front = nextNode;
+
+    list->size--;
+
+    if (list->size == 0) {
+        list->front = NULL;
+        list->rear = NULL;
+    }
+
+    return buffer;
 }
 
 char* get(SingleLinkedList* list, int index, char* buffer)
@@ -301,13 +342,11 @@ char* get(SingleLinkedList* list, int index, char* buffer)
     }
 
             
-    if (index == 1)
-        strcpy(buffer, list->front->data);
-    else if (index == list->size)
+    if (index == list->size)
         strcpy(buffer, list->rear->data);
     else {
-        int i = 2;
-        for (SingleLinkedListNode* node = list->front->next; i < list->size; i++, node = node->next)
+        int i = 1;
+        for (SingleLinkedListNode* node = list->front; i < list->size; i++, node = node->next)
             if (i == index) {
 
                 if (buffer)
@@ -342,13 +381,11 @@ void set(SingleLinkedList* list, int index, char* value)
         return;
     }
 
-    if (index == 1)
-        strcpy(list->front->data, value);
-    else if (index == list->size)
+    if (index == list->size)
         strcpy(list->rear->data, value);
     else {
-        int i = 2;
-        for (SingleLinkedListNode* node = list->front->next; i < list->size; i++, node = node->next)
+        int i = 1;
+        for (SingleLinkedListNode* node = list->front; i < list->size; i++, node = node->next)
             if (i == index) {
                 strcpy(node->data, value);
                 break;
@@ -360,21 +397,24 @@ void set(SingleLinkedList* list, int index, char* value)
 
 void free_list(SingleLinkedList** list)
 {
-    if (*list) {
-        if ((*list)->front) {
-            for (SingleLinkedListNode* node = (*list)->front; node; ) {
-                SingleLinkedListNode* nxtNode = node->next;
-                free(node);
-                node = nxtNode;
-            }
-        } else 
-            printf("error: the list is empty. insert something.\n");
-
-        free(*list);
-
-        *list = NULL;
-    } else 
+    if (*list == NULL) {
         printf("error: list doesn't exist. please create one.\n");
+        return;
+    }
+
+    if ((*list)->front == NULL) {
+        printf("error: the list is empty. insert something.\n");
+        return;
+    }
+    
+    for (SingleLinkedListNode* node = (*list)->front; node; ) {
+        SingleLinkedListNode* nxtNode = node->next;
+        free(node);
+        node = nxtNode;
+    }
+
+    free(*list);
+    *list = NULL;
 }
 
 void print_list(SingleLinkedList* list)
