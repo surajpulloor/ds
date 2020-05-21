@@ -35,10 +35,10 @@ ll: $(OBJ_SLL)
 		$(CC) -g -o $@ $^ $(CFLAGS)
 
 # build recipe for Single Linked List
-dll: $(OBJ_DLL)
+double_ll: $(OBJ_DLL)
 		$(CC) -g -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
 
 clean:
-	rm -rf $(ODIR) *~ core $(INCDIR)/*~ ll
+	rm -rf $(ODIR) *~ core $(INCDIR)/*~ ll double_ll
