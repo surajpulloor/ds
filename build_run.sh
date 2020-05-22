@@ -16,7 +16,7 @@ case $build in
     2)
         make dll
         clear
-        ./dll
+        ./double_ll
         ;;
     *)
         echo "Wrong input"
