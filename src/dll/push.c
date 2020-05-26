@@ -82,6 +82,7 @@ DoubleLinkedListNode* push_after(DoubleLinkedList* list, char* value, int index)
         if (i == index) {
     
             newNode->next = node->next;
+            newNode->prev = node;
             node->next = newNode;
 
             break;
