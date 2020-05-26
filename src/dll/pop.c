@@ -100,7 +100,11 @@ char* pop_after_v(DoubleLinkedList* list, int index, char* buffer)
     if (buffer) // only copy if buffer isn't empty
         strcpy(buffer, node->next->data);
 
-    free(node->next);
+    DoubleLinkedListNode* delete_node = node->next;
+    node->next = delete_node->next;
+    delete_node->next->prev = node;
+
+    free(delete_node);
 
     if (index == list->size)
         list->rear = node;
