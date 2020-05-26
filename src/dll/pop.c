@@ -56,7 +56,10 @@ char* pop_before_v(DoubleLinkedList* list, int index, char* buffer)
     if (buffer) // only copy if buffer exists
         strcpy(buffer, node->prev->data);
 
-    free(node->prev);
+    DoubleLinkedListNode* delete_node = node->prev;
+    node->prev = delete_node->prev;
+
+    free(delete_node);
 
     if (index == 2)
         list->front = node;
