@@ -1,6 +1,8 @@
 #ifndef _DOUBLE_LINKED_LIST_
 #define _DOUBLE_LINKED_LIST_
 
+#include <stdbool.h>
+
 #define MAX_BUFFER 1000
 
 typedef struct DLLNode {
@@ -38,5 +40,6 @@ void set(DoubleLinkedList*, int, char*);
 
 void free_list(DoubleLinkedList**);
 void print_list(DoubleLinkedList*);
+void print_node(DoubleLinkedListNode*, bool);
 
 #endif

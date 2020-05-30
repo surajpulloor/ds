@@ -43,11 +43,76 @@ void print_list(DoubleLinkedList* list)
     if (list) {
         if (list->front) {
             for (DoubleLinkedListNode* node = list->front; node; node = node->next)
-                printf("%s|%p => ", node->data, node->next);
+                print_node(node, node == list->rear);
 
             printf("\n");
         } else
             printf("error: list is empty. please insert something into the list.\n");
     } else
         printf("error: list doesn't exist. nothing to display.\n");
+}
+
+
+void print_node(DoubleLinkedListNode* node, bool isLast)
+{
+    int len = strlen(node->data);
+    int totalDashes = 34 + len;
+
+    printf("+ ");
+    for (int i = 1; i <= totalDashes; i++) {
+        if (i == 16 || i == 19 + len)
+            printf("+");
+        else
+            printf("-");
+    }
+    printf(" +");
+
+    printf("\n| ");
+    printf("%p | %s | %p", node->prev, node->data, node->next);
+    printf(" |\n");
+
+    printf("+ ");
+    for (int i = 1; i <= totalDashes; i++)
+        if (i == 16 || i == 19 + len)
+            printf("+");
+        else
+            printf("-");
+    printf(" +\n");
+
+
+    int nodeAddressSpaces = totalDashes - 16;
+
+    printf("| ");
+    printf("%p", node);
+    printf(" |");
+    for (int i = 1; i <= nodeAddressSpaces; i++)
+        printf(" ");
+    printf(" |\n");
+
+
+    printf("+ ");
+    for (int i = 1; i <= totalDashes; i++)
+            if (i == 16)
+                printf("+");
+            else
+                printf("-");
+    printf(" +\n");
+
+
+    if (!isLast) {
+        int halfway = (totalDashes + 4) / 2;
+
+        for (int i = 1; i <= halfway; i++)
+            if (i == halfway)
+                printf("||\n");
+            else
+                printf(" ");
+
+        for (int i = 1; i <= halfway; i++)
+            if (i == halfway)
+                printf("\\/\n");
+            else
+                printf(" ");
+    }
+    
 }
