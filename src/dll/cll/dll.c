@@ -23,19 +23,19 @@ int main()
 
     printf("Pop_front 4 values\n");
 
-    printf("Value = %s\n", pop_after_v(list, list->size - 1, buffer));
-    print_list(list);
-    printf("Value = %s\n", pop_after_v(list, list->size - 1, buffer));
-    print_list(list);
-    printf("Value = %s\n", pop_after_v(list, list->size - 1, buffer));
-    print_list(list);
-    printf("Value = %s\n", pop_after_v(list, list->size - 1, buffer));
-    print_list(list);
-    printf("Value = %s\n", pop_after_v(list, list->size - 1, buffer));
-    print_list(list);
-    printf("Value = %s\n", pop_after_v(list, list->size - 1, buffer));
-    print_list(list);
-    printf("Value = %s\n", pop_after_v(list, list->size - 1, buffer));
+    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    // print_list(list);
+    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    // print_list(list);
+    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    // print_list(list);
+    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    // print_list(list);
+    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    // print_list(list);
+    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    // print_list(list);
+    printf("Value = %s\n", pop_after_v(list, 1, buffer));
 
     print_list(list);
 
