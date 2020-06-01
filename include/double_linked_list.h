@@ -40,6 +40,6 @@ void set(DoubleLinkedList*, int, char*);
 
 void free_list(DoubleLinkedList**);
 void print_list(DoubleLinkedList*);
-void print_node(DoubleLinkedListNode*, bool);
+void print_node(DoubleLinkedListNode*, bool, bool);
 
 #endif

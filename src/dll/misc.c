@@ -43,7 +43,7 @@ void print_list(DoubleLinkedList* list)
     if (list) {
         if (list->front) {
             for (DoubleLinkedListNode* node = list->front; node; node = node->next)
-                print_node(node, node == list->rear);
+                print_node(node, node == list->front, node == list->rear);
 
             printf("\n");
         } else
@@ -53,11 +53,12 @@ void print_list(DoubleLinkedList* list)
 }
 
 
-void print_node(DoubleLinkedListNode* node, bool isLast)
+void print_node(DoubleLinkedListNode* node, bool isFront, bool isRear)
 {
     int len = strlen(node->data);
     int totalDashes = 34 + len;
 
+    
     printf("+ ");
     for (int i = 1; i <= totalDashes; i++) {
         if (i == 16 || i == 19 + len)
@@ -68,7 +69,17 @@ void print_node(DoubleLinkedListNode* node, bool isLast)
     printf(" +");
 
     printf("\n| ");
-    printf("%p | %s | %p", node->prev, node->data, node->next);
+    if (isFront)
+        printf("0x000000000000");
+    else
+        printf("%p", node->prev);
+
+    printf(" | %s | ", node->data);
+
+    if (isRear)
+        printf("0x000000000000");
+    else
+        printf("%p", node->prev);
     printf(" |\n");
 
     printf("+ ");
@@ -99,7 +110,7 @@ void print_node(DoubleLinkedListNode* node, bool isLast)
     printf(" +\n");
 
 
-    if (!isLast) {
+    if (!isRear) {
         int halfway = (totalDashes + 4) / 2;
 
         for (int i = 1; i <= halfway; i++)
