@@ -1,9 +1,9 @@
-#include "../../include/single_linked_list.h"
+#include "../../../include/circular_single_linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-char* get(SingleLinkedList* list, int index, char* buffer)
+char* get(CircularSingleLinkedList* list, int index, char* buffer)
 {
     if (list == NULL) {
         printf("error: List is empty. Please insert something in it.\n");
@@ -30,7 +30,7 @@ char* get(SingleLinkedList* list, int index, char* buffer)
         strcpy(buffer, list->rear->data);
     else {
         int i = 1;
-        for (SingleLinkedListNode* node = list->front; i < list->size; i++, node = node->next)
+        for (CircularSingleLinkedListNode* node = list->front; i < list->size; i++, node = node->next)
             if (i == index) {
 
                 if (buffer)
@@ -43,7 +43,7 @@ char* get(SingleLinkedList* list, int index, char* buffer)
     return buffer;
 }
 
-void set(SingleLinkedList* list, int index, char* value)
+void set(CircularSingleLinkedList* list, int index, char* value)
 {
     if (list == NULL) {
         printf("error: List is empty. Please insert something in it.\n");
@@ -69,7 +69,7 @@ void set(SingleLinkedList* list, int index, char* value)
         strcpy(list->rear->data, value);
     else {
         int i = 1;
-        for (SingleLinkedListNode* node = list->front; i < list->size; i++, node = node->next)
+        for (CircularSingleLinkedListNode* node = list->front; i < list->size; i++, node = node->next)
             if (i == index) {
                 strcpy(node->data, value);
                 break;
