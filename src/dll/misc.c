@@ -79,7 +79,7 @@ void print_node(DoubleLinkedListNode* node, bool isFront, bool isRear)
     if (isRear)
         printf("0x000000000000");
     else
-        printf("%p", node->prev);
+        printf("%p", node->next);
     printf(" |\n");
 
     printf("+ ");
@@ -112,6 +112,12 @@ void print_node(DoubleLinkedListNode* node, bool isFront, bool isRear)
 
     if (!isRear) {
         int halfway = (totalDashes + 4) / 2;
+
+        for (int i = 1; i <= halfway; i++)
+            if (i == halfway)
+                printf("/\\\n");
+            else
+                printf(" ");
 
         for (int i = 1; i <= halfway; i++)
             if (i == halfway)
