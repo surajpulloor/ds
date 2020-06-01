@@ -36,6 +36,10 @@ DoubleLinkedListNode* push_before(DoubleLinkedList* list, char* value, int index
         if (i == index) {
             newNode->prev = node->prev;
             newNode->next = node;
+
+            if (newNode->prev)
+                newNode->prev->next = newNode;
+
             node->prev = newNode;
             break;
         }
@@ -76,12 +80,14 @@ DoubleLinkedListNode* push_after(DoubleLinkedList* list, char* value, int index)
 
     int i = 1;
 
-    list->size++;
-
     for (DoubleLinkedListNode* node = list->front; node; node = node->next, i++) {
         if (i == index) {
     
             newNode->next = node->next;
+
+            if (newNode->next)
+                newNode->next->prev = newNode;
+
             newNode->prev = node;
             node->next = newNode;
 
@@ -91,6 +97,8 @@ DoubleLinkedListNode* push_after(DoubleLinkedList* list, char* value, int index)
 
     if (index == list->size)
         list->rear = newNode;
+
+    list->size++;
 
     return newNode;
 }
@@ -130,15 +138,16 @@ DoubleLinkedListNode* push_front(DoubleLinkedList* list, char* value)
 
     DoubleLinkedListNode* node = (DoubleLinkedListNode*) malloc(sizeof(DoubleLinkedListNode));
     strcpy(node->data, value);
+    node->next = node->prev = NULL;
 
     list->size++;
 
     if (list->front == NULL) {
-        node->next = node->prev = NULL;
         list->front = list->rear = node;
     } else {
         node->prev = NULL;
         node->next = list->front;
+        list->front->prev = node;
         list->front = node;
     }
 
