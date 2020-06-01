@@ -83,4 +83,4 @@ circular_ll: $(OBJ_CSLL)
 .PHONY: clean
 
 clean:
-	rm -rf $(ODIR) *~ core $(INCDIR)/*~ ll cll double_ll double_cll
+	rm -rf $(ODIR) *~ core $(INCDIR)/*~ ll circular_ll double_ll double_cll

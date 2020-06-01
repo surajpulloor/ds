@@ -29,7 +29,7 @@ case $build in
     4)
         make circular_ll
         clear
-        ./cll
+        ./circular_ll
         ;;
     *)
         echo "Wrong input"
