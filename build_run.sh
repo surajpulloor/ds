@@ -27,7 +27,7 @@ case $build in
         ;;
 
     4)
-        make cll
+        make circular_ll
         clear
         ./cll
         ;;

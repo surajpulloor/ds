@@ -76,7 +76,7 @@ $(ODIR)/$(ODIR_SLL)/$(ODIR_CLL)/%.o: $(SRC)/$(SRC_SLL)/$(SRC_CLL)/%.c $(DEPS_CSL
 		$(CC) -g -c -o $@ $< $(CFLAGS)
 
 # build recipe for Single Linked List
-cll: $(OBJ_CSLL)
+circular_ll: $(OBJ_CSLL)
 		$(CC) -g -o $@ $^ $(CFLAGS)
 
 
