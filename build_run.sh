@@ -6,6 +6,7 @@ echo "Targets:"
 echo "1) ll"
 echo "2) dll"
 echo "3) cdll"
+echo "4) cll"
 read -p "Which build?" build
 
 case $build in
@@ -23,6 +24,12 @@ case $build in
         make double_cll
         clear
         ./double_cll
+        ;;
+
+    4)
+        make cll
+        clear
+        ./cll
         ;;
     *)
         echo "Wrong input"
