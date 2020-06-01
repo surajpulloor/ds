@@ -58,6 +58,9 @@ char* pop_before_v(DoubleLinkedList* list, int index, char* buffer)
 
     DoubleLinkedListNode* delete_node = node->prev;
     node->prev = delete_node->prev;
+    
+    if (node->prev)
+        node->prev->next = node;
 
     free(delete_node);
 
@@ -91,8 +94,6 @@ char* pop_after_v(DoubleLinkedList* list, int index, char* buffer)
 
     DoubleLinkedListNode* node = list->front;
 
-    list->size--;
-
     for (int i = 1; node; node = node->next, i++)
         if (i == index) 
             break;
@@ -102,11 +103,13 @@ char* pop_after_v(DoubleLinkedList* list, int index, char* buffer)
 
     DoubleLinkedListNode* delete_node = node->next;
     node->next = delete_node->next;
-    delete_node->next->prev = node;
+
+    if (node->next)
+        node->next->prev = node;
 
     free(delete_node);
 
-    if (index == list->size)
+    if (index == --list->size)
         list->rear = node;
 
     return buffer;
@@ -129,11 +132,14 @@ char* pop_back_v(DoubleLinkedList* list, char* buffer)
         strcpy(buffer, list->rear->data);
     
     DoubleLinkedListNode* node = list->rear->prev;
-    node->next = NULL;
+
+    if (node)
+        node->next = NULL;
 
     free(list->rear);
     
     list->rear = node;
+    
     list->size--;
 
     if (list->size == 0) {
@@ -161,7 +167,10 @@ char* pop_front_v(DoubleLinkedList* list, char* buffer)
         strcpy(buffer, list->front->data);
 
     DoubleLinkedListNode* node = list->front->next;
-    node->prev = NULL;
+    
+    if (node)
+        node->prev = NULL;
+    
     free(list->front);
     list->front = node;
 
