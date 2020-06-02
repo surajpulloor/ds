@@ -6,11 +6,15 @@ SRC=src
 SRC_SLL=sll
 SRC_DLL=dll
 SRC_CLL=cll
+SRC_STACK_ARRAY=stack_array
 
 ODIR=obj
 ODIR_SLL=sll
 ODIR_DLL=dll
 ODIR_CLL=cll
+ODIR_STACK_ARRAY=stack_array
+
+BIN_DIR=bin
 
 # Include files recipe
 _DEPS_SLL = single_linked_list.h
@@ -26,7 +30,8 @@ $(ODIR)/$(ODIR_SLL)/%.o: $(SRC)/$(SRC_SLL)/%.c $(DEPS_SLL)
 
 # build recipe for Single Linked List
 ll: $(OBJ_SLL)
-		$(CC) -g -o $@ $^ $(CFLAGS)
+		@mkdir -p $(BIN_DIR)
+		$(CC) -g -o $(BIN_DIR)/$@ $^ $(CFLAGS)
 
 _DEPS_DLL = double_linked_list.h
 DEPS_DLL = $(patsubst %,$(IDIR)/%,$(_DEPS_DLL))
@@ -41,7 +46,8 @@ $(ODIR)/$(ODIR_DLL)/%.o: $(SRC)/$(SRC_DLL)/%.c $(DEPS_DLL)
 
 # build recipe for Single Linked List
 double_ll: $(OBJ_DLL)
-		$(CC) -g -o $@ $^ $(CFLAGS)
+		@mkdir -p $(BIN_DIR)
+		$(CC) -g -o $(BIN_DIR)/$@ $^ $(CFLAGS)
 
 
 
@@ -60,7 +66,8 @@ $(ODIR)/$(ODIR_DLL)/$(ODIR_CLL)/%.o: $(SRC)/$(SRC_DLL)/$(SRC_CLL)/%.c $(DEPS_CDL
 
 # build recipe for Single Linked List
 double_cll: $(OBJ_CDLL)
-		$(CC) -g -o $@ $^ $(CFLAGS)
+		@mkdir -p $(BIN_DIR)
+		$(CC) -g -o $(BIN_DIR)/$@ $^ $(CFLAGS)
 
 
 # Circular Single Linked List objects recipes
@@ -77,10 +84,28 @@ $(ODIR)/$(ODIR_SLL)/$(ODIR_CLL)/%.o: $(SRC)/$(SRC_SLL)/$(SRC_CLL)/%.c $(DEPS_CSL
 
 # build recipe for Single Linked List
 circular_ll: $(OBJ_CSLL)
-		$(CC) -g -o $@ $^ $(CFLAGS)
+		@mkdir -p $(BIN_DIR)
+		$(CC) -g -o $(BIN_DIR)/$@ $^ $(CFLAGS)
 
+
+# Include files recipe
+_DEPS_STACK_ARRAY = stack_array.h
+DEPS_STACK_ARRAY = $(patsubst %,$(IDIR)/%,$(_DEPS_STACK_ARRAY))
+
+# Single Linked List objects recipes
+_OBJ_STACK_ARRAY = push_pop.o misc.o main.o
+OBJ_STACK_ARRAY = $(patsubst %,$(ODIR)/$(ODIR_STACK_ARRAY)/%,$(_OBJ_STACK_ARRAY))
+
+$(ODIR)/$(ODIR_STACK_ARRAY)/%.o: $(SRC)/$(SRC_STACK_ARRAY)/%.c $(DEPS_STACK_ARRAY)
+		@mkdir -p $(@D)
+		$(CC) -g -c -o $@ $< $(CFLAGS)
+
+# build recipe for Single Linked List
+stack_array: $(OBJ_STACK_ARRAY)
+		@mkdir -p $(BIN_DIR)
+		$(CC) -g -o $(BIN_DIR)/$@ $^ $(CFLAGS)
 
 .PHONY: clean
 
 clean:
-	rm -rf $(ODIR) *~ core $(INCDIR)/*~ ll circular_ll double_ll double_cll
+	rm -rf $(ODIR) *~ core $(INCDIR)/*~ $(BIN_DIR)
