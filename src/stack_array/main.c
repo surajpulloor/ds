@@ -3,7 +3,7 @@
 
 int main()
 {
-    Stack* stack = init_stack();
+    Stack_Array* stack = init_stack();
 
     push(stack, "Oh mu God");
     push(stack, "kick");

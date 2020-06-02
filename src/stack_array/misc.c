@@ -4,16 +4,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-Stack* init_stack()
+Stack_Array* init_stack()
 {
-    Stack* stack = (Stack*) malloc(sizeof(Stack));
+    Stack_Array* stack = (Stack_Array*) malloc(sizeof(Stack_Array));
     stack->top = -1;
     stack->largestString = 0;
 
     return stack;
 }
 
-void print_stack(Stack* stack, int top)
+void print_stack(Stack_Array* stack, int top)
 {
     if (stack == NULL) {
         printf("error: stack doesn't exists. please create one.\n");
@@ -55,7 +55,7 @@ void print_stack(Stack* stack, int top)
     print_stack(stack, top - 1);
 }
 
-void free_stack(Stack** stack)
+void free_stack(Stack_Array** stack)
 {
     if (stack == NULL) {
         printf("error: stack doesn't exists. please create one.\n");

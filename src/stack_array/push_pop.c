@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void push(Stack* stack, char* value)
+void push(Stack_Array* stack, char* value)
 {
     if (stack == NULL) {
         printf("error: stack doesn't exists. please create one.\n");
@@ -23,7 +23,7 @@ void push(Stack* stack, char* value)
     strcpy(stack->buffer[++stack->top], value);
 }
 
-char* pop(Stack* stack, char* buffer)
+char* pop(Stack_Array* stack, char* buffer)
 {
     if (stack == NULL) {
         printf("error: stack doesn't exists. please create one.\n");
