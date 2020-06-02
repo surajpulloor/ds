@@ -14,23 +14,23 @@ case $build in
     1)
         make ll
         clear
-        ./ll
+        ./bin/ll
         ;;
     2)
         make double_ll
         clear
-        ./double_ll
+        ./bin/double_ll
         ;;
     3)
         make double_cll
         clear
-        ./double_cll
+        ./bin/double_cll
         ;;
 
     4)
         make circular_ll
         clear
-        ./circular_ll
+        ./bin/circular_ll
         ;;
 
     5)
