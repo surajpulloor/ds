@@ -35,19 +35,7 @@ char* pop(Stack_Array* stack, char* buffer)
         return NULL;
     }
 
-    if (stack->top > 1) {
-        int maxLen = strlen(stack->buffer[stack->top - 1]);
-
-        // calculate largestString again
-        for (int top = stack->top - 2; top >= 0; top--) {
-            int len = strlen(stack->buffer[top]);
-
-            if (maxLen < len)
-                maxLen = len;
-        }
-
-        stack->largestString = maxLen;
-    } else
+    if (stack->top == 0)
         stack->largestString = 0;
 
     return strcpy(buffer, stack->buffer[stack->top--]);
