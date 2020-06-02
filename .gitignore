@@ -1,6 +1,3 @@
 .vscode
 obj/**/*.o
-ll
-double_ll
-double_cll
-circular_ll
+bin
