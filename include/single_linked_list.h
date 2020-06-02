@@ -3,6 +3,8 @@
 
 #define MAX_BUFFER 1000
 
+#include <stdbool.h>
+
 typedef struct SLLNode {
 	char data[MAX_BUFFER];
 	struct SLLNode* next;
@@ -37,5 +39,6 @@ void set(SingleLinkedList*, int, char*);
 
 void free_list(SingleLinkedList**);
 void print_list(SingleLinkedList*);
+void print_node(SingleLinkedListNode*, bool);
 
 #endif
