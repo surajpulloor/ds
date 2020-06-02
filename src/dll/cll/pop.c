@@ -87,7 +87,7 @@ char* pop_after_v(CircularDoubleLinkedList* list, int index, char* buffer)
     }
 
     if (index < 1) {
-        printf("error: cannot pop before %d. index cannot be less than 1\n", index);
+        printf("error: cannot pop after %d. index cannot be less than 1\n", index);
         return NULL;
     }
 
