@@ -1,4 +1,4 @@
-#include "../include/single_linked_list.h"
+#include "../../include/single_linked_list.h"
 #include <stdio.h>
 
 int main()
@@ -18,9 +18,9 @@ int main()
     print_list(list);
 
     char buffer[MAX_BUFFER];
-    push_front(list, "Kick this shit");
-    push_front(list, "The quick brown");
-    push_front(list, "fox jumped over the lazy dog.");
+    push_before(list, "Kick this shit", list->size - 1);
+    push_before(list, "The quick brown", list->size - 1);
+    push_before(list, "fox jumped over the lazy dog.", list->size - 1);
 
     print_list(list);
 
