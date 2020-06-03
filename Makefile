@@ -7,12 +7,14 @@ SRC_SLL=sll
 SRC_DLL=dll
 SRC_CLL=cll
 SRC_STACK_ARRAY=stack_array
+SRC_STACK_LINKED_LIST=stack_ll
 
 ODIR=obj
 ODIR_SLL=sll
 ODIR_DLL=dll
 ODIR_CLL=cll
 ODIR_STACK_ARRAY=stack_array
+ODIR_STACK_LINKED_LIST=stack_ll
 
 BIN_DIR=bin
 
@@ -21,15 +23,22 @@ _DEPS_SLL = single_linked_list.h
 DEPS_SLL = $(patsubst %,$(IDIR)/%,$(_DEPS_SLL))
 
 # Single Linked List objects recipes
-_OBJ_SLL = push.o pop.o misc.o get_set.o ll.o
+_OBJ_SLL = push.o pop.o misc.o get_set.o
+_OBJ_SLL_MAIN = ll.o
+
 OBJ_SLL = $(patsubst %,$(ODIR)/$(ODIR_SLL)/%,$(_OBJ_SLL))
+OBJ_SLL_MAIN = $(patsubst %,$(ODIR)/$(ODIR_SLL)/%,$(_OBJ_SLL_MAIN))
 
 $(ODIR)/$(ODIR_SLL)/%.o: $(SRC)/$(SRC_SLL)/%.c $(DEPS_SLL)
 		@mkdir -p $(@D)
 		$(CC) -g -c -o $@ $< $(CFLAGS)
 
+$(ODIR)/$(ODIR_SLL_MAIN)/%.o: $(SRC)/$(SRC_SLL)/%.c $(DEPS_SLL)
+		@mkdir -p $(@D)
+		$(CC) -g -c -o $@ $< $(CFLAGS)
+
 # build recipe for Single Linked List
-ll: $(OBJ_SLL)
+ll: $(OBJ_SLL) $(OBJ_SLL_MAIN)
 		@mkdir -p $(BIN_DIR)
 		$(CC) -g -o $(BIN_DIR)/$@ $^ $(CFLAGS)
 
@@ -92,7 +101,7 @@ circular_ll: $(OBJ_CSLL)
 _DEPS_STACK_ARRAY = stack_array.h
 DEPS_STACK_ARRAY = $(patsubst %,$(IDIR)/%,$(_DEPS_STACK_ARRAY))
 
-# Single Linked List objects recipes
+# Stack_Array objects recipes
 _OBJ_STACK_ARRAY = push_pop.o misc.o main.o
 OBJ_STACK_ARRAY = $(patsubst %,$(ODIR)/$(ODIR_STACK_ARRAY)/%,$(_OBJ_STACK_ARRAY))
 
@@ -100,10 +109,30 @@ $(ODIR)/$(ODIR_STACK_ARRAY)/%.o: $(SRC)/$(SRC_STACK_ARRAY)/%.c $(DEPS_STACK_ARRA
 		@mkdir -p $(@D)
 		$(CC) -g -c -o $@ $< $(CFLAGS)
 
-# build recipe for Single Linked List
+# build recipe for Stack_Array
 stack_array: $(OBJ_STACK_ARRAY)
 		@mkdir -p $(BIN_DIR)
 		$(CC) -g -o $(BIN_DIR)/$@ $^ $(CFLAGS)
+
+
+
+# Include files recipe
+_DEPS_STACK_LINKED_LIST = stack_ll.h
+DEPS_STACK_LINKED_LIST = $(patsubst %,$(IDIR)/%,$(_DEPS_STACK_LINKED_LIST))
+
+# Stack_Array objects recipes
+_OBJ_STACK_LINKED_LIST = push_pop.o misc.o main.o
+OBJ_STACK_LINKED_LIST = $(patsubst %,$(ODIR)/$(ODIR_STACK_LINKED_LIST)/%,$(_OBJ_STACK_LINKED_LIST))
+
+$(ODIR)/$(ODIR_STACK_LINKED_LIST)/%.o: $(SRC)/$(SRC_STACK_LINKED_LIST)/%.c $(DEPS_STACK_LINKED_LIST)
+		@mkdir -p $(@D)
+		$(CC) -g -c -o $@ $< $(CFLAGS)
+
+# build recipe for Stack_Array
+stack_linked_list: $(OBJ_STACK_LINKED_LIST) $(OBJ_SLL)
+		@mkdir -p $(BIN_DIR)
+		$(CC) -g -o $(BIN_DIR)/$@ $^ $(CFLAGS)
+
 
 .PHONY: clean
 
