@@ -1,11 +1,8 @@
 ROOT_DIR=../..
-SRC=src
-SRC_SINGLE_LINKED_LIST=sll
 
 LIB_NAME=sll
 
 include $(ROOT_DIR)/Makefile.variable
-include $(ROOT_DIR)/$(SRC)/$(SRC_SINGLE_LINKED_LIST)/Makefile.variable
 
 IDIR:=$(ROOT_DIR)/$(IDIR)
 ODIR:=$(ROOT_DIR)/$(ODIR)
