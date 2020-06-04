@@ -1,0 +1,10 @@
+CC=gcc
+CFLAGS=-I$(IDIR)
+
+IDIR=include
+
+ODIR=obj
+
+BIN_DIR=bin
+
+LIB_DIR=lib
