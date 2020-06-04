@@ -1,4 +1,4 @@
-ROOT_DIR=../../..
+ROOT_DIR=../..
 SINGLE_LINKED_LIST_ROOT_DIR=..
 
 include $(ROOT_DIR)/Makefile.variable
