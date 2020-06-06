@@ -4,11 +4,6 @@ LIB_NAME=sll
 
 include $(ROOT_DIR)/Makefile.variable
 
-IDIR:=$(ROOT_DIR)/$(IDIR)
-ODIR:=$(ROOT_DIR)/$(ODIR)
-BIN_DIR:=$(ROOT_DIR)/$(BIN_DIR)
-LIB_DIR:=$(ROOT_DIR)/$(LIB_DIR)
-
 ODIR_SLL=sll
 ODIR:=$(ODIR)/$(ODIR_SLL)
 

@@ -2,10 +2,6 @@ ROOT_DIR=../..
 
 include $(ROOT_DIR)/Makefile.variable
 
-IDIR:=$(ROOT_DIR)/$(IDIR)
-ODIR:=$(ROOT_DIR)/$(ODIR)
-BIN_DIR:=$(ROOT_DIR)/$(BIN_DIR)
-LIB_DIR:=$(ROOT_DIR)/$(LIB_DIR)
 
 LIB_NAME=stack_array
 
