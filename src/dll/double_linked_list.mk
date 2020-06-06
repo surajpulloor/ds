@@ -1,10 +1,10 @@
 ROOT_DIR=../..
 
-LIB_NAME=dll
-
 include $(ROOT_DIR)/Makefile.variable
 
-ODIR_DOUBLE_LINKED_LIST=dll
+LIB_NAME=dll
+
+ODIR_DOUBLE_LINKED_LIST=$(LIB_NAME)
 ODIR:=$(ODIR)/$(ODIR_DOUBLE_LINKED_LIST)
 
 _DEPS_DOUBLE_LINKED_LIST = double_linked_list.h

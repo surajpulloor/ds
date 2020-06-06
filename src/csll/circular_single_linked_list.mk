@@ -6,7 +6,7 @@ include $(ROOT_DIR)/Makefile.variable
 
 LIB_NAME=csll
 
-ODIR_CSLL=cll
+ODIR_CSLL=$(LIB_NAME)
 ODIR:=$(ODIR)/$(ODIR_CSLL)
 
 _DEPS_CIRCULAR_SINGLE_LINKED_LIST = circular_single_linked_list.h

@@ -5,7 +5,7 @@ include $(ROOT_DIR)/Makefile.variable
 
 LIB_NAME=stack_array
 
-ODIR_STACK_ARRAY=stack_array
+ODIR_STACK_ARRAY=$(LIB_NAME)
 
 _DEPS_STACK_ARRAY = stack_array.h
 DEPS_STACK_ARRAY = $(patsubst %,$(IDIR)/%,$(_DEPS_STACK_ARRAY))

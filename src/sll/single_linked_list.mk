@@ -1,10 +1,10 @@
 ROOT_DIR=../..
 
-LIB_NAME=sll
-
 include $(ROOT_DIR)/Makefile.variable
 
-ODIR_SLL=sll
+LIB_NAME=sll
+
+ODIR_SLL=$(LIB_NAME)
 ODIR:=$(ODIR)/$(ODIR_SLL)
 
 # Include files recipe

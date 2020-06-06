@@ -3,9 +3,9 @@ SINGLE_LINKED_LIST_DIR=../sll
 
 include $(ROOT_DIR)/Makefile.variable
 
-LIB_NAME = stack_linked_list
+LIB_NAME = stack_ll
 
-ODIR_STACK_LINKED_LIST=stack_ll
+ODIR_STACK_LINKED_LIST=$(LIB_NAME)
 ODIR:=$(ODIR)/$(ODIR_STACK_LINKED_LIST)
 
 
