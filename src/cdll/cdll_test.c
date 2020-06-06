@@ -1,4 +1,4 @@
-#include "../../../include/circular_double_linked_list.h"
+#include "../../include/circular_double_linked_list.h"
 #include <stdio.h>
 
 int main()
