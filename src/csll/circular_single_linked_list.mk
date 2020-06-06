@@ -1,8 +1,6 @@
 ROOT_DIR=../..
-SINGLE_LINKED_LIST_ROOT_DIR=..
 
 include $(ROOT_DIR)/Makefile.variable
-
 
 LIB_NAME=csll
 
@@ -29,7 +27,5 @@ $(ODIR)/%.o: %.c $(DEPS_CIRCULAR_SINGLE_LINKED_LIST)
 $(LIB_DIR)/%.a: $(OBJ_CIRCULAR_SINGLE_LINKED_LIST)
 		@mkdir -p $(LIB_DIR)
 		ar -rc $@ $^
-
-
 
 CFLAGS := $(CFLAGS) -L$(LIB_DIR) -l$(LIB_NAME)
