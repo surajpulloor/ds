@@ -5,6 +5,7 @@ SRC_CIRCULAR_SINGLE_LINKED_LIST=csll
 SRC_CIRCULAR_DOUBLE_LINKED_LIST=cdll
 SRC_STACK_ARRAY=stack_array
 SRC_STACK_LINKED_LIST=stack_ll
+SRC_QUEUE_ARRAY=queue_array
 
 
 ODIR=obj
@@ -46,6 +47,12 @@ stack_ll_test:
 
 stack_ll_gen_lib:
 	cd $(SRC)/$(SRC_STACK_LINKED_LIST); make -f stack_linked_list_main.mk gen_lib
+
+queue_array_test:
+	cd $(SRC)/$(SRC_QUEUE_ARRAY); make -f queue_array_main.mk queue_array_test
+
+queue_array_gen_lib:
+	cd $(SRC)/$(SRC_QUEUE_ARRAY); make -f queue_array_main.mk gen_lib
 
 .PHONY: clean
 
