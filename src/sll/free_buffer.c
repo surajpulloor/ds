@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void* alloc_buffer(SingleLinkedList* self, SingleLinkedListNode* node)
+{
+    node->buffer = malloc(self->data_type_size);
+}
+
 void free_buffer(SingleLinkedListNode* node)
 {
     free(node->buffer);
@@ -24,6 +29,7 @@ void free_list(SingleLinkedList** list)
     
     for (SingleLinkedListNode* node = (*list)->front; node; ) {
         SingleLinkedListNode* nxtNode = node->next;
+        free_buffer(node);
         free(node);
         node = nxtNode;
     }
