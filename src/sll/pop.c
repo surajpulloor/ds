@@ -24,7 +24,7 @@ void pop_front(SingleLinkedList* list)
     pop_front_v(list, NULL);
 }
 
-char* pop_before_v(SingleLinkedList* list, int index, char* buffer)
+void* pop_before_v(SingleLinkedList* list, int index, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists. please create one\n");
@@ -66,8 +66,9 @@ char* pop_before_v(SingleLinkedList* list, int index, char* buffer)
     }
 
     if (buffer) // only copy if buffer exists
-        strcpy(buffer, previousNode->data);
-
+        list->copy_value_to_buffer(buffer, previousNode);
+    
+    list->free_buffer(previousNode);
     free(previousNode);
 
     if (index == 2)
@@ -76,7 +77,7 @@ char* pop_before_v(SingleLinkedList* list, int index, char* buffer)
     return buffer;
 }
 
-char* pop_after_v(SingleLinkedList* list, int index, char* buffer)
+void* pop_after_v(SingleLinkedList* list, int index, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists\n");
@@ -114,9 +115,9 @@ char* pop_after_v(SingleLinkedList* list, int index, char* buffer)
     }
 
     if (buffer) // only copy if buffer isn't empty
-        strcpy(buffer, nextNode->data);
-
-    free(nextNode);
+        list->copy_value_to_buffer(buffer, nextNode);
+    
+    list->free_buffer(nextNode);
 
     if (index == list->size)
         list->rear = node;
@@ -125,7 +126,7 @@ char* pop_after_v(SingleLinkedList* list, int index, char* buffer)
 }
 
 
-char* pop_back_v(SingleLinkedList* list, char* buffer)
+void* pop_back_v(SingleLinkedList* list, void* buffer)
 {
     if (list == NULL) {
         printf("error: the list doesn't exist. please create one.\n");
@@ -142,7 +143,9 @@ char* pop_back_v(SingleLinkedList* list, char* buffer)
         ;
 
     if (buffer)
-        strcpy(buffer, list->rear->data);
+        list->copy_value_to_buffer(buffer, list->rear);
+    
+    list->free_buffer(list->rear);
     
     node->next = NULL;
     free(list->rear);
@@ -157,7 +160,7 @@ char* pop_back_v(SingleLinkedList* list, char* buffer)
     return buffer;
 }
 
-char* pop_front_v(SingleLinkedList* list, char* buffer)
+void* pop_front_v(SingleLinkedList* list, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists. please create one\n");
@@ -171,7 +174,9 @@ char* pop_front_v(SingleLinkedList* list, char* buffer)
 
     // copy data to buffer
     if (buffer)
-        strcpy(buffer, list->front->data);
+        list->copy_value_to_buffer(buffer, list->front);
+    
+    list->free_buffer(list->front);
 
     SingleLinkedListNode* nextNode = list->front->next;
     free(list->front);
