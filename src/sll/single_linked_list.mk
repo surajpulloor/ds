@@ -12,7 +12,7 @@ _DEPS_SLL = single_linked_list.h
 DEPS_SLL = $(patsubst %,$(IDIR)/%,$(_DEPS_SLL))
 
 # Single Linked List objects recipes
-_OBJ_SLL = push.o pop.o misc.o get_set.o
+_OBJ_SLL = push.o pop.o init.o get_set.o print.o alloc_free.o copy_to_node.o copy_to_buffer.o
 _OBJ_MAIN_SLL = ll.o
 
 OBJ_SLL = $(patsubst %,$(ODIR)/%,$(_OBJ_SLL))
