@@ -11,9 +11,6 @@ SingleLinkedList* init_list(size_t data_type_size)
     list->size = 0;
     list->data_type_size = data_type_size;
 
-    list->alloc_buffer = alloc_buffer;
-    list->free_buffer = free_buffer;
-
     return list;
 }
 
