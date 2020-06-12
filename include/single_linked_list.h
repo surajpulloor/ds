@@ -14,10 +14,10 @@ typedef struct {
 	SingleLinkedListNode* front;
 	SingleLinkedListNode* rear;
 
-	void* (*allocBuffer)(SingleLinkedListNode*);
-	void (*copyValueToNode)(SingleLinkedListNode*, void*);
-	void (*copyValueToBuffer)(void*, SingleLinkedListNode*);
-	void (*freeBuffer)(SingleLinkedListNode*);
+	void* (*alloc_buffer)(SingleLinkedListNode*);
+	void (*copy_value_to_node)(SingleLinkedListNode*, void*);
+	void (*copy_value_to_buffer)(void*, SingleLinkedListNode*);
+	void (*free_buffer)(SingleLinkedListNode*);
 
 	int size;
 } SingleLinkedList;
@@ -28,25 +28,25 @@ SingleLinkedList* init_list_double();
 SingleLinkedList* init_list_char();
 SingleLinkedList* init_list_char_ptr();
 
-void* allocBuffer_int(SingleLinkedListNode*);
-void* allocBuffer_float(SingleLinkedListNode*);
-void* allocBuffer_double(SingleLinkedListNode*);
-void* allocBuffer_char(SingleLinkedListNode*);
-void* allocBuffer_char_ptr(SingleLinkedListNode*);
+void* alloc_buffer_int(SingleLinkedListNode*);
+void* alloc_buffer_float(SingleLinkedListNode*);
+void* alloc_buffer_double(SingleLinkedListNode*);
+void* alloc_buffer_char(SingleLinkedListNode*);
+void* alloc_buffer_char_ptr(SingleLinkedListNode*);
 
-void copyValueToNode_int(SingleLinkedListNode*, void*);
-void copyValueToNode_float(SingleLinkedListNode*, void*);
-void copyValueToNode_double(SingleLinkedListNode*, void*);
-void copyValueToNode_char(SingleLinkedListNode*, void*);
-void copyValueToNode_char_ptr(SingleLinkedListNode*, void*);
+void copy_value_to_node_int(SingleLinkedListNode*, void*);
+void copy_value_to_node_float(SingleLinkedListNode*, void*);
+void copy_value_to_node_double(SingleLinkedListNode*, void*);
+void copy_value_to_node_char(SingleLinkedListNode*, void*);
+void copy_value_to_node_char_ptr(SingleLinkedListNode*, void*);
 
-void copyValueToBuffer_int(SingleLinkedListNode*, void*);
-void copyValueToBuffer_float(SingleLinkedListNode*, void*);
-void copyValueToBuffer_double(SingleLinkedListNode*, void*);
-void copyValueToBuffer_char(SingleLinkedListNode*, void*);
-void copyValueToBuffer_char_ptr(SingleLinkedListNode*, void*);
+void copy_value_to_buffer_int(SingleLinkedListNode*, void*);
+void copy_value_to_buffer_float(SingleLinkedListNode*, void*);
+void copy_value_to_buffer_double(SingleLinkedListNode*, void*);
+void copy_value_to_buffer_char(SingleLinkedListNode*, void*);
+void copy_value_to_buffer_char_ptr(SingleLinkedListNode*, void*);
 
-void freeBuffer(SingleLinkedListNode*);
+void free_buffer(SingleLinkedListNode*);
 
 
 SingleLinkedListNode* push_before(SingleLinkedList*, void*, int);

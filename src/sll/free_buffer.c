@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void freeBuffer(SingleLinkedListNode* node)
+void free_buffer(SingleLinkedListNode* node)
 {
     free(node->buffer);
 }
