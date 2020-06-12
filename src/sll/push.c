@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-SingleLinkedListNode* push_before(SingleLinkedList* list, char* value, int index)
+SingleLinkedListNode* push_before(SingleLinkedList* list, void* value, int index)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");
@@ -26,7 +26,8 @@ SingleLinkedListNode* push_before(SingleLinkedList* list, char* value, int index
     }
 
     SingleLinkedListNode* newNode = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    strcpy(newNode->data, value);
+    list->allocBuffer(newNode);
+    list->copyValueToNode(newNode, value);
 
     SingleLinkedListNode* previousNode = NULL;
     int i = 1;
@@ -54,7 +55,7 @@ SingleLinkedListNode* push_before(SingleLinkedList* list, char* value, int index
 
 }
 
-SingleLinkedListNode* push_after(SingleLinkedList* list, char* value, int index)
+SingleLinkedListNode* push_after(SingleLinkedList* list, void* value, int index)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");
@@ -77,7 +78,8 @@ SingleLinkedListNode* push_after(SingleLinkedList* list, char* value, int index)
     }
 
     SingleLinkedListNode* newNode = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    strcpy(newNode->data, value);
+    list->allocBuffer(newNode);
+    list->copyValueToNode(newNode, value);
 
     int i = 1;
 
@@ -100,7 +102,7 @@ SingleLinkedListNode* push_after(SingleLinkedList* list, char* value, int index)
 }
 
 
-SingleLinkedListNode* push_back(SingleLinkedList* list, char* data)
+SingleLinkedListNode* push_back(SingleLinkedList* list, void* value)
 {
     if (list == NULL) {
         printf("error: the list doesn't exist. please create one.\n");
@@ -108,7 +110,9 @@ SingleLinkedListNode* push_back(SingleLinkedList* list, char* data)
     }
 
     SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    strcpy(node->data, data);
+    list->allocBuffer(node);
+    list->copyValueToNode(node, value);
+
     node->next = NULL;
 
     list->size++;
@@ -123,7 +127,7 @@ SingleLinkedListNode* push_back(SingleLinkedList* list, char* data)
     return node;
 }
 
-SingleLinkedListNode* push_front(SingleLinkedList* list, char* value)
+SingleLinkedListNode* push_front(SingleLinkedList* list, void* value)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");
@@ -131,7 +135,8 @@ SingleLinkedListNode* push_front(SingleLinkedList* list, char* value)
     }
 
     SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    strcpy(node->data, value);
+    list->allocBuffer(node);
+    list->copyValueToNode(node, value);
 
     list->size++;
 
