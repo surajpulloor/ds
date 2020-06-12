@@ -4,31 +4,38 @@
 int main()
 {
 
-    SingleLinkedList* list = init_list();
+    SingleLinkedList* list = init_list_char();
 
     printf("Push Elements\n");
-    push_back(list, "Hello, World");
-    push_back(list, "Why so");
-    push_back(list, "serious");
-    push_back(list, "Greatest jack");
-    push_back(list, "World is poor");
-    push_back(list, "Oh my god");
-    push_back(list, "Stan");
+    // push_back(list, "Hello,");
+    // push_back(list, "best game");
+    // push_back(list, "is the");
+    // push_back(list, "World game");
+    // push_back(list, "is");
+    // push_back(list, "Jacky Luke");
+    // push_back(list, "Qwerty");
 
-    print_list(list);
+    for (char c = 'a'; c < 'z'; c++)
+        push_back(list, &c);
 
-    char buffer[MAX_BUFFER];
-    push_before(list, "Kick this shit", list->size - 1);
-    push_before(list, "The quick brown", list->size - 1);
-    push_before(list, "fox jumped over the lazy dog.", list->size - 1);
 
-    print_list(list);
+    for (SingleLinkedListNode* node = list->front; node; node = node->next)
+        printf("%c => ", *(char*) node->buffer);
 
-    for (int i = 1; i < 10; i++) {
-        set(list, i, "This will repeat 9 times.");
-    }
+    // print_list(list);
 
-    print_list(list);
+    // char buffer[MAX_BUFFER];
+    // push_before(list, list->size - 1);
+    // push_before(list, list->size - 1);
+    // push_before(list, list->size - 1);
+
+    // print_list(list);
+
+    // for (int i = 1; i < 10; i++) {
+    //     set(list, i);
+    // }
+
+    // print_list(list);
 
     free_list(&list);
 
