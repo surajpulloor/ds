@@ -1,5 +1,6 @@
 #include "../../include/single_linked_list.h"
 #include <stdio.h>
+#include <string.h>
 
 void print_list(SingleLinkedList* list)
 {
