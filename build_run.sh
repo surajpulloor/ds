@@ -21,6 +21,7 @@ case $option in
         echo "5) stack_array_test"
         echo "6) stack_linked_list_test"
         echo "7) queue_array_test"
+        echo "8) queue_ll_test"
         read -p "Which test?" build
 
         case $build in
@@ -64,6 +65,12 @@ case $option in
                 ./bin/queue_array_test
                 ;;
 
+            8)
+                make queue_linked_list_test
+                clear
+                ./bin/queue_ll_test
+                ;;
+
             *)
                 echo "Wrong input"
                 ;;
@@ -80,6 +87,7 @@ case $option in
         echo "5) libstack_array"
         echo "6) libstack_linked_list"
         echo "7) libqueue_array"
+        echo "8) libqueue_linked_list"
         read -p "Which library?" build
 
         case $build in
@@ -107,6 +115,10 @@ case $option in
 
             7)
                 make queue_array_gen_lib
+                ;;
+
+            8)
+                make queue_linked_list_gen_lib
                 ;;
 
             *)
