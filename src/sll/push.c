@@ -26,7 +26,7 @@ SingleLinkedListNode* push_before(SingleLinkedList* list, void* value, int index
     }
 
     SingleLinkedListNode* newNode = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    alloc_buffer(newNode, list);
+    alloc_buffer(list, newNode);
     list->copy_value_to_node(newNode, value);
 
     SingleLinkedListNode* previousNode = NULL;
@@ -78,7 +78,7 @@ SingleLinkedListNode* push_after(SingleLinkedList* list, void* value, int index)
     }
 
     SingleLinkedListNode* newNode = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    alloc_buffer(newNode, list);
+    alloc_buffer(list, newNode);
     list->copy_value_to_node(newNode, value);
 
     int i = 1;
@@ -110,7 +110,7 @@ SingleLinkedListNode* push_back(SingleLinkedList* list, void* value)
     }
 
     SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    alloc_buffer(node, list);
+    alloc_buffer(list, node);
     list->copy_value_to_node(node, value);
 
     node->next = NULL;
@@ -135,7 +135,7 @@ SingleLinkedListNode* push_front(SingleLinkedList* list, void* value)
     }
 
     SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    alloc_buffer(node, list);
+    alloc_buffer(list, node);
     list->copy_value_to_node(node, value);
 
     list->size++;
