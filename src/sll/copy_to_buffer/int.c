@@ -1,4 +1,4 @@
-#include "../../../include/single_linked_list.h"
+#include "single_linked_list.h"
 
 void copy_value_to_buffer_short(void* buffer, SingleLinkedListNode* node)
 {

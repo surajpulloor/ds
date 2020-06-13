@@ -1,4 +1,4 @@
-#include "../../../include/single_linked_list.h"
+#include "single_linked_list.h"
 
 void print_node_value_short(SingleLinkedListNode* node)
 {
