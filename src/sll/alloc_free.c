@@ -4,7 +4,7 @@
 
 void* alloc_buffer(SingleLinkedList* self, SingleLinkedListNode* node)
 {
-    node->buffer = malloc(self->data_type_size);
+    node->buffer = malloc(self->type_size);
 }
 
 void free_buffer(SingleLinkedListNode* node)

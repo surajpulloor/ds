@@ -15,7 +15,7 @@ typedef struct {
 	SingleLinkedListNode* front;
 	SingleLinkedListNode* rear;
 	int size;
-	size_t data_type_size;
+	size_t type_size;
 
 	void (*copy_value_to_node)(SingleLinkedListNode*, void*);
 	void (*copy_value_to_buffer)(void*, SingleLinkedListNode*);
