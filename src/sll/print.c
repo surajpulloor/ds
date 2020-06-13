@@ -18,9 +18,8 @@ void print_list(SingleLinkedList* list)
 
 void print_node(SingleLinkedList* list, SingleLinkedListNode* node, bool isLast)
 {
-    char* value = (char*) node->buffer;
-
-    int len = strlen(value);
+    
+    int len = node->buffer_length;
     int totalDashes = 19 + len;
 
     int halfway = (totalDashes + 6) / 2;
@@ -40,7 +39,8 @@ void print_node(SingleLinkedList* list, SingleLinkedListNode* node, bool isLast)
     else
         printf("%p", node->next);
 
-    printf(" | %s", value);
+    printf(" | ");
+    list->print_node_value(node);
     printf(" |\n");
 
     
