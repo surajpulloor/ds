@@ -2,6 +2,7 @@
 #define _SINGLE_LINKED_LIST_
 
 #define MAX_BUFFER 1000
+#define MAX_CHARS_BUFFER 10000
 
 #include <stdio.h>
 #include <stdbool.h>
