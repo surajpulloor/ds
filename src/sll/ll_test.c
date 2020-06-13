@@ -4,7 +4,7 @@
 int main()
 {
 
-    SingleLinkedList* list = init_list_char();
+    SingleLinkedList* list = init_list_unsigned_long_long();
 
     printf("Push Elements\n");
     // push_back(list, "Hello,");
@@ -15,14 +15,10 @@ int main()
     // push_back(list, "Jacky Luke");
     // push_back(list, "Qwerty");
 
-    for (char c = 'a'; c < 'z'; c++)
-        push_back(list, &c);
+    unsigned long long i = 54387912745637298L;
+    push_back(list, &i);
 
-
-    for (SingleLinkedListNode* node = list->front; node; node = node->next)
-        printf("%c => ", *(char*) node->buffer);
-
-    // print_list(list);
+    print_list(list);
 
     // char buffer[MAX_BUFFER];
     // push_before(list, list->size - 1);
