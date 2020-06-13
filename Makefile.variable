@@ -13,3 +13,7 @@ IDIR:=$(ROOT_DIR)/$(IDIR)
 ODIR:=$(ROOT_DIR)/$(ODIR)
 BIN_DIR:=$(ROOT_DIR)/$(BIN_DIR)
 LIB_DIR:=$(ROOT_DIR)/$(LIB_DIR)
+
+SRC_COPY_TO_BUFFER=copy_to_buffer
+SRC_COPY_TO_NODE=copy_to_node
+SRC_INIT=init
