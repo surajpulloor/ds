@@ -7,7 +7,7 @@ void print_list(SingleLinkedList* list)
     if (list) {
         if (list->front) {
             for (SingleLinkedListNode* node = list->front; node; node = node->next)
-                print_node(node, node == list->rear);
+                print_node(list, node, node == list->rear);
 
             printf("\n");
         } else
@@ -16,7 +16,7 @@ void print_list(SingleLinkedList* list)
         printf("error: list doesn't exist. nothing to display.\n");
 }
 
-void print_node(SingleLinkedListNode* node, bool isLast)
+void print_node(SingleLinkedList* list, SingleLinkedListNode* node, bool isLast)
 {
     char* value = (char*) node->buffer;
 

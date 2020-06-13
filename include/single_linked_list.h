@@ -9,6 +9,9 @@
 typedef struct SLLNode {
 	void* buffer;
 	struct SLLNode* next;
+
+	// used in print_node()
+	unsigned int buffer_length;
 } SingleLinkedListNode;
 
 typedef struct {
@@ -19,6 +22,9 @@ typedef struct {
 
 	void (*copy_value_to_node)(SingleLinkedListNode*, void*);
 	void (*copy_value_to_buffer)(void*, SingleLinkedListNode*);
+
+	// generic print_node_value function
+	void (*print_node_value)(SingleLinkedListNode*);
 
 } SingleLinkedList;
 
@@ -121,6 +127,34 @@ void copy_value_to_buffer_char_ptr(void*, SingleLinkedListNode*);
 // **** END: COPY_TO_BUFFER FUNCTIONS *** //
 
 
+// **** END: PRINT_node_VALUE FUNCTIONS *** //
+
+// print_node_value (int)
+void print_node_value_short(SingleLinkedListNode*);
+void print_node_value_unsigned_short(SingleLinkedListNode*);
+void print_node_value_int(SingleLinkedListNode*);
+void print_node_value_unsigned_int(SingleLinkedListNode*);
+void print_node_value_long(SingleLinkedListNode*);
+void print_node_value_unsigned_long(SingleLinkedListNode*);
+void print_node_value_long_long(SingleLinkedListNode*);
+void print_node_value_unsigned_long_long(SingleLinkedListNode*);
+
+// print_node_value (float)
+void print_node_value_float(SingleLinkedListNode*);
+void print_node_value_double(SingleLinkedListNode*);
+void print_node_value_long_double(SingleLinkedListNode*);
+
+// print_node_value (char)
+void print_node_value_char(SingleLinkedListNode*);
+void print_node_value_unsigned_char(SingleLinkedListNode*);
+
+// print_node_value (pointer)
+void print_node_value_char_ptr(SingleLinkedListNode*);
+
+
+// **** END: PRINT_node_VALUE FUNCTIONS *** //
+
+
 SingleLinkedListNode* push_before(SingleLinkedList*, void*, int);
 SingleLinkedListNode* push_after(SingleLinkedList*, void*, int);
 SingleLinkedListNode* push_back(SingleLinkedList*, void*);
@@ -141,6 +175,6 @@ void set(SingleLinkedList*, int, void*);
 
 void free_list(SingleLinkedList**);
 void print_list(SingleLinkedList*);
-void print_node(SingleLinkedListNode*, bool);
+void print_node(SingleLinkedList*, SingleLinkedListNode*, bool);
 
 #endif
