@@ -25,6 +25,7 @@ typedef struct {
 
 	// generic print_node_value function
 	void (*print_node_value)(SingleLinkedListNode*);
+	void (*setup_buffer_length)(SingleLinkedListNode*, void*);
 
 } SingleLinkedList;
 
@@ -127,7 +128,7 @@ void copy_value_to_buffer_char_ptr(void*, SingleLinkedListNode*);
 // **** END: COPY_TO_BUFFER FUNCTIONS *** //
 
 
-// **** END: PRINT_node_VALUE FUNCTIONS *** //
+// **** START: PRINT_NODE_VALUE FUNCTIONS *** //
 
 // print_node_value (int)
 void print_node_value_short(SingleLinkedListNode*);
@@ -152,7 +153,31 @@ void print_node_value_unsigned_char(SingleLinkedListNode*);
 void print_node_value_char_ptr(SingleLinkedListNode*);
 
 
-// **** END: PRINT_node_VALUE FUNCTIONS *** //
+// **** END: PRINT_NODE_VALUE FUNCTIONS *** //
+
+
+// **** START: SETUP_BUFFER_LENGTH FUNCTIONS *** //
+
+// setup_buffer_length(int)
+void setup_buffer_length_short(SingleLinkedListNode*, void*);
+void setup_buffer_length_unsigned_short(SingleLinkedListNode*, void*);
+void setup_buffer_length_int(SingleLinkedListNode*, void*);
+void setup_buffer_length_unsigned_int(SingleLinkedListNode*, void*);
+void setup_buffer_length_long(SingleLinkedListNode*, void*);
+void setup_buffer_length_unsigned_long(SingleLinkedListNode*, void*);
+void setup_buffer_length_long_long(SingleLinkedListNode*, void*);
+void setup_buffer_length_unsigned_long_long(SingleLinkedListNode*, void*);
+
+void setup_buffer_length_float(SingleLinkedListNode*, void*);
+void setup_buffer_length_double(SingleLinkedListNode*, void*);
+void setup_buffer_length_long_double(SingleLinkedListNode*, void*);
+
+void setup_buffer_length_char(SingleLinkedListNode*, void*);
+void setup_buffer_length_unsigned_char(SingleLinkedListNode*, void*);
+
+void setup_buffer_length_char_ptr(SingleLinkedListNode*, void*);
+
+// **** END: SETUP_BUFFER_LENGTH FUNCTIONS *** //
 
 
 SingleLinkedListNode* push_before(SingleLinkedList*, void*, int);
