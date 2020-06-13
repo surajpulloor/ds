@@ -6,6 +6,7 @@ SingleLinkedList* init_list_char()
     
     list->copy_value_to_node = copy_value_to_node_char;
     list->copy_value_to_buffer = copy_value_to_buffer_char;
+    list->print_node_value = print_node_value_char;
 
     return list;
 }
@@ -16,6 +17,7 @@ SingleLinkedList* init_list_unsigned_char()
     
     list->copy_value_to_node = copy_value_to_node_unsigned_char;
     list->copy_value_to_buffer = copy_value_to_buffer_unsigned_char;
+    list->print_node_value = print_node_value_unsigned_char;
 
     return list;
 }
