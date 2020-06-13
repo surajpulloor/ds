@@ -23,5 +23,10 @@ SingleLinkedList* init_list_double()
 
 SingleLinkedList* init_list_long_double()
 {
+    SingleLinkedList* list = init_list(sizeof(long double));
+    
+    list->copy_value_to_node = copy_value_to_node_long_double;
+    list->copy_value_to_buffer = copy_value_to_buffer_long_double;
 
+    return list;
 }
