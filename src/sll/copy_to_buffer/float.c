@@ -16,5 +16,7 @@ void copy_value_to_buffer_double(void* buffer, SingleLinkedListNode* node)
 
 void copy_value_to_buffer_long_double(void* buffer, SingleLinkedListNode* node)
 {
+    long double* temp = (long double*) buffer;
 
+    *temp = *(long double*) node->buffer;
 }
