@@ -17,3 +17,5 @@ LIB_DIR:=$(ROOT_DIR)/$(LIB_DIR)
 SRC_COPY_TO_BUFFER=copy_to_buffer
 SRC_COPY_TO_NODE=copy_to_node
 SRC_INIT=init
+SRC_PRINT_NODE_VALUE=print_node_value
+SRC_SETUP_BUFFER_LENGTH=setup_buffer_length
