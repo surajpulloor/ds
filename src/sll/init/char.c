@@ -12,5 +12,10 @@ SingleLinkedList* init_list_char()
 
 SingleLinkedList* init_list_unsigned_char()
 {
+    SingleLinkedList* list = init_list(sizeof(unsigned char));
+    
+    list->copy_value_to_node = copy_value_to_node_unsigned_char;
+    list->copy_value_to_buffer = copy_value_to_buffer_unsigned_char;
 
+    return list;
 }
