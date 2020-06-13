@@ -17,7 +17,7 @@ void print_node_value_int(SingleLinkedListNode* node)
 
 void print_node_value_unsigned_int(SingleLinkedListNode* node)
 {
-    printf("%lu", *(unsigned int*) node->buffer);
+    printf("%u", *(unsigned int*) node->buffer);
 }
 
 void print_node_value_long(SingleLinkedListNode* node)
