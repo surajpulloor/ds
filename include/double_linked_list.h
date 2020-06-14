@@ -2,8 +2,10 @@
 #define _DOUBLE_LINKED_LIST_
 
 #include <stdbool.h>
+#include <stdio.h>
 
 #define MAX_BUFFER 1000
+#define MAX_CHARS_BUFFER 10000
 
 typedef struct DLLNode {
 	void* buffer;
@@ -18,6 +20,9 @@ typedef struct {
 	DoubleLinkedListNode* front;
 	DoubleLinkedListNode* rear;
 
+	int size;
+	size_t type_size;
+
 	void (*copy_value_to_node)(DoubleLinkedListNode*, void*);
 	void (*copy_value_to_buffer)(void*, DoubleLinkedListNode*);
 
@@ -25,7 +30,6 @@ typedef struct {
 	void (*print_node_value)(DoubleLinkedListNode*);
 	void (*setup_buffer_length)(DoubleLinkedListNode*, void*);
 
-	int size;
 } DoubleLinkedList;
 
 // **** START: INIT FUNCTIONS *** //
@@ -216,6 +220,6 @@ void set(DoubleLinkedList*, int, char*);
 
 void free_list(DoubleLinkedList**);
 void print_list(DoubleLinkedList*);
-void print_node(DoubleLinkedListNode*, bool, bool);
+void print_node(DoubleLinkedList*, DoubleLinkedListNode*, bool, bool);
 
 #endif
