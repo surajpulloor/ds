@@ -26,7 +26,8 @@ DoubleLinkedListNode* push_before(DoubleLinkedList* list, char* value, int index
     }
 
     DoubleLinkedListNode* newNode = (DoubleLinkedListNode*) malloc(sizeof(DoubleLinkedListNode));
-    strcpy(newNode->buffer, value);
+    alloc_buffer(list, newNode);
+    list->copy_value_to_node(newNode, value);
 
     int i = 1;
 
@@ -76,7 +77,8 @@ DoubleLinkedListNode* push_after(DoubleLinkedList* list, char* value, int index)
     }
 
     DoubleLinkedListNode* newNode = (DoubleLinkedListNode*) malloc(sizeof(DoubleLinkedListNode));
-    strcpy(newNode->buffer, value);
+    alloc_buffer(list, newNode);
+    list->copy_value_to_node(newNode, value);
 
     int i = 1;
 
@@ -104,7 +106,7 @@ DoubleLinkedListNode* push_after(DoubleLinkedList* list, char* value, int index)
 }
 
 
-DoubleLinkedListNode* push_back(DoubleLinkedList* list, char* data)
+DoubleLinkedListNode* push_back(DoubleLinkedList* list, char* value)
 {
     if (list == NULL) {
         printf("error: the list doesn't exist. please create one.\n");
@@ -112,7 +114,9 @@ DoubleLinkedListNode* push_back(DoubleLinkedList* list, char* data)
     }
 
     DoubleLinkedListNode* node = (DoubleLinkedListNode*) malloc(sizeof(DoubleLinkedListNode));
-    strcpy(node->buffer, data);
+    alloc_buffer(list, node);
+    list->copy_value_to_node(node, value);
+
     node->next = NULL;
     node->prev = NULL;
 
@@ -137,7 +141,9 @@ DoubleLinkedListNode* push_front(DoubleLinkedList* list, char* value)
     }
 
     DoubleLinkedListNode* node = (DoubleLinkedListNode*) malloc(sizeof(DoubleLinkedListNode));
-    strcpy(node->buffer, value);
+    alloc_buffer(list, node);
+    list->copy_value_to_node(node, value);
+
     node->next = node->prev = NULL;
 
     list->size++;

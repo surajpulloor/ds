@@ -54,7 +54,9 @@ char* pop_before_v(DoubleLinkedList* list, int index, char* buffer)
             break;
 
     if (buffer) // only copy if buffer exists
-        strcpy(buffer, node->prev->buffer);
+        list->copy_value_to_buffer(buffer, node->prev);
+
+    free_buffer(node->prev);
 
     DoubleLinkedListNode* delete_node = node->prev;
     node->prev = delete_node->prev;
@@ -99,7 +101,9 @@ char* pop_after_v(DoubleLinkedList* list, int index, char* buffer)
             break;
 
     if (buffer) // only copy if buffer isn't empty
-        strcpy(buffer, node->next->buffer);
+        list->copy_value_to_buffer(buffer, node->next);
+
+    free_buffer(node->next);
 
     DoubleLinkedListNode* delete_node = node->next;
     node->next = delete_node->next;
@@ -129,7 +133,9 @@ char* pop_back_v(DoubleLinkedList* list, char* buffer)
     }
 
     if (buffer)
-        strcpy(buffer, list->rear->buffer);
+        list->copy_value_to_buffer(buffer, list->rear);
+
+    free_buffer(list->rear);
     
     DoubleLinkedListNode* node = list->rear->prev;
 
@@ -164,7 +170,9 @@ char* pop_front_v(DoubleLinkedList* list, char* buffer)
 
     // copy data to buffer
     if (buffer)
-        strcpy(buffer, list->front->buffer);
+        list->copy_value_to_buffer(buffer, list->front);
+
+    free_buffer(list->front);
 
     DoubleLinkedListNode* node = list->front->next;
     
