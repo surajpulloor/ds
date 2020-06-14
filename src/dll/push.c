@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-DoubleLinkedListNode* push_before(DoubleLinkedList* list, char* value, int index)
+DoubleLinkedListNode* push_before(DoubleLinkedList* list, void* value, int index)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");
@@ -54,7 +54,7 @@ DoubleLinkedListNode* push_before(DoubleLinkedList* list, char* value, int index
 
 }
 
-DoubleLinkedListNode* push_after(DoubleLinkedList* list, char* value, int index)
+DoubleLinkedListNode* push_after(DoubleLinkedList* list, void* value, int index)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");
@@ -106,7 +106,7 @@ DoubleLinkedListNode* push_after(DoubleLinkedList* list, char* value, int index)
 }
 
 
-DoubleLinkedListNode* push_back(DoubleLinkedList* list, char* value)
+DoubleLinkedListNode* push_back(DoubleLinkedList* list, void* value)
 {
     if (list == NULL) {
         printf("error: the list doesn't exist. please create one.\n");
@@ -133,7 +133,7 @@ DoubleLinkedListNode* push_back(DoubleLinkedList* list, char* value)
     return node;
 }
 
-DoubleLinkedListNode* push_front(DoubleLinkedList* list, char* value)
+DoubleLinkedListNode* push_front(DoubleLinkedList* list, void* value)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");

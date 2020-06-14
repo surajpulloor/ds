@@ -200,23 +200,23 @@ void setup_buffer_length_func(
 
 // **** END: SETUP_BUFFER_LENGTH FUNCTIONS *** //
 
-DoubleLinkedListNode* push_before(DoubleLinkedList*, char*, int);
-DoubleLinkedListNode* push_after(DoubleLinkedList*, char*, int);
-DoubleLinkedListNode* push_back(DoubleLinkedList*, char*);
-DoubleLinkedListNode* push_front(DoubleLinkedList*, char*);
+DoubleLinkedListNode* push_before(DoubleLinkedList*, void*, int);
+DoubleLinkedListNode* push_after(DoubleLinkedList*, void*, int);
+DoubleLinkedListNode* push_back(DoubleLinkedList*, void*);
+DoubleLinkedListNode* push_front(DoubleLinkedList*, void*);
 
 void pop_before(DoubleLinkedList*, int);
 void pop_after(DoubleLinkedList*, int);
 void pop_back(DoubleLinkedList*);
 void pop_front(DoubleLinkedList*);
 
-char* pop_before_v(DoubleLinkedList*, int, char*);
-char* pop_after_v(DoubleLinkedList*, int, char*);
-char* pop_back_v(DoubleLinkedList*, char*);
-char* pop_front_v(DoubleLinkedList*, char*);
+void* pop_before_v(DoubleLinkedList*, int, void*);
+void* pop_after_v(DoubleLinkedList*, int, void*);
+void* pop_back_v(DoubleLinkedList*, void*);
+void* pop_front_v(DoubleLinkedList*, void*);
 
-char* get(DoubleLinkedList*, int, char*);
-void set(DoubleLinkedList*, int, char*);
+void* get(DoubleLinkedList*, int, void*);
+void set(DoubleLinkedList*, int, void*);
 
 void free_list(DoubleLinkedList**);
 void print_list(DoubleLinkedList*);

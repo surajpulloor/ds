@@ -23,7 +23,7 @@ void pop_front(DoubleLinkedList* list)
     pop_front_v(list, NULL);
 }
 
-char* pop_before_v(DoubleLinkedList* list, int index, char* buffer)
+void* pop_before_v(DoubleLinkedList* list, int index, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists. please create one\n");
@@ -72,7 +72,7 @@ char* pop_before_v(DoubleLinkedList* list, int index, char* buffer)
     return buffer;
 }
 
-char* pop_after_v(DoubleLinkedList* list, int index, char* buffer)
+void* pop_after_v(DoubleLinkedList* list, int index, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists\n");
@@ -120,7 +120,7 @@ char* pop_after_v(DoubleLinkedList* list, int index, char* buffer)
 }
 
 
-char* pop_back_v(DoubleLinkedList* list, char* buffer)
+void* pop_back_v(DoubleLinkedList* list, void* buffer)
 {
     if (list == NULL) {
         printf("error: the list doesn't exist. please create one.\n");
@@ -156,7 +156,7 @@ char* pop_back_v(DoubleLinkedList* list, char* buffer)
     return buffer;
 }
 
-char* pop_front_v(DoubleLinkedList* list, char* buffer)
+void* pop_front_v(DoubleLinkedList* list, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists. please create one\n");
