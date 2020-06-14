@@ -1,49 +1,13 @@
 #include "double_linked_list.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
-DoubleLinkedList* init_list()
-{
-    DoubleLinkedList* list = (DoubleLinkedList*) malloc(sizeof(DoubleLinkedList));
-    list->front = NULL;
-    list->rear = NULL;
-
-    list->size = 0;
-
-    return list;
-}
-
-void free_list(DoubleLinkedList** list)
-{
-    if (*list == NULL) {
-        printf("error: list doesn't exist. please create one.\n");
-        return;
-    }
-
-    if ((*list)->front == NULL) {
-        printf("error: the list is empty. insert something.\n");
-        free(*list);
-        *list = NULL;
-        return;
-    }
-    
-    for (DoubleLinkedListNode* node = (*list)->front; node; ) {
-        DoubleLinkedListNode* nxtNode = node->next;
-        free(node);
-        node = nxtNode;
-    }
-
-    free(*list);
-    *list = NULL;
-}
 
 void print_list(DoubleLinkedList* list)
 {
     if (list) {
         if (list->front) {
             for (DoubleLinkedListNode* node = list->front; node; node = node->next)
-                print_node(node, node == list->front, node == list->rear);
+                print_node(list, node == list->front, node == list->rear);
 
             printf("\n");
         } else
@@ -53,9 +17,9 @@ void print_list(DoubleLinkedList* list)
 }
 
 
-void print_node(DoubleLinkedListNode* node, bool isFront, bool isRear)
+void print_node(DoubleLinkedList* list, DoubleLinkedListNode* node, bool isFront, bool isRear)
 {
-    int len = strlen(node->buffer);
+    int len = node->buffer_length;
     int totalDashes = 34 + len;
 
     
@@ -74,8 +38,11 @@ void print_node(DoubleLinkedListNode* node, bool isFront, bool isRear)
     else
         printf("%p", node->prev);
 
-    printf(" | %s | ", node->buffer);
+    printf(" | ", node->buffer);
 
+    list->print_node_value(node);
+
+    printf(" | ");
     if (isRear)
         printf("0x000000000000");
     else
