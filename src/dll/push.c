@@ -29,6 +29,8 @@ DoubleLinkedListNode* push_before(DoubleLinkedList* list, void* value, int index
     alloc_buffer(list, newNode);
     list->copy_value_to_node(newNode, value);
 
+    list->setup_buffer_length(newNode, value);
+
     int i = 1;
 
     list->size++;
@@ -80,6 +82,8 @@ DoubleLinkedListNode* push_after(DoubleLinkedList* list, void* value, int index)
     alloc_buffer(list, newNode);
     list->copy_value_to_node(newNode, value);
 
+    list->setup_buffer_length(newNode, value);
+
     int i = 1;
 
     for (DoubleLinkedListNode* node = list->front; node; node = node->next, i++) {
@@ -117,6 +121,8 @@ DoubleLinkedListNode* push_back(DoubleLinkedList* list, void* value)
     alloc_buffer(list, node);
     list->copy_value_to_node(node, value);
 
+    list->setup_buffer_length(node, value);
+
     node->next = NULL;
     node->prev = NULL;
 
@@ -143,6 +149,8 @@ DoubleLinkedListNode* push_front(DoubleLinkedList* list, void* value)
     DoubleLinkedListNode* node = (DoubleLinkedListNode*) malloc(sizeof(DoubleLinkedListNode));
     alloc_buffer(list, node);
     list->copy_value_to_node(node, value);
+
+    list->setup_buffer_length(node, value);
 
     node->next = node->prev = NULL;
 
