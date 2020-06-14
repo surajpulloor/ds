@@ -126,6 +126,14 @@ void copy_value_to_buffer_unsigned_char(void*, SingleLinkedListNode*);
 void copy_value_to_buffer_char_ptr(void*, SingleLinkedListNode*);
 
 
+void setup_copy_value_funcs(
+	SingleLinkedList*, 
+	void (*)(SingleLinkedListNode*, void*), 
+	void (*)(void*, SingleLinkedListNode*)
+);
+
+
+
 // **** END: COPY_TO_BUFFER FUNCTIONS *** //
 
 
@@ -154,6 +162,11 @@ void print_node_value_unsigned_char(SingleLinkedListNode*);
 void print_node_value_char_ptr(SingleLinkedListNode*);
 
 
+void setup_print_node_value_func(
+	SingleLinkedList*, 
+	void (*)(SingleLinkedListNode*)
+);
+
 // **** END: PRINT_NODE_VALUE FUNCTIONS *** //
 
 
@@ -177,6 +190,11 @@ void setup_buffer_length_char(SingleLinkedListNode*, void*);
 void setup_buffer_length_unsigned_char(SingleLinkedListNode*, void*);
 
 void setup_buffer_length_char_ptr(SingleLinkedListNode*, void*);
+
+void setup_buffer_length_func(
+	SingleLinkedList*, 
+	void (*)(SingleLinkedListNode*, void*)
+);
 
 // **** END: SETUP_BUFFER_LENGTH FUNCTIONS *** //
 
