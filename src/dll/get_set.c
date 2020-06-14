@@ -27,14 +27,14 @@ char* get(DoubleLinkedList* list, int index, char* buffer)
 
             
     if (index == list->size)
-        strcpy(buffer, list->rear->data);
+        strcpy(buffer, list->rear->buffer);
     else {
         int i = 1;
         for (DoubleLinkedListNode* node = list->front; i < list->size; i++, node = node->next)
             if (i == index) {
 
                 if (buffer)
-                    strcpy(buffer, node->data);
+                    strcpy(buffer, node->buffer);
                 break;
 
             }
@@ -66,12 +66,12 @@ void set(DoubleLinkedList* list, int index, char* value)
     }
 
     if (index == list->size)
-        strcpy(list->rear->data, value);
+        strcpy(list->rear->buffer, value);
     else {
         int i = 1;
         for (DoubleLinkedListNode* node = list->front; i < list->size; i++, node = node->next)
             if (i == index) {
-                strcpy(node->data, value);
+                strcpy(node->buffer, value);
                 break;
             }
     }

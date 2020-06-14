@@ -26,7 +26,7 @@ DoubleLinkedListNode* push_before(DoubleLinkedList* list, char* value, int index
     }
 
     DoubleLinkedListNode* newNode = (DoubleLinkedListNode*) malloc(sizeof(DoubleLinkedListNode));
-    strcpy(newNode->data, value);
+    strcpy(newNode->buffer, value);
 
     int i = 1;
 
@@ -76,7 +76,7 @@ DoubleLinkedListNode* push_after(DoubleLinkedList* list, char* value, int index)
     }
 
     DoubleLinkedListNode* newNode = (DoubleLinkedListNode*) malloc(sizeof(DoubleLinkedListNode));
-    strcpy(newNode->data, value);
+    strcpy(newNode->buffer, value);
 
     int i = 1;
 
@@ -112,7 +112,7 @@ DoubleLinkedListNode* push_back(DoubleLinkedList* list, char* data)
     }
 
     DoubleLinkedListNode* node = (DoubleLinkedListNode*) malloc(sizeof(DoubleLinkedListNode));
-    strcpy(node->data, data);
+    strcpy(node->buffer, data);
     node->next = NULL;
     node->prev = NULL;
 
@@ -137,7 +137,7 @@ DoubleLinkedListNode* push_front(DoubleLinkedList* list, char* value)
     }
 
     DoubleLinkedListNode* node = (DoubleLinkedListNode*) malloc(sizeof(DoubleLinkedListNode));
-    strcpy(node->data, value);
+    strcpy(node->buffer, value);
     node->next = node->prev = NULL;
 
     list->size++;

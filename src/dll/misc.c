@@ -55,7 +55,7 @@ void print_list(DoubleLinkedList* list)
 
 void print_node(DoubleLinkedListNode* node, bool isFront, bool isRear)
 {
-    int len = strlen(node->data);
+    int len = strlen(node->buffer);
     int totalDashes = 34 + len;
 
     
@@ -74,7 +74,7 @@ void print_node(DoubleLinkedListNode* node, bool isFront, bool isRear)
     else
         printf("%p", node->prev);
 
-    printf(" | %s | ", node->data);
+    printf(" | %s | ", node->buffer);
 
     if (isRear)
         printf("0x000000000000");
