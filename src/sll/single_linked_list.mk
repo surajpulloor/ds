@@ -18,7 +18,7 @@ _DEPS_SLL = single_linked_list.h
 DEPS_SLL = $(patsubst %,$(IDIR)/%,$(_DEPS_SLL))
 
 # Single Linked List objects recipes
-_OBJ_SLL = push.o pop.o get_set.o print.o alloc_free.o
+_OBJ_SLL = push.o pop.o get_set.o print.o alloc_free.o setup_funcs.o
 
 _OBJ_SLL_TYPE_FUNCTIONS = int.o float.o char.o pointer.o
 _OBJ_SLL_INIT_MAIN = init.o
