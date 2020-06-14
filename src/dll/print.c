@@ -7,7 +7,7 @@ void print_list(DoubleLinkedList* list)
     if (list) {
         if (list->front) {
             for (DoubleLinkedListNode* node = list->front; node; node = node->next)
-                print_node(list, node == list->front, node == list->rear);
+                print_node(list, node, node == list->front, node == list->rear);
 
             printf("\n");
         } else
@@ -38,7 +38,7 @@ void print_node(DoubleLinkedList* list, DoubleLinkedListNode* node, bool isFront
     else
         printf("%p", node->prev);
 
-    printf(" | ", node->buffer);
+    printf(" | ");
 
     list->print_node_value(node);
 
