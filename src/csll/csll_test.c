@@ -1,10 +1,10 @@
-#include "../../include/circular_single_linked_list.h"
+#include "circular_single_linked_list.h"
 #include <stdio.h>
 
 int main()
 {
 
-    CircularSingleLinkedList* list = init_list();
+    CircularSingleLinkedList* list = init_list_char_ptr();
 
     printf("Push Elements\n");
     push_back(list, "Hello, World");
