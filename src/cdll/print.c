@@ -1,44 +1,8 @@
-#include "../../include/circular_double_linked_list.h"
+#include "circular_double_linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-CircularDoubleLinkedList* init_list()
-{
-    CircularDoubleLinkedList* list = (CircularDoubleLinkedList*) malloc(sizeof(CircularDoubleLinkedList));
-    list->front = NULL;
-    list->rear = NULL;
-
-    list->size = 0;
-
-    return list;
-}
-
-void free_list(CircularDoubleLinkedList** list)
-{
-    if (*list == NULL) {
-        printf("error: list doesn't exist. please create one.\n");
-        return;
-    }
-
-    if ((*list)->front == NULL) {
-        printf("error: the list is empty. insert something.\n");
-        free(*list);
-        *list = NULL;
-        return;
-    }
-
-    CircularDoubleLinkedListNode* node = (*list)->front;
-    
-    do {
-        CircularDoubleLinkedListNode* nxtNode = node->next;
-        free(node);
-        node = nxtNode;
-    } while (node != (*list)->front);
-
-    free(*list);
-    *list = NULL;
-}
 
 void print_list(CircularDoubleLinkedList* list)
 {
@@ -47,7 +11,7 @@ void print_list(CircularDoubleLinkedList* list)
             CircularDoubleLinkedListNode* node = list->front;
 
             do {
-                print_node(node, node == list->front, node == list->rear);
+                print_node(list, node, node == list->front, node == list->rear);
                 node = node->next;
             } while (node != list->front);
 
@@ -58,9 +22,9 @@ void print_list(CircularDoubleLinkedList* list)
         printf("error: list doesn't exist. nothing to display.\n");
 }
 
-void print_node(CircularDoubleLinkedListNode* node, bool isFront, bool isLast)
+void print_node(CircularDoubleLinkedList* list, CircularDoubleLinkedListNode* node, bool isFront, bool isLast)
 {
-    int len = strlen(node->data);
+    int len = node->buffer_length;
     int totalDashes = 34 + len;
 
     int halfway = (totalDashes + 6) / 2;
@@ -91,7 +55,12 @@ void print_node(CircularDoubleLinkedListNode* node, bool isFront, bool isLast)
     printf(" +");
 
     printf("\n||  | ");
-    printf("%p | %s | %p", node->prev, node->data, node->next);
+    printf("%p | ", node->prev);
+
+    list->print_node_value(node);
+
+    printf(" | %p", node->next);
+
     printf(" |\n");
 
     
