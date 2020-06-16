@@ -1,4 +1,4 @@
-#include "../../include/circular_double_linked_list.h"
+#include "circular_double_linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,7 +23,7 @@ void pop_front(CircularDoubleLinkedList* list)
     pop_front_v(list, NULL);
 }
 
-char* pop_before_v(CircularDoubleLinkedList* list, int index, char* buffer)
+void* pop_before_v(CircularDoubleLinkedList* list, int index, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists. please create one\n");
@@ -54,7 +54,9 @@ char* pop_before_v(CircularDoubleLinkedList* list, int index, char* buffer)
             break;
 
     if (buffer) // only copy if buffer exists
-        strcpy(buffer, node->prev->data);
+        list->copy_value_to_buffer(buffer, node->prev);
+
+    free_buffer(node->prev);
 
     CircularDoubleLinkedListNode* delete_node = node->prev;
     node->prev = delete_node->prev;
@@ -69,7 +71,7 @@ char* pop_before_v(CircularDoubleLinkedList* list, int index, char* buffer)
     return buffer;
 }
 
-char* pop_after_v(CircularDoubleLinkedList* list, int index, char* buffer)
+void* pop_after_v(CircularDoubleLinkedList* list, int index, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists\n");
@@ -100,7 +102,9 @@ char* pop_after_v(CircularDoubleLinkedList* list, int index, char* buffer)
             break;
 
     if (buffer) // only copy if buffer isn't empty
-        strcpy(buffer, node->next->data);
+        list->copy_value_to_buffer(buffer, node->next);
+
+    free_buffer(node->next);
 
     CircularDoubleLinkedListNode* delete_node = node->next;
     node->next = delete_node->next;
@@ -117,7 +121,7 @@ char* pop_after_v(CircularDoubleLinkedList* list, int index, char* buffer)
 }
 
 
-char* pop_back_v(CircularDoubleLinkedList* list, char* buffer)
+void* pop_back_v(CircularDoubleLinkedList* list, void* buffer)
 {
     if (list == NULL) {
         printf("error: the list doesn't exist. please create one.\n");
@@ -130,7 +134,9 @@ char* pop_back_v(CircularDoubleLinkedList* list, char* buffer)
     }
 
     if (buffer)
-        strcpy(buffer, list->rear->data);
+        list->copy_value_to_buffer(buffer, list->rear);
+
+    free_buffer(list->rear);
     
     CircularDoubleLinkedListNode* node = list->rear->prev;
     node->next = list->front;
@@ -149,7 +155,7 @@ char* pop_back_v(CircularDoubleLinkedList* list, char* buffer)
     return buffer;
 }
 
-char* pop_front_v(CircularDoubleLinkedList* list, char* buffer)
+void* pop_front_v(CircularDoubleLinkedList* list, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists. please create one\n");
@@ -163,7 +169,9 @@ char* pop_front_v(CircularDoubleLinkedList* list, char* buffer)
 
     // copy data to buffer
     if (buffer)
-        strcpy(buffer, list->front->data);
+        list->copy_value_to_buffer(buffer, list->front);
+
+    free_buffer(list->front);
 
     CircularDoubleLinkedListNode* node = list->front->next;
     node->prev = list->rear;

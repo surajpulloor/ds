@@ -1,9 +1,9 @@
-#include "../../include/circular_double_linked_list.h"
+#include "circular_double_linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-CircularDoubleLinkedListNode* push_before(CircularDoubleLinkedList* list, char* value, int index)
+CircularDoubleLinkedListNode* push_before(CircularDoubleLinkedList* list, void* value, int index)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");
@@ -26,7 +26,11 @@ CircularDoubleLinkedListNode* push_before(CircularDoubleLinkedList* list, char* 
     }
 
     CircularDoubleLinkedListNode* newNode = (CircularDoubleLinkedListNode*) malloc(sizeof(CircularDoubleLinkedListNode));
-    strcpy(newNode->data, value);
+    alloc_buffer(list, newNode);
+    list->copy_value_to_node(newNode, value);
+
+
+    list->setup_buffer_length(newNode, value);
 
     int i = 1;
     CircularDoubleLinkedListNode* node = list->front;
@@ -54,7 +58,7 @@ CircularDoubleLinkedListNode* push_before(CircularDoubleLinkedList* list, char* 
 
 }
 
-CircularDoubleLinkedListNode* push_after(CircularDoubleLinkedList* list, char* value, int index)
+CircularDoubleLinkedListNode* push_after(CircularDoubleLinkedList* list, void* value, int index)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");
@@ -77,7 +81,11 @@ CircularDoubleLinkedListNode* push_after(CircularDoubleLinkedList* list, char* v
     }
 
     CircularDoubleLinkedListNode* newNode = (CircularDoubleLinkedListNode*) malloc(sizeof(CircularDoubleLinkedListNode));
-    strcpy(newNode->data, value);
+    alloc_buffer(list, newNode);
+    list->copy_value_to_node(newNode, value);
+
+
+    list->setup_buffer_length(newNode, value);
 
     int i = 1;
     CircularDoubleLinkedListNode* node = list->front;
@@ -109,7 +117,7 @@ CircularDoubleLinkedListNode* push_after(CircularDoubleLinkedList* list, char* v
 }
 
 
-CircularDoubleLinkedListNode* push_back(CircularDoubleLinkedList* list, char* data)
+CircularDoubleLinkedListNode* push_back(CircularDoubleLinkedList* list, void* value)
 {
     if (list == NULL) {
         printf("error: the list doesn't exist. please create one.\n");
@@ -117,7 +125,10 @@ CircularDoubleLinkedListNode* push_back(CircularDoubleLinkedList* list, char* da
     }
 
     CircularDoubleLinkedListNode* node = (CircularDoubleLinkedListNode*) malloc(sizeof(CircularDoubleLinkedListNode));
-    strcpy(node->data, data);
+    alloc_buffer(list, node);
+    list->copy_value_to_node(node, value);
+
+    list->setup_buffer_length(node, value);
 
     list->size++;
 
@@ -136,7 +147,7 @@ CircularDoubleLinkedListNode* push_back(CircularDoubleLinkedList* list, char* da
     return node;
 }
 
-CircularDoubleLinkedListNode* push_front(CircularDoubleLinkedList* list, char* value)
+CircularDoubleLinkedListNode* push_front(CircularDoubleLinkedList* list, void* value)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");
@@ -144,7 +155,10 @@ CircularDoubleLinkedListNode* push_front(CircularDoubleLinkedList* list, char* v
     }
 
     CircularDoubleLinkedListNode* node = (CircularDoubleLinkedListNode*) malloc(sizeof(CircularDoubleLinkedListNode));
-    strcpy(node->data, value);
+    alloc_buffer(list, node);
+    list->copy_value_to_node(node, value);
+
+    list->setup_buffer_length(node, value);
 
     list->size++;
 
