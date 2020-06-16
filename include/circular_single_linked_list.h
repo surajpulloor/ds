@@ -5,6 +5,7 @@
 #define MAX_CHARS_BUFFER 10000
 
 #include <stdbool.h>
+#include <stdio.h>
 
 typedef struct CircularSLLNode {
 	void* buffer;
