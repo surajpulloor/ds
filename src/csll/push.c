@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-CircularSingleLinkedListNode* push_before(CircularSingleLinkedList* list, char* value, int index)
+CircularSingleLinkedListNode* push_before(CircularSingleLinkedList* list, void* value, int index)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");
@@ -28,6 +28,8 @@ CircularSingleLinkedListNode* push_before(CircularSingleLinkedList* list, char* 
     CircularSingleLinkedListNode* newNode = (CircularSingleLinkedListNode*) malloc(sizeof(CircularSingleLinkedListNode));
     alloc_buffer(list, newNode);
     list->copy_value_to_node(newNode, value);
+
+    list->setup_buffer_length(newNode, value);
 
     CircularSingleLinkedListNode* node = list->front;
     CircularSingleLinkedListNode* previousNode = NULL;
@@ -60,7 +62,7 @@ CircularSingleLinkedListNode* push_before(CircularSingleLinkedList* list, char* 
 
 }
 
-CircularSingleLinkedListNode* push_after(CircularSingleLinkedList* list, char* value, int index)
+CircularSingleLinkedListNode* push_after(CircularSingleLinkedList* list, void* value, int index)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");
@@ -85,6 +87,8 @@ CircularSingleLinkedListNode* push_after(CircularSingleLinkedList* list, char* v
     CircularSingleLinkedListNode* newNode = (CircularSingleLinkedListNode*) malloc(sizeof(CircularSingleLinkedListNode));
     alloc_buffer(list, newNode);
     list->copy_value_to_node(newNode, value);
+
+    list->setup_buffer_length(newNode, value);
 
     CircularSingleLinkedListNode* node = list->front;
     int i = 1;
@@ -111,7 +115,7 @@ CircularSingleLinkedListNode* push_after(CircularSingleLinkedList* list, char* v
 }
 
 
-CircularSingleLinkedListNode* push_back(CircularSingleLinkedList* list, char* data)
+CircularSingleLinkedListNode* push_back(CircularSingleLinkedList* list, void* value)
 {
     if (list == NULL) {
         printf("error: the list doesn't exist. please create one.\n");
@@ -120,7 +124,9 @@ CircularSingleLinkedListNode* push_back(CircularSingleLinkedList* list, char* da
 
     CircularSingleLinkedListNode* node = (CircularSingleLinkedListNode*) malloc(sizeof(CircularSingleLinkedListNode));
     alloc_buffer(list, node);
-    list->copy_value_to_node(node, data);
+    list->copy_value_to_node(node, value);
+
+    list->setup_buffer_length(node, value);
 
     list->size++;
 
@@ -136,7 +142,7 @@ CircularSingleLinkedListNode* push_back(CircularSingleLinkedList* list, char* da
     return node;
 }
 
-CircularSingleLinkedListNode* push_front(CircularSingleLinkedList* list, char* value)
+CircularSingleLinkedListNode* push_front(CircularSingleLinkedList* list, void* value)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please create one.\n");
@@ -146,6 +152,8 @@ CircularSingleLinkedListNode* push_front(CircularSingleLinkedList* list, char* v
     CircularSingleLinkedListNode* node = (CircularSingleLinkedListNode*) malloc(sizeof(CircularSingleLinkedListNode));
     alloc_buffer(list, node);
     list->copy_value_to_node(node, value);
+
+    list->setup_buffer_length(node, value);
 
     list->size++;
 
