@@ -26,13 +26,15 @@ void free_list(CircularSingleLinkedList** list)
         *list = NULL;
         return;
     }
+
+    CircularSingleLinkedListNode* node = (*list)->front;
     
-    for (CircularSingleLinkedListNode* node = (*list)->front; node; ) {
+    do {
         CircularSingleLinkedListNode* nxtNode = node->next;
         free_buffer(node);
         free(node);
         node = nxtNode;
-    }
+    } while (node != (*list)->front);
 
     free(*list);
     *list = NULL;
