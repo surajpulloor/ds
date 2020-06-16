@@ -1,4 +1,4 @@
-#include "../../include/circular_single_linked_list.h"
+#include "circular_single_linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,7 +26,8 @@ CircularSingleLinkedListNode* push_before(CircularSingleLinkedList* list, char* 
     }
 
     CircularSingleLinkedListNode* newNode = (CircularSingleLinkedListNode*) malloc(sizeof(CircularSingleLinkedListNode));
-    strcpy(newNode->data, value);
+    alloc_buffer(list, newNode);
+    list->copy_value_to_node(newNode, value);
 
     CircularSingleLinkedListNode* node = list->front;
     CircularSingleLinkedListNode* previousNode = NULL;
@@ -82,7 +83,8 @@ CircularSingleLinkedListNode* push_after(CircularSingleLinkedList* list, char* v
     }
 
     CircularSingleLinkedListNode* newNode = (CircularSingleLinkedListNode*) malloc(sizeof(CircularSingleLinkedListNode));
-    strcpy(newNode->data, value);
+    alloc_buffer(list, newNode);
+    list->copy_value_to_node(newNode, value);
 
     CircularSingleLinkedListNode* node = list->front;
     int i = 1;
@@ -117,7 +119,8 @@ CircularSingleLinkedListNode* push_back(CircularSingleLinkedList* list, char* da
     }
 
     CircularSingleLinkedListNode* node = (CircularSingleLinkedListNode*) malloc(sizeof(CircularSingleLinkedListNode));
-    strcpy(node->data, data);
+    alloc_buffer(list, node);
+    list->copy_value_to_node(node, data);
 
     list->size++;
 
@@ -141,7 +144,8 @@ CircularSingleLinkedListNode* push_front(CircularSingleLinkedList* list, char* v
     }
 
     CircularSingleLinkedListNode* node = (CircularSingleLinkedListNode*) malloc(sizeof(CircularSingleLinkedListNode));
-    strcpy(node->data, value);
+    alloc_buffer(list, node);
+    list->copy_value_to_node(node, value);
 
     list->size++;
 

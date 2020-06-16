@@ -1,4 +1,4 @@
-#include "../../include/circular_single_linked_list.h"
+#include "circular_single_linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,7 +24,7 @@ void pop_front(CircularSingleLinkedList* list)
     pop_front_v(list, NULL);
 }
 
-char* pop_before_v(CircularSingleLinkedList* list, int index, char* buffer)
+void* pop_before_v(CircularSingleLinkedList* list, int index, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists. please create one\n");
@@ -66,7 +66,9 @@ char* pop_before_v(CircularSingleLinkedList* list, int index, char* buffer)
     }
 
     if (buffer) // only copy if buffer exists
-        strcpy(buffer, previousNode->data);
+        list->copy_value_to_buffer(buffer, previousNode);
+
+    free_buffer(previousNode);
 
     free(previousNode);
 
@@ -77,7 +79,7 @@ char* pop_before_v(CircularSingleLinkedList* list, int index, char* buffer)
     return buffer;
 }
 
-char* pop_after_v(CircularSingleLinkedList* list, int index, char* buffer)
+void* pop_after_v(CircularSingleLinkedList* list, int index, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists\n");
@@ -115,7 +117,9 @@ char* pop_after_v(CircularSingleLinkedList* list, int index, char* buffer)
     }
 
     if (buffer) // only copy if buffer isn't empty
-        strcpy(buffer, nextNode->data);
+        list->copy_value_to_buffer(buffer, nextNode);
+
+    free_buffer(nextNode);
 
     free(nextNode);
 
@@ -126,7 +130,7 @@ char* pop_after_v(CircularSingleLinkedList* list, int index, char* buffer)
 }
 
 
-char* pop_back_v(CircularSingleLinkedList* list, char* buffer)
+void* pop_back_v(CircularSingleLinkedList* list, void* buffer)
 {
     if (list == NULL) {
         printf("error: the list doesn't exist. please create one.\n");
@@ -143,7 +147,9 @@ char* pop_back_v(CircularSingleLinkedList* list, char* buffer)
         ;
 
     if (buffer)
-        strcpy(buffer, list->rear->data);
+        list->copy_value_to_buffer(buffer, list->rear);
+
+    free_buffer(list->rear);
     
     node->next = NULL;
     free(list->rear);
@@ -158,7 +164,7 @@ char* pop_back_v(CircularSingleLinkedList* list, char* buffer)
     return buffer;
 }
 
-char* pop_front_v(CircularSingleLinkedList* list, char* buffer)
+void* pop_front_v(CircularSingleLinkedList* list, void* buffer)
 {
     if (list == NULL) {
         printf("error: list doesn't exists. please create one\n");
@@ -172,7 +178,9 @@ char* pop_front_v(CircularSingleLinkedList* list, char* buffer)
 
     // copy data to buffer
     if (buffer)
-        strcpy(buffer, list->front->data);
+        list->copy_value_to_buffer(buffer, list->front);
+
+    free_buffer(list->front);
 
     CircularSingleLinkedListNode* nextNode = list->front->next;
     free(list->front);
