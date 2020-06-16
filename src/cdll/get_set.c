@@ -1,9 +1,9 @@
-#include "../../include/circular_double_linked_list.h"
+#include "circular_double_linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-char* get(CircularDoubleLinkedList* list, int index, char* buffer)
+void* get(CircularDoubleLinkedList* list, int index, void* buffer)
 {
     if (list == NULL) {
         printf("error: List is empty. Please insert something in it.\n");
@@ -27,14 +27,14 @@ char* get(CircularDoubleLinkedList* list, int index, char* buffer)
 
             
     if (index == list->size)
-        strcpy(buffer, list->rear->data);
+        list->copy_value_to_buffer(buffer, list->rear);
     else {
         int i = 1;
         for (CircularDoubleLinkedListNode* node = list->front; i < list->size; i++, node = node->next)
             if (i == index) {
 
                 if (buffer)
-                    strcpy(buffer, node->data);
+                    list->copy_value_to_buffer(buffer, node);
                 break;
 
             }
@@ -43,7 +43,7 @@ char* get(CircularDoubleLinkedList* list, int index, char* buffer)
     return buffer;
 }
 
-void set(CircularDoubleLinkedList* list, int index, char* value)
+void set(CircularDoubleLinkedList* list, int index, void* value)
 {
     if (list == NULL) {
         printf("error: List is empty. Please insert something in it.\n");
@@ -66,12 +66,12 @@ void set(CircularDoubleLinkedList* list, int index, char* value)
     }
 
     if (index == list->size)
-        strcpy(list->rear->data, value);
+        list->copy_value_to_node(list->rear, value);
     else {
         int i = 1;
         for (CircularDoubleLinkedListNode* node = list->front; i < list->size; i++, node = node->next)
             if (i == index) {
-                strcpy(node->data, value);
+                list->copy_value_to_node(node, value);
                 break;
             }
     }
