@@ -1,10 +1,10 @@
-#include "../../include/circular_double_linked_list.h"
+#include "circular_double_linked_list.h"
 #include <stdio.h>
 
 int main()
 {
 
-    CircularDoubleLinkedList* list = init_list();
+    CircularDoubleLinkedList* list = init_list_char_ptr();
 
     printf("Push Elements\n");
     push_front(list, "Hello, World");
@@ -23,19 +23,19 @@ int main()
 
     printf("Pop_front 4 values\n");
 
-    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    printf("Value = %s\n", (char*) pop_after_v(list, 1, buffer));
     // print_list(list);
-    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    printf("Value = %s\n", (char*) pop_after_v(list, 1, buffer));
     // print_list(list);
-    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    printf("Value = %s\n", (char*) pop_after_v(list, 1, buffer));
     // print_list(list);
-    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    printf("Value = %s\n", (char*) pop_after_v(list, 1, buffer));
     // print_list(list);
-    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    printf("Value = %s\n", (char*) pop_after_v(list, 1, buffer));
     // print_list(list);
-    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    printf("Value = %s\n", (char*) pop_after_v(list, 1, buffer));
     // print_list(list);
-    printf("Value = %s\n", pop_after_v(list, 1, buffer));
+    printf("Value = %s\n", (char*) pop_after_v(list, 1, buffer));
 
     print_list(list);
 
