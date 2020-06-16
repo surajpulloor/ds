@@ -199,23 +199,23 @@ void setup_buffer_length_func(
 
 // **** END: SETUP_BUFFER_LENGTH FUNCTIONS *** //
 
-CircularSingleLinkedListNode* push_before(CircularSingleLinkedList*, char*, int);
-CircularSingleLinkedListNode* push_after(CircularSingleLinkedList*, char*, int);
-CircularSingleLinkedListNode* push_back(CircularSingleLinkedList*, char*);
-CircularSingleLinkedListNode* push_front(CircularSingleLinkedList*, char*);
+CircularSingleLinkedListNode* push_before(CircularSingleLinkedList*, void*, int);
+CircularSingleLinkedListNode* push_after(CircularSingleLinkedList*, void*, int);
+CircularSingleLinkedListNode* push_back(CircularSingleLinkedList*, void*);
+CircularSingleLinkedListNode* push_front(CircularSingleLinkedList*, void*);
 
 void pop_before(CircularSingleLinkedList*, int);
 void pop_after(CircularSingleLinkedList*, int);
 void pop_back(CircularSingleLinkedList*);
 void pop_front(CircularSingleLinkedList*);
 
-char* pop_before_v(CircularSingleLinkedList*, int, char*);
-char* pop_after_v(CircularSingleLinkedList*, int, char*);
-char* pop_back_v(CircularSingleLinkedList*, char*);
-char* pop_front_v(CircularSingleLinkedList*, char*);
+void* pop_before_v(CircularSingleLinkedList*, int, void*);
+void* pop_after_v(CircularSingleLinkedList*, int, void*);
+void* pop_back_v(CircularSingleLinkedList*, void*);
+void* pop_front_v(CircularSingleLinkedList*, void*);
 
-char* get(CircularSingleLinkedList*, int, char*);
-void set(CircularSingleLinkedList*, int, char*);
+void* get(CircularSingleLinkedList*, int, void*);
+void set(CircularSingleLinkedList*, int, void*);
 
 void free_list(CircularSingleLinkedList**);
 void print_list(CircularSingleLinkedList*);
