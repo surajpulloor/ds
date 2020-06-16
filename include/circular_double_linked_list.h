@@ -8,7 +8,7 @@
 #include <stdio.h>
 
 typedef struct CircularDLLNode {
-	void* data;
+	void* buffer;
 	struct CircularDLLNode* prev;
 	struct CircularDLLNode* next;
 
