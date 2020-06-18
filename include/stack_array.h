@@ -5,43 +5,51 @@
 #define MAX_CHARS 1000
 #define MAX_CHARS_BUFFER_SPRINTF 10000
 
+#include <stdio.h>
+
 typedef struct {
     void** buffer;
     int top;
     int largestString;
+
+	size_t type_size;
+
+	void (*copy_value_to_node)(Stack_Array*, void*);
+	void (*copy_value_to_buffer)(void*, Stack_Array*);
+
 } Stack_Array;
 
 
 // **** START: INIT FUNCTIONS *** //
 
 // Main init function
-Stack_Array* init_list(size_t);
+Stack_Array* init_stack(size_t);
 
 
 // Integer init function
-Stack_Array* init_list_short();
-Stack_Array* init_list_unsigned_short();
-Stack_Array* init_list_int();
-Stack_Array* init_list_unsigned_int();
-Stack_Array* init_list_long();
-Stack_Array* init_list_unsigned_long();
-Stack_Array* init_list_long_long();
-Stack_Array* init_list_unsigned_long_long();
+Stack_Array* init_stack_short();
+Stack_Array* init_stack_unsigned_short();
+Stack_Array* init_stack_int();
+Stack_Array* init_stack_unsigned_int();
+Stack_Array* init_stack_long();
+Stack_Array* init_stack_unsigned_long();
+Stack_Array* init_stack_long_long();
+Stack_Array* init_stack_unsigned_long_long();
 
 
 // Float init function
-Stack_Array* init_list_float();
-Stack_Array* init_list_double();
-Stack_Array* init_list_long_double();
+Stack_Array* init_stack_float();
+Stack_Array* init_stack_double();
+Stack_Array* init_stack_long_double();
 
 
 // Char init function
-Stack_Array* init_list_char();
-Stack_Array* init_list_unsigned_char();
+Stack_Array* init_stack_char();
+Stack_Array* init_stack_unsigned_char();
 
 
 // Pointer init function
-Stack_Array* init_list_char_ptr();
+Stack_Array* init_stack_char_ptr();
 
 // **** END: INIT FUNCTIONS *** //
 
@@ -108,36 +116,6 @@ void setup_copy_value_funcs(
 
 
 // **** END: COPY_TO_BUFFER FUNCTIONS *** //
-
-
-
-// **** START: SETUP_BUFFER_LENGTH FUNCTIONS *** //
-
-// setup_buffer_length(int)
-void setup_buffer_length_short(Stack_Array*, void*);
-void setup_buffer_length_unsigned_short(Stack_Array*, void*);
-void setup_buffer_length_int(Stack_Array*, void*);
-void setup_buffer_length_unsigned_int(Stack_Array*, void*);
-void setup_buffer_length_long(Stack_Array*, void*);
-void setup_buffer_length_unsigned_long(Stack_Array*, void*);
-void setup_buffer_length_long_long(Stack_Array*, void*);
-void setup_buffer_length_unsigned_long_long(Stack_Array*, void*);
-
-void setup_buffer_length_float(Stack_Array*, void*);
-void setup_buffer_length_double(Stack_Array*, void*);
-void setup_buffer_length_long_double(Stack_Array*, void*);
-
-void setup_buffer_length_char(Stack_Array*, void*);
-void setup_buffer_length_unsigned_char(Stack_Array*, void*);
-
-void setup_buffer_length_char_ptr(Stack_Array*, void*);
-
-void setup_buffer_length_func(
-	Stack_Array*, 
-	void (*)(Stack_Array*, void*)
-);
-
-// **** END: SETUP_BUFFER_LENGTH FUNCTIONS *** //
 
 
 void push(Stack_Array*, void*);
