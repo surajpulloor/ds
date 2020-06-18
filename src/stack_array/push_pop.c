@@ -1,9 +1,9 @@
-#include "../../include/stack_array.h"
+#include "stack_array.h"
 
 #include <stdio.h>
 #include <string.h>
 
-void push(Stack_Array* stack, char* value)
+void push(Stack_Array* stack, void* value)
 {
     if (stack == NULL) {
         printf("error: stack doesn't exists. please create one.\n");
@@ -15,15 +15,14 @@ void push(Stack_Array* stack, char* value)
         return;
     }
 
-    int len = strlen(value);
+    stack->top++;
 
-    if (stack->largestString < len)
-        stack->largestString = len;
+    alloc_buffer(stack);
 
-    strcpy(stack->buffer[++stack->top], value);
+    stack->copy_value_to_node(stack, value);
 }
 
-char* pop(Stack_Array* stack, char* buffer)
+void* pop(Stack_Array* stack, void* buffer)
 {
     if (stack == NULL) {
         printf("error: stack doesn't exists. please create one.\n");
@@ -36,8 +35,13 @@ char* pop(Stack_Array* stack, char* buffer)
     }
 
     if (stack->top == 0)
-        stack->largestString = 0;
+        stack->largest_string = 0;
 
-    return strcpy(buffer, stack->buffer[stack->top--]);
+    
+    stack->copy_value_to_buffer(buffer, stack);
 
+    free_buffer(stack);
+    stack->top--;
+
+    return buffer;
 }
