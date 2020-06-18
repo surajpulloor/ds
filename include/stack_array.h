@@ -6,7 +6,9 @@
 
 #include <stdio.h>
 
-typedef struct {
+typedef struct SA Stack_Array;
+
+struct SA{
     void** buffer;
     int top;
     int largest_string;
@@ -16,9 +18,11 @@ typedef struct {
 	void (*copy_value_to_node)(Stack_Array*, void*);
 	void (*copy_value_to_buffer)(void*, Stack_Array*);
 
+	// generic print_node_value function
+	void (*print_node_value)(Stack_Array*);
 	void (*setup_largest_string_length)(Stack_Array*, void*);
 
-} Stack_Array;
+};
 
 
 // **** START: INIT FUNCTIONS *** //
@@ -126,6 +130,39 @@ void setup_copy_value_funcs(
 
 
 // **** END: COPY_TO_BUFFER FUNCTIONS *** //
+
+
+// **** START: PRINT_NODE_VALUE FUNCTIONS *** //
+
+// print_node_value (int)
+void print_node_value_short(Stack_Array*, int);
+void print_node_value_unsigned_short(Stack_Array*, int);
+void print_node_value_int(Stack_Array*, int);
+void print_node_value_unsigned_int(Stack_Array*, int);
+void print_node_value_long(Stack_Array*, int);
+void print_node_value_unsigned_long(Stack_Array*, int);
+void print_node_value_long_long(Stack_Array*, int);
+void print_node_value_unsigned_long_long(Stack_Array*, int);
+
+// print_node_value (float)
+void print_node_value_float(Stack_Array*, int);
+void print_node_value_double(Stack_Array*, int);
+void print_node_value_long_double(Stack_Array*, int);
+
+// print_node_value (char)
+void print_node_value_char(Stack_Array*, int);
+void print_node_value_unsigned_char(Stack_Array*, int);
+
+// print_node_value (pointer)
+void print_node_value_char_ptr(Stack_Array*, int);
+
+
+void setup_print_node_value_func(
+	Stack_Array*, 
+	void (*)(Stack_Array*, int)
+);
+
+// **** END: PRINT_NODE_VALUE FUNCTIONS *** //
 
 
 // **** START: SETUP_LARGEST_STRING_LENGTH FUNCTIONS *** //
