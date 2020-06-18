@@ -55,6 +55,15 @@ Stack_Array* init_stack_char_ptr();
 // **** END: INIT FUNCTIONS *** //
 
 
+// **** START: ALLOC&FREE FUNCTIONS *** //
+
+// Allocation and Free buffer functions
+void* alloc_buffer(Stack_Array*);
+void free_buffer(Stack_Array*);
+
+// **** END: ALLOC&FREE FUNCTIONS *** //
+
+
 // **** START: COPY_TO_NODE FUNCTIONS *** //
 
 // copy_to_node (int)
