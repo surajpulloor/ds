@@ -23,9 +23,9 @@ void print_stack(Stack_Array* stack, int top)
     
     printf(" +\n");
 
-    printf("| %s", stack->buffer[top]);
+    printf("| ");
 
-    int len = strlen(stack->buffer[top]);
+    int len = stack->print_node_value(stack, top);
 
     for (int i = 1; i <= stack->largest_string - len; i++)
         printf(" ");
