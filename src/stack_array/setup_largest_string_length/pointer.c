@@ -1,8 +1,11 @@
 #include "stack_array.h"
 #include <stdio.h>
 
-void setup_largest_string_char_ptr(Stack_Array* node, void* value)
+void setup_largest_string_char_ptr(Stack_Array* stack, void* value)
 {
     char buffer[MAX_CHARS_BUFFER];
-    node->largest_string = sprintf(buffer, "%s", (char*) value);
+    int len = sprintf(buffer, "%s", (char*) value);
+
+    if (stack->largest_string < len)
+        stack->largest_string = len;
 }
