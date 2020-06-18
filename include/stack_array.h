@@ -9,12 +9,14 @@
 typedef struct {
     void** buffer;
     int top;
-    int largestString;
+    int largest_string;
 
 	size_t type_size;
 
 	void (*copy_value_to_node)(Stack_Array*, void*);
 	void (*copy_value_to_buffer)(void*, Stack_Array*);
+
+	void (*setup_largest_string_length)(Stack_Array*, void*);
 
 } Stack_Array;
 
@@ -115,6 +117,36 @@ void setup_copy_value_funcs(
 
 
 // **** END: COPY_TO_BUFFER FUNCTIONS *** //
+
+
+// **** START: SETUP_LARGEST_STRING_LENGTH FUNCTIONS *** //
+
+// setup_largest_string_length(int)
+void setup_largest_string_length_short(Stack_Array*, void*);
+void setup_largest_string_length_unsigned_short(Stack_Array*, void*);
+void setup_largest_string_length_int(Stack_Array*, void*);
+void setup_largest_string_length_unsigned_int(Stack_Array*, void*);
+void setup_largest_string_length_long(Stack_Array*, void*);
+void setup_largest_string_length_unsigned_long(Stack_Array*, void*);
+void setup_largest_string_length_long_long(Stack_Array*, void*);
+void setup_largest_string_length_unsigned_long_long(Stack_Array*, void*);
+
+void setup_largest_string_length_float(Stack_Array*, void*);
+void setup_largest_string_length_double(Stack_Array*, void*);
+void setup_largest_string_length_long_double(Stack_Array*, void*);
+
+void setup_largest_string_length_char(Stack_Array*, void*);
+void setup_largest_string_length_unsigned_char(Stack_Array*, void*);
+
+void setup_largest_string_length_char_ptr(Stack_Array*, void*);
+
+void setup_largest_string_length_func(
+	Stack_Array*, 
+	void (*)(Stack_Array*, void*)
+);
+
+// **** END: SETUP_LARGEST_STRING_LENGTH FUNCTIONS *** //
+
 
 
 void push(Stack_Array*, void*);
