@@ -2,7 +2,7 @@
 #define _STACK_ARRAY_H
 
 #define MAX_BUFFER 1000
-#define MAX_CHARS 1000
+#define MAX_CHARS_BUFFER 1000
 
 #include <stdio.h>
 
