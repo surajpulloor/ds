@@ -23,7 +23,7 @@ typedef struct {
 // **** START: INIT FUNCTIONS *** //
 
 // Main init function
-Stack_Array* init_stack(size_t);
+Stack_Array* init_stack(size_t, size_t);
 
 
 // Integer init function
