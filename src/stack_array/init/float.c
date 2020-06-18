@@ -8,7 +8,8 @@ Stack_Array* init_stack_float()
     stack->copy_value_to_node = copy_value_to_node_float;
     stack->copy_value_to_buffer = copy_value_to_buffer_float;
     stack->setup_largest_string_length = setup_largest_string_length_float;
-    
+    stack->print_node_value = print_node_value_float;
+
     return stack;
 }
 
@@ -19,7 +20,8 @@ Stack_Array* init_stack_double()
     stack->copy_value_to_node = copy_value_to_node_double;
     stack->copy_value_to_buffer = copy_value_to_buffer_double;
     stack->setup_largest_string_length = setup_largest_string_length_double;
-    
+    stack->print_node_value = print_node_value_double;
+
     return stack;
 }
 
@@ -30,6 +32,7 @@ Stack_Array* init_stack_long_double()
     stack->copy_value_to_node = copy_value_to_node_long_double;
     stack->copy_value_to_buffer = copy_value_to_buffer_long_double;
     stack->setup_largest_string_length = setup_largest_string_length_long_double;
-    
+    stack->print_node_value = print_node_value_long_double;
+
     return stack;
 }
