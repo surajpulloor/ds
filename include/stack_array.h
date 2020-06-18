@@ -3,7 +3,6 @@
 
 #define MAX_BUFFER 1000
 #define MAX_CHARS 1000
-#define MAX_CHARS_BUFFER_SPRINTF 10000
 
 #include <stdio.h>
 
