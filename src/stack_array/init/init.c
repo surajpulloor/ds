@@ -11,7 +11,7 @@ Stack_Array* init_stack(size_t type_size, size_t type_ptr_size)
     stack->buffer = malloc(type_ptr_size * MAX_BUFFER);
 
     stack->top = -1;
-    stack->largestString = 0;
+    stack->largest_string = 0;
 
     stack->type_size = type_size;
 

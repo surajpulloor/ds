@@ -6,6 +6,7 @@ Stack_Array* init_stack_short()
     
     stack->copy_value_to_node = copy_value_to_node_short;
     stack->copy_value_to_buffer = copy_value_to_buffer_short;
+    stack->setup_largest_string_length = setup_largest_string_length_short;
     
     return stack;
 }
@@ -16,6 +17,7 @@ Stack_Array* init_stack_unsigned_short()
     
     stack->copy_value_to_node = copy_value_to_node_unsigned_short;
     stack->copy_value_to_buffer = copy_value_to_buffer_unsigned_short;
+    stack->setup_largest_string_length = setup_largest_string_length_unsigned_short;
     
     return stack;
 }
@@ -27,6 +29,7 @@ Stack_Array* init_stack_int()
     
     stack->copy_value_to_node = copy_value_to_node_int;
     stack->copy_value_to_buffer = copy_value_to_buffer_int;
+    stack->setup_largest_string_length = setup_largest_string_length_int;
     
     return stack;
 }
@@ -37,6 +40,7 @@ Stack_Array* init_stack_unsigned_int()
     
     stack->copy_value_to_node = copy_value_to_node_unsigned_int;
     stack->copy_value_to_buffer = copy_value_to_buffer_unsigned_int;
+    stack->setup_largest_string_length = setup_largest_string_length_unsigned_int;
     
     return stack;
 }
@@ -47,6 +51,7 @@ Stack_Array* init_stack_long()
     
     stack->copy_value_to_node = copy_value_to_node_long;
     stack->copy_value_to_buffer = copy_value_to_buffer_long;
+    stack->setup_largest_string_length = setup_largest_string_length_long;
     
     return stack;
 }
@@ -57,6 +62,7 @@ Stack_Array* init_stack_unsigned_long()
     
     stack->copy_value_to_node = copy_value_to_node_unsigned_long;
     stack->copy_value_to_buffer = copy_value_to_buffer_unsigned_long;
+    stack->setup_largest_string_length = setup_largest_string_length_unsigned_long;
     
     return stack;
 }
@@ -67,6 +73,7 @@ Stack_Array* init_stack_long_long()
     
     stack->copy_value_to_node = copy_value_to_node_long_long;
     stack->copy_value_to_buffer = copy_value_to_buffer_long_long;
+    stack->setup_largest_string_length = setup_largest_string_length_long_long;
     
     return stack;
 }
@@ -77,6 +84,7 @@ Stack_Array* init_stack_unsigned_long_long()
     
     stack->copy_value_to_node = copy_value_to_node_unsigned_long_long;
     stack->copy_value_to_buffer = copy_value_to_buffer_unsigned_long_long;
+    stack->setup_largest_string_length = setup_largest_string_length_unsigned_long_long;
     
     return stack;
 }

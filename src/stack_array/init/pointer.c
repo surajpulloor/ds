@@ -6,6 +6,7 @@ Stack_Array* init_stack_char_ptr()
     
     stack->copy_value_to_node = copy_value_to_node_char_ptr;
     stack->copy_value_to_buffer = copy_value_to_buffer_char_ptr;
+    stack->setup_largest_string_length = setup_largest_string_length_char_ptr;
     
     return stack;
 }
