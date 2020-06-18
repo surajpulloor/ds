@@ -17,6 +17,8 @@ void push(Stack_Array* stack, void* value)
 
     stack->top++;
 
+    stack->setup_largest_string_length(stack, value);
+
     alloc_buffer(stack);
 
     stack->copy_value_to_node(stack, value);
