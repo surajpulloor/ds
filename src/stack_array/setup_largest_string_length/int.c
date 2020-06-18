@@ -1,7 +1,7 @@
 #include "stack_array.h"
 #include <stdio.h>
 
-void setup_largest_string_short(Stack_Array* stack, void* value)
+void setup_largest_string_length_short(Stack_Array* stack, void* value)
 {
     char buffer[MAX_CHARS_BUFFER];
     int len = sprintf(buffer, "%hi", *(short*) value);
@@ -11,7 +11,7 @@ void setup_largest_string_short(Stack_Array* stack, void* value)
     
 }
 
-void setup_largest_string_unsigned_short(Stack_Array* stack, void* value)
+void setup_largest_string_length_unsigned_short(Stack_Array* stack, void* value)
 {
     char buffer[MAX_CHARS_BUFFER];
     int len = sprintf(buffer, "%hu", *(unsigned short*) value);
@@ -20,7 +20,7 @@ void setup_largest_string_unsigned_short(Stack_Array* stack, void* value)
         stack->largest_string = len;
 }
 
-void setup_largest_string_int(Stack_Array* stack, void* value)
+void setup_largest_string_length_int(Stack_Array* stack, void* value)
 {
     char buffer[MAX_CHARS_BUFFER];
     int len = sprintf(buffer, "%d", *(int*) value);
@@ -29,7 +29,7 @@ void setup_largest_string_int(Stack_Array* stack, void* value)
         stack->largest_string = len;
 }
 
-void setup_largest_string_unsigned_int(Stack_Array* stack, void* value)
+void setup_largest_string_length_unsigned_int(Stack_Array* stack, void* value)
 {
     char buffer[MAX_CHARS_BUFFER];
     int len = sprintf(buffer, "%u", *(unsigned int*) value);
@@ -38,7 +38,7 @@ void setup_largest_string_unsigned_int(Stack_Array* stack, void* value)
         stack->largest_string = len;
 }
 
-void setup_largest_string_long(Stack_Array* stack, void* value)
+void setup_largest_string_length_long(Stack_Array* stack, void* value)
 {
     char buffer[MAX_CHARS_BUFFER];
     int len = sprintf(buffer, "%ld", *(long*) value);
@@ -47,7 +47,7 @@ void setup_largest_string_long(Stack_Array* stack, void* value)
         stack->largest_string = len;
 }
 
-void setup_largest_string_unsigned_long(Stack_Array* stack, void* value)
+void setup_largest_string_length_unsigned_long(Stack_Array* stack, void* value)
 {
     char buffer[MAX_CHARS_BUFFER];
     int len = sprintf(buffer, "%lu", *(unsigned long*) value);
@@ -56,7 +56,7 @@ void setup_largest_string_unsigned_long(Stack_Array* stack, void* value)
         stack->largest_string = len;
 }
 
-void setup_largest_string_long_long(Stack_Array* stack, void* value)
+void setup_largest_string_length_long_long(Stack_Array* stack, void* value)
 {
     char buffer[MAX_CHARS_BUFFER];
     int len = sprintf(buffer, "%lld", *(long long*) value);
@@ -65,7 +65,7 @@ void setup_largest_string_long_long(Stack_Array* stack, void* value)
         stack->largest_string = len;
 }
 
-void setup_largest_string_unsigned_long_long(Stack_Array* stack, void* value)
+void setup_largest_string_length_unsigned_long_long(Stack_Array* stack, void* value)
 {
     char buffer[MAX_CHARS_BUFFER];
     int len = sprintf(buffer, "%llu", *(unsigned long long*) value);

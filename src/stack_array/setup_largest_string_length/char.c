@@ -1,7 +1,7 @@
 #include "stack_array.h"
 #include <stdio.h>
 
-void setup_largest_string_char(Stack_Array* stack, void* value)
+void setup_largest_string_length_char(Stack_Array* stack, void* value)
 {
     char buffer[MAX_CHARS_BUFFER];
     int len = sprintf(buffer, "%c", *(char*) value);
@@ -10,7 +10,7 @@ void setup_largest_string_char(Stack_Array* stack, void* value)
         stack->largest_string = len;
 }
 
-void setup_largest_string_unsigned_char(Stack_Array* stack, void* value)
+void setup_largest_string_length_unsigned_char(Stack_Array* stack, void* value)
 {
     char buffer[MAX_CHARS_BUFFER];
     int len = sprintf(buffer, "%c", *(unsigned char*) value);
