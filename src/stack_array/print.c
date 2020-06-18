@@ -18,7 +18,7 @@ void print_stack(Stack_Array* stack, int top)
 
     printf("+ ");
 
-    for (int i = 1; i <= stack->largestString; i++)
+    for (int i = 1; i <= stack->largest_string; i++)
         printf("-");
     
     printf(" +\n");
@@ -27,7 +27,7 @@ void print_stack(Stack_Array* stack, int top)
 
     int len = strlen(stack->buffer[top]);
 
-    for (int i = 1; i <= stack->largestString - len; i++)
+    for (int i = 1; i <= stack->largest_string - len; i++)
         printf(" ");
     
     printf(" |\n");
@@ -36,7 +36,7 @@ void print_stack(Stack_Array* stack, int top)
         
         printf("+ ");
 
-        for (int i = 1; i <= stack->largestString; i++)
+        for (int i = 1; i <= stack->largest_string; i++)
             printf("-");
         
         printf(" +\n");
