@@ -1,17 +1,8 @@
-#include "../../include/stack_array.h"
+#include "stack_array.h"
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-Stack_Array* init_stack()
-{
-    Stack_Array* stack = (Stack_Array*) malloc(sizeof(Stack_Array));
-    stack->top = -1;
-    stack->largestString = 0;
-
-    return stack;
-}
 
 void print_stack(Stack_Array* stack, int top)
 {
@@ -53,15 +44,4 @@ void print_stack(Stack_Array* stack, int top)
     }
 
     print_stack(stack, top - 1);
-}
-
-void free_stack(Stack_Array** stack)
-{
-    if (stack == NULL) {
-        printf("error: stack doesn't exists. please create one.\n");
-        return;
-    }
-
-    free(*stack);
-    *stack = NULL;
 }
