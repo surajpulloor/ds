@@ -12,7 +12,7 @@ void setup_copy_value_funcs(
 
 void setup_print_node_value_func(
 	SingleLinkedList* list, 
-	void (*print_node_value)(SingleLinkedListNode*)
+	int (*print_node_value)(SingleLinkedListNode*)
 )
 {
     list->print_node_value = print_node_value;

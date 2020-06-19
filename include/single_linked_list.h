@@ -164,7 +164,7 @@ int print_node_value_char_ptr(SingleLinkedListNode*);
 
 void setup_print_node_value_func(
 	SingleLinkedList*, 
-	void (*)(SingleLinkedListNode*)
+	int (*)(SingleLinkedListNode*)
 );
 
 // **** END: PRINT_NODE_VALUE FUNCTIONS *** //
