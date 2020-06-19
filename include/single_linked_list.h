@@ -25,7 +25,7 @@ typedef struct {
 	void (*copy_value_to_buffer)(void*, SingleLinkedListNode*);
 
 	// generic print_node_value function
-	void (*print_node_value)(SingleLinkedListNode*);
+	int (*print_node_value)(SingleLinkedListNode*);
 	void (*setup_buffer_length)(SingleLinkedListNode*, void*);
 
 } SingleLinkedList;
@@ -140,26 +140,26 @@ void setup_copy_value_funcs(
 // **** START: PRINT_NODE_VALUE FUNCTIONS *** //
 
 // print_node_value (int)
-void print_node_value_short(SingleLinkedListNode*);
-void print_node_value_unsigned_short(SingleLinkedListNode*);
-void print_node_value_int(SingleLinkedListNode*);
-void print_node_value_unsigned_int(SingleLinkedListNode*);
-void print_node_value_long(SingleLinkedListNode*);
-void print_node_value_unsigned_long(SingleLinkedListNode*);
-void print_node_value_long_long(SingleLinkedListNode*);
-void print_node_value_unsigned_long_long(SingleLinkedListNode*);
+int print_node_value_short(SingleLinkedListNode*);
+int print_node_value_unsigned_short(SingleLinkedListNode*);
+int print_node_value_int(SingleLinkedListNode*);
+int print_node_value_unsigned_int(SingleLinkedListNode*);
+int print_node_value_long(SingleLinkedListNode*);
+int print_node_value_unsigned_long(SingleLinkedListNode*);
+int print_node_value_long_long(SingleLinkedListNode*);
+int print_node_value_unsigned_long_long(SingleLinkedListNode*);
 
 // print_node_value (float)
-void print_node_value_float(SingleLinkedListNode*);
-void print_node_value_double(SingleLinkedListNode*);
-void print_node_value_long_double(SingleLinkedListNode*);
+int print_node_value_float(SingleLinkedListNode*);
+int print_node_value_double(SingleLinkedListNode*);
+int print_node_value_long_double(SingleLinkedListNode*);
 
 // print_node_value (char)
-void print_node_value_char(SingleLinkedListNode*);
-void print_node_value_unsigned_char(SingleLinkedListNode*);
+int print_node_value_char(SingleLinkedListNode*);
+int print_node_value_unsigned_char(SingleLinkedListNode*);
 
 // print_node_value (pointer)
-void print_node_value_char_ptr(SingleLinkedListNode*);
+int print_node_value_char_ptr(SingleLinkedListNode*);
 
 
 void setup_print_node_value_func(
