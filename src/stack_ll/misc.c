@@ -4,15 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-Stack_Linked_List* init_stack()
-{
-    Stack_Linked_List* stack = (Stack_Linked_List*) malloc(sizeof(Stack_Linked_List));
-    stack->list = init_list();
-    stack->largestString = 0;
-    stack->top = 0;
-
-    return stack;
-}
 
 void print_stack(Stack_Linked_List* stack)
 {
@@ -37,9 +28,9 @@ void print_stack(Stack_Linked_List* stack)
         
         printf(" +\n");
 
-        printf("| %s", node->data);
+        printf("| ");
 
-        int len = strlen(node->data);
+        int len = stack->list->print_node_value(node);
 
         for (int i = 1; i <= stack->largestString - len; i++)
             printf(" ");
