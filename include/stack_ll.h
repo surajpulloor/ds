@@ -13,8 +13,8 @@ typedef struct {
 
 
 Stack_Linked_List* init_stack();
-void push(Stack_Linked_List*, char*);
-char* pop(Stack_Linked_List*, char*);
+void push(Stack_Linked_List*, void*);
+void* pop(Stack_Linked_List*, void*);
 void print_stack(Stack_Linked_List*);
 void free_stack(Stack_Linked_List**);
 
