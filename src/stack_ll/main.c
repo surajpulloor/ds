@@ -3,7 +3,7 @@
 
 int main()
 {
-    Stack_Linked_List* stack = init_stack();
+    Stack_Linked_List* stack = init_stack_char_ptr();
 
     push(stack, "Oh mu God");
     push(stack, "kick");
@@ -14,12 +14,12 @@ int main()
     print_stack(stack);
 
     char buffer[MAX_CHARS];
-    printf("Value = %s\n", pop(stack, buffer));
-    printf("Value = %s\n", pop(stack, buffer));
-    printf("Value = %s\n", pop(stack, buffer));
-    printf("Value = %s\n", pop(stack, buffer));
-    printf("Value = %s\n", pop(stack, buffer));
-    printf("Value = %s\n", pop(stack, buffer));
+    printf("Value = %s\n", (char*) pop(stack, buffer));
+    printf("Value = %s\n", (char*) pop(stack, buffer));
+    printf("Value = %s\n", (char*) pop(stack, buffer));
+    printf("Value = %s\n", (char*) pop(stack, buffer));
+    printf("Value = %s\n", (char*) pop(stack, buffer));
+    printf("Value = %s\n", (char*) pop(stack, buffer));
 
     print_stack(stack);
 
