@@ -59,8 +59,7 @@ void free_stack(Stack_Linked_List** stack)
         return;
     }
 
-    if ((*stack)->top != 0)
-        free_list(&((*stack)->list));
+    free_list(&((*stack)->list));
         
     free(*stack);
     *stack = NULL;
