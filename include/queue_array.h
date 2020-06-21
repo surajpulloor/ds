@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 typedef struct {
-    char buffer[MAX_BUFFER][MAX_CHARS_BUFFER];
+    void** buffer;
     int front;
     int rear;
     
@@ -161,8 +161,8 @@ void setup_print_node_value_func(
 
 // **** END: PRINT_NODE_VALUE FUNCTIONS *** //
 
-void enqueue(Queue_Array*, char*);
-char* dequeue(Queue_Array*, char*);
+void enqueue(Queue_Array*, void*);
+void* dequeue(Queue_Array*, void*);
 void print_queue(Queue_Array*);
 void free_queue(Queue_Array**);
 
