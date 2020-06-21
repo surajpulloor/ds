@@ -8,13 +8,21 @@ LIB_NAME = queue_ll
 ODIR_QUEUE_LINKED_LIST=$(LIB_NAME)
 ODIR:=$(ODIR)/$(ODIR_QUEUE_LINKED_LIST)
 
+ODIR_INIT=$(ODIR)/$(SRC_INIT)
+
 
 _DEPS_QUEUE_LINKED_LIST = queue_ll.h
 DEPS_QUEUE_LINKED_LIST = $(patsubst %,$(IDIR)/%,$(_DEPS_QUEUE_LINKED_LIST))
 
-# Stack_Array objects recipes
+# Queue_Array objects recipes
 _OBJ_QUEUE_LINKED_LIST = queue_ll.o
 OBJ_QUEUE_LINKED_LIST = $(patsubst %,$(ODIR)/%,$(_OBJ_QUEUE_LINKED_LIST))
+
+_OBJ_QUEUE_LINKED_LIST_TYPE_FUNCTIONS = int.o float.o char.o pointer.o
+_OBJ_QUEUE_LINKED_LIST_INIT_MAIN = init.o
+_OBJ_QUEUE_LINKED_LIST_INIT_MAIN := $(_OBJ_QUEUE_LINKED_LIST_TYPE_FUNCTIONS) $(_OBJ_QUEUE_LINKED_LIST_INIT_MAIN)
+OBJ_QUEUE_LINKED_LIST_INIT = $(patsubst %,$(ODIR_INIT)/%,$(_OBJ_QUEUE_LINKED_LIST_INIT_MAIN))
+
 
 _OBJ_MAIN_QUEUE_LINKED_LIST = queue_ll_test.o
 OBJ_MAIN_QUEUE_LINKED_LIST = $(patsubst %,$(ODIR)/%,$(_OBJ_MAIN_QUEUE_LINKED_LIST))
@@ -27,7 +35,11 @@ $(ODIR)/%.o: %.c $(DEPS_QUEUE_LINKED_LIST)
 		@mkdir -p $(@D)
 		$(CC) -g -c -o $@ $< $(CFLAGS)
 
-$(LIB_DIR)/%.a: $(OBJ_QUEUE_LINKED_LIST)
+$(ODIR_INIT)/%.o: $(SRC_INIT)/%.c $(DEPS_QUEUE_LINKED_LIST)
+		@mkdir -p $(@D)
+		$(CC) -g -c -o $@ $< $(CFLAGS)
+
+$(LIB_DIR)/$(_LIB_NAME): $(OBJ_QUEUE_LINKED_LIST) $(OBJ_QUEUE_LINKED_LIST_INIT)
 		@mkdir -p $(LIB_DIR)
 		ar -rc $@ $^
 
