@@ -12,5 +12,9 @@ Queue_Array* init_queue(size_t type_size, size_t type_ptr_size)
 
     queue->type_size = type_size;
 
+    queue->front = -1;
+    queue->rear = -1;
+
+
     return queue;
 }
