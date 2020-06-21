@@ -1,25 +1,21 @@
-#include "../../include/queue_ll.h"
+#include "queue_ll.h"
 
 int main()
 {
-    Queue_Linked_list* queue = init_queue();
+    Queue_Linked_List* queue = init_queue_float();
 
-    enqueue(queue, "Node 1");
-    enqueue(queue, "Node 2");
-    enqueue(queue, "Node 3");
-    enqueue(queue, "Node 4");
-    enqueue(queue, "Node 5");
-    enqueue(queue, "Node 6");
+    for (float i = 1.3859; i < 1000; i += 0.253)
+        enqueue(queue, &i);
 
     print_queue(queue);
 
     char buffer[MAX_BUFFER];
-    dequeue(queue, buffer);
-    dequeue(queue, buffer);
-    dequeue(queue, buffer);
-    dequeue(queue, buffer);
-    dequeue(queue, buffer);
-    dequeue(queue, buffer);
+    printf("%f\n", *(float*) dequeue(queue, buffer));
+    printf("%f\n", *(float*) dequeue(queue, buffer));
+    printf("%f\n", *(float*) dequeue(queue, buffer));
+    printf("%f\n", *(float*) dequeue(queue, buffer));
+    printf("%f\n", *(float*) dequeue(queue, buffer));
+    printf("%f\n", *(float*) dequeue(queue, buffer));
 
     print_queue(queue);
 
