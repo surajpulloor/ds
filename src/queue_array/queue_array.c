@@ -1,16 +1,9 @@
-#include "../../include/queue_array.h"
+#include "queue_array.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-Queue_Array* init_queue()
-{
-    Queue_Array* queue = (Queue_Array*) malloc(sizeof(Queue_Array));
-
-    queue->front = -1;
-    queue->rear = -1;
-}
 
 void enqueue(Queue_Array* queue, char* value)
 {
@@ -69,16 +62,4 @@ void print_queue(Queue_Array* queue)
     printf("\b\b\b\b\n");
 
     fflush(stdout);
-}
-
-void free_queue(Queue_Array** queue)
-{
-    if (*queue == NULL) {
-        printf("error: queue doesn't exists. please create one before enqueueing.\n");
-        return;
-    }
-
-    free(*queue);
-
-    *queue = NULL;
 }
