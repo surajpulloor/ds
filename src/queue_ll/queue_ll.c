@@ -1,18 +1,10 @@
-#include "../../include/queue_ll.h"
+#include "queue_ll.h"
 
 #include <stdlib.h>
 #include <stdio.h>
 
-Queue_Linked_list* init_queue()
-{
-    Queue_Linked_list* queue = (Queue_Linked_list*) malloc(sizeof(Queue_Linked_list));
-    queue->list = init_list();
-    queue->size = 0;
 
-    return queue;
-}
-
-void enqueue(Queue_Linked_list* queue, char* value)
+void enqueue(Queue_Linked_List* queue, void* value)
 {
     if (queue == NULL) {
         printf("error: the queue doesn't exists. please create one.\n");
@@ -23,7 +15,7 @@ void enqueue(Queue_Linked_list* queue, char* value)
     queue->size++;
 }
 
-char* dequeue(Queue_Linked_list* queue, char* buffer)
+void* dequeue(Queue_Linked_List* queue, void* buffer)
 {
     if (queue == NULL) {
         printf("error: the queue doesn't exists. please create one.\n");
@@ -39,7 +31,7 @@ char* dequeue(Queue_Linked_list* queue, char* buffer)
     return pop_front_v(queue->list, buffer);
 }
 
-void print_queue(Queue_Linked_list* queue)
+void print_queue(Queue_Linked_List* queue)
 {
     if (queue == NULL) {
         printf("error: the queue doesn't exists. please create one.\n");
@@ -51,14 +43,15 @@ void print_queue(Queue_Linked_list* queue)
         return;
     }
 
-    for (SingleLinkedListNode* node = queue->list->front; node; node = node->next)
-        printf("%s <= ", node->data);
+    for (SingleLinkedListNode* node = queue->list->front; node; node = node->next) {
+        queue->list->print_node_value(node);
+        printf(" <= ");
+    }
 
-    printf("\b\b\b\b");
-    fflush(stdout);
+    printf("\n\n");
 }
 
-void free_queue(Queue_Linked_list** queue)
+void free_queue(Queue_Linked_List** queue)
 {
     if (*queue == NULL) {
         printf("error: the queue doesn't exists. please create one.\n");
