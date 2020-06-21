@@ -58,7 +58,6 @@ void print_queue(Queue_Array* queue)
     for (int i = queue->front; i <= queue->rear; i++)
         printf("%s <= ", queue->buffer[i]);
 
-    printf("\b\b\b\b\n");
+    printf("\n\n");
 
-    fflush(stdout);
 }
