@@ -25,33 +25,33 @@ typedef struct {
 // **** START: INIT FUNCTIONS *** //
 
 // Main init function
-Queue_Array* init_stack(size_t, size_t);
+Queue_Array* init_queue(size_t, size_t);
 
 
 // Integer init function
-Queue_Array* init_stack_short();
-Queue_Array* init_stack_unsigned_short();
-Queue_Array* init_stack_int();
-Queue_Array* init_stack_unsigned_int();
-Queue_Array* init_stack_long();
-Queue_Array* init_stack_unsigned_long();
-Queue_Array* init_stack_long_long();
-Queue_Array* init_stack_unsigned_long_long();
+Queue_Array* init_queue_short();
+Queue_Array* init_queue_unsigned_short();
+Queue_Array* init_queue_int();
+Queue_Array* init_queue_unsigned_int();
+Queue_Array* init_queue_long();
+Queue_Array* init_queue_unsigned_long();
+Queue_Array* init_queue_long_long();
+Queue_Array* init_queue_unsigned_long_long();
 
 
 // Float init function
-Queue_Array* init_stack_float();
-Queue_Array* init_stack_double();
-Queue_Array* init_stack_long_double();
+Queue_Array* init_queue_float();
+Queue_Array* init_queue_double();
+Queue_Array* init_queue_long_double();
 
 
 // Char init function
-Queue_Array* init_stack_char();
-Queue_Array* init_stack_unsigned_char();
+Queue_Array* init_queue_char();
+Queue_Array* init_queue_unsigned_char();
 
 
 // Pointer init function
-Queue_Array* init_stack_char_ptr();
+Queue_Array* init_queue_char_ptr();
 
 // **** END: INIT FUNCTIONS *** //
 
