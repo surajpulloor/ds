@@ -6,7 +6,9 @@
 
 #include <stdio.h>
 
-typedef struct {
+typedef struct QA Queue_Array;
+
+struct QA {
     void** buffer;
     int front;
     int rear;
@@ -19,7 +21,7 @@ typedef struct {
 	// generic print_node_value function
 	void (*print_node_value)(Queue_Array*, int);
 
-} Queue_Array;
+};
 
 
 // **** START: INIT FUNCTIONS *** //
