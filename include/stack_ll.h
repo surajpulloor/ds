@@ -43,6 +43,22 @@ Stack_Linked_List* init_stack_char_ptr();
 // **** END: INIT FUNCTIONS *** //
 
 
+// **** START: SETUP FUNCTIONS **** //
+
+void setup_copy_value_funcs(
+	SingleLinkedList*, 
+	void (*)(SingleLinkedListNode*, void*), 
+	void (*)(void*, SingleLinkedListNode*)
+);
+
+void setup_print_node_value_func(
+	SingleLinkedList*, 
+	int (*)(SingleLinkedListNode*)
+);
+
+// **** END: SETUP FUNCTIONS **** //
+
+
 void push(Stack_Linked_List*, void*);
 void* pop(Stack_Linked_List*, void*);
 void print_stack(Stack_Linked_List*);
