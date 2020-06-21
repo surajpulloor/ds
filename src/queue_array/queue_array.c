@@ -5,7 +5,7 @@
 #include <string.h>
 
 
-void enqueue(Queue_Array* queue, char* value)
+void enqueue(Queue_Array* queue, void* value)
 {
     if (queue == NULL) {
         printf("error: queue doesn't exists. please create one before enqueueing.\n");
@@ -14,14 +14,13 @@ void enqueue(Queue_Array* queue, char* value)
 
     queue->rear++;
 
-    if (queue->front == -1) {
+    if (queue->front == -1)
         queue->front++;
-        strcpy(queue->buffer[queue->front], value);
-    } else
-        strcpy(queue->buffer[queue->rear], value);
+
+    queue->copy_value_to_node(queue, value);
 }
 
-char* dequeue(Queue_Array* queue, char* buffer)
+void* dequeue(Queue_Array* queue, void* buffer)
 {
     if (queue == NULL) {
         printf("error: queue doesn't exists. please create one before enqueueing.\n");
@@ -33,7 +32,7 @@ char* dequeue(Queue_Array* queue, char* buffer)
         return NULL;
     }
 
-    strcpy(buffer, queue->buffer[queue->front]);
+    queue->copy_value_to_buffer(buffer, queue);
 
     if (queue->front == queue->rear) {
         queue->front = -1;
