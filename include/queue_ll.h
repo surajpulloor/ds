@@ -37,6 +37,21 @@ Queue_Linked_List* init_queue_char_ptr();
 
 // **** END: INIT FUNCTIONS *** //
 
+// **** START: SETUP FUNCTIONS **** //
+
+void setup_copy_value_funcs(
+	SingleLinkedList*, 
+	void (*)(SingleLinkedListNode*, void*), 
+	void (*)(void*, SingleLinkedListNode*)
+);
+
+void setup_print_node_value_func(
+	SingleLinkedList*, 
+	int (*)(SingleLinkedListNode*)
+);
+
+// **** END: SETUP FUNCTIONS **** //
+
 void enqueue(Queue_Linked_List*, void*);
 void* dequeue(Queue_Linked_List*, void*);
 void print_queue(Queue_Linked_List*);
