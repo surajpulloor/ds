@@ -17,6 +17,7 @@ void enqueue(Queue_Array* queue, void* value)
     if (queue->front == -1)
         queue->front++;
 
+    alloc_buffer(queue);
     queue->copy_value_to_node(queue, value);
 }
 
@@ -32,6 +33,7 @@ void* dequeue(Queue_Array* queue, void* buffer)
         return NULL;
     }
 
+    free_buffer(queue);
     queue->copy_value_to_buffer(buffer, queue);
 
     if (queue->front == queue->rear) {
@@ -55,8 +57,10 @@ void print_queue(Queue_Array* queue)
         return;
     }
 
-    for (int i = queue->front; i <= queue->rear; i++)
-        printf("%s <= ", queue->buffer[i]);
+    for (int i = queue->front; i <= queue->rear; i++) {
+        queue->print_node_value(queue, i);
+        printf(" <= ");
+    }
 
     printf("\n\n");
 
