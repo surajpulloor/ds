@@ -1,4 +1,4 @@
-#include "queue_array.h"
+#include "ds/queue_array.h"
 
 int main()
 {

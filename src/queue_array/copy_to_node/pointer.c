@@ -1,4 +1,4 @@
-#include "queue_array.h"
+#include "ds/queue_array.h"
 #include <string.h>
 
 void copy_value_to_node_char_ptr(Queue_Array* queue, void* value)

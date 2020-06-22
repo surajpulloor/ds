@@ -1,4 +1,4 @@
-#include "string.h"
+#include "ds/string.h"
 
 bool equals_char_str(String*, char*);
 bool equals_str(String*, String*);
