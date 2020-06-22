@@ -1,4 +1,4 @@
-#include "ds/string.h"
+#include "ds/buffered_string.h"
 
 String* strcat_str(String*, String*);
 String* strcat_append_char_str(String*, char*);

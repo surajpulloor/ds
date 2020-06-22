@@ -1,4 +1,4 @@
-#include "ds/string.h"
+#include "ds/buffered_string.h"
 
 bool less_than_char_str(String*, char*);
 bool less_than_str(String*, String*);
