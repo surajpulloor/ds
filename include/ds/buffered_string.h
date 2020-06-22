@@ -1,5 +1,5 @@
-#ifndef _STRING_H
-#define _STRING_H
+#ifndef _BUFFERED_STRING_H
+#define _BUFFERED_STRING_H
 
 #define MAX_CHARS_BUFFER 1000
 
