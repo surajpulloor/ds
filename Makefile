@@ -7,6 +7,7 @@ SRC_STACK_ARRAY=stack_array
 SRC_STACK_LINKED_LIST=stack_ll
 SRC_QUEUE_ARRAY=queue_array
 SRC_QUEUE_LINKED_LIST=queue_ll
+SRC_STRING=string
 
 
 ODIR=obj
@@ -60,6 +61,12 @@ queue_linked_list_test:
 
 queue_linked_list_gen_lib:
 	cd $(SRC)/$(SRC_QUEUE_LINKED_LIST); make -f queue_linked_list_main.mk gen_lib
+
+string_test:
+	cd $(SRC)/$(SRC_STRING); make -f string_main.mk string_test
+
+string_gen_lib:
+	cd $(SRC)/$(SRC_STRING); make -f string_main.mk gen_lib
 
 .PHONY: clean
 
