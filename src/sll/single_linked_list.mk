@@ -15,7 +15,7 @@ ODIR_SETUP_BUFFER_LENGTH=$(ODIR)/$(SRC_SETUP_BUFFER_LENGTH)
 
 # Include files recipe
 _DEPS_SINGLE_LINKED_LIST = single_linked_list.h
-DEPS_SINGLE_LINKED_LIST = $(patsubst %,$(IDIR)/%,$(_DEPS_SINGLE_LINKED_LIST))
+DEPS_SINGLE_LINKED_LIST = $(patsubst %,$(DS_HEADER_PATH)/%,$(_DEPS_SINGLE_LINKED_LIST))
 
 # Single Linked List objects recipes
 _OBJ_SINGLE_LINKED_LIST = push.o pop.o get_set.o print.o alloc_free.o setup_funcs.o

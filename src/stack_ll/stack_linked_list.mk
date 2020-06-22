@@ -12,7 +12,7 @@ ODIR_INIT=$(ODIR)/$(SRC_INIT)
 
 
 _DEPS_STACK_LINKED_LIST = stack_ll.h
-DEPS_STACK_LINKED_LIST = $(patsubst %,$(IDIR)/%,$(_DEPS_STACK_LINKED_LIST))
+DEPS_STACK_LINKED_LIST = $(patsubst %,$(DS_HEADER_PATH)/%,$(_DEPS_STACK_LINKED_LIST))
 
 # Stack_Array objects recipes
 _OBJ_STACK_LINKED_LIST = push_pop.o misc.o

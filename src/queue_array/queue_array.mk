@@ -15,7 +15,7 @@ ODIR_PRINT_NODE_VALUE=$(ODIR)/$(SRC_PRINT_NODE_VALUE)
 
 
 _DEPS_QUEUE_ARRAY = queue_array.h
-DEPS_QUEUE_ARRAY = $(patsubst %,$(IDIR)/%,$(_DEPS_QUEUE_ARRAY))
+DEPS_QUEUE_ARRAY = $(patsubst %,$(DS_HEADER_PATH)/%,$(_DEPS_QUEUE_ARRAY))
 
 # Queue_Array objects recipes
 _OBJ_QUEUE_ARRAY = queue_array.o alloc_free.o setup_funcs.o

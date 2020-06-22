@@ -14,7 +14,7 @@ ODIR_PRINT_NODE_VALUE=$(ODIR)/$(SRC_PRINT_NODE_VALUE)
 ODIR_SETUP_BUFFER_LENGTH=$(ODIR)/$(SRC_SETUP_BUFFER_LENGTH)
 
 _DEPS_DOUBLE_LINKED_LIST = double_linked_list.h
-DEPS_DOUBLE_LINKED_LIST = $(patsubst %,$(IDIR)/%,$(_DEPS_DOUBLE_LINKED_LIST))
+DEPS_DOUBLE_LINKED_LIST = $(patsubst %,$(DS_HEADER_PATH)/%,$(_DEPS_DOUBLE_LINKED_LIST))
 
 # Double Linked List objects recipes
 _OBJ_DOUBLE_LINKED_LIST = push.o pop.o get_set.o print.o alloc_free.o setup_funcs.o

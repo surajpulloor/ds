@@ -18,7 +18,7 @@ ODIR_SETUP_LARGEST_STRING_LENGTH=$(ODIR)/$(SRC_SETUP_LARGEST_STRING_LENGTH)
 
 
 _DEPS_STACK_ARRAY = stack_array.h
-DEPS_STACK_ARRAY = $(patsubst %,$(IDIR)/%,$(_DEPS_STACK_ARRAY))
+DEPS_STACK_ARRAY = $(patsubst %,$(DS_HEADER_PATH)/%,$(_DEPS_STACK_ARRAY))
 
 # Stack_Array objects recipes
 _OBJ_STACK_ARRAY = push_pop.o print.o alloc_free.o setup_funcs.o

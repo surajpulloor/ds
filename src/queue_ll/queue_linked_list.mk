@@ -12,7 +12,7 @@ ODIR_INIT=$(ODIR)/$(SRC_INIT)
 
 
 _DEPS_QUEUE_LINKED_LIST = queue_ll.h
-DEPS_QUEUE_LINKED_LIST = $(patsubst %,$(IDIR)/%,$(_DEPS_QUEUE_LINKED_LIST))
+DEPS_QUEUE_LINKED_LIST = $(patsubst %,$(DS_HEADER_PATH)/%,$(_DEPS_QUEUE_LINKED_LIST))
 
 # Queue_Array objects recipes
 _OBJ_QUEUE_LINKED_LIST = queue_ll.o

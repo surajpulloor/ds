@@ -2,6 +2,7 @@ CC=gcc
 CFLAGS=-I$(IDIR)
 
 IDIR=include
+DS_HEADER_PATH=$(IDIR)/ds
 
 ODIR=obj
 
