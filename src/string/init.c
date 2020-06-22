@@ -1,4 +1,4 @@
-#include "ds/string.h"
+#include "ds/buffered_string.h"
 #include <stdlib.h>
 
 String* init_str()
@@ -20,10 +20,8 @@ String* init_string(size_t buffer_size)
 
 void free_string(String* string)
 {
-    if (string == NULL) {
+    if (string == NULL)
         printf("error: string doesn't exist. please create one.\n");
-        return NULL;
-    }
 
     // free the char buffer
     free(string->buffer);
