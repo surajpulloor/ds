@@ -61,8 +61,11 @@ char* copy_to_buffer(char* buffer, unsigned int buffer_size, String* string)
 
 char* copy_substring(char* dest, char* src, unsigned int begin, unsigned int end)
 {
-    for (int i = 0; begin < end; begin++, i++)
+    int i;
+    for (i = 0; begin < end; begin++, i++)
         dest[i] = src[begin];
 
+    dest[i] = '\0';
+    
     return dest;
 }
