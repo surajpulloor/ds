@@ -29,7 +29,7 @@ bool not_equals_str(String*, String*);
 bool greater_than_char_str(String*, char*);
 bool greater_than_str(String*, String*);
 
-bool greater_than_equal_str(String*, String*);
+bool greater_than_equal_char_str(String*, char*);
 bool greater_than_equal_str(String*, String*);
 
 bool less_than_char_str(String*, char*);
