@@ -4,12 +4,23 @@
 
 String* copy_char_str(String* string, char* value)
 {
-    if (strlen(value) > string->capacity) {
-        string->buffer = (char*) realloc(string->buffer, string->capacity * 2);
-        string->capacity *= 2;
+    int str_len = strlen(value);
+
+    if (str_len >= string->capacity) {
+
+        int capacity = 1;
+
+        if (str_len > string->capacity * 2)
+            capacity += string->capacity * 2 + (str_len - string->capacity * 2);
+        else
+            capacity += string->capacity * 2;
+
+
+        string->buffer = (char*) realloc(string->buffer, capacity);
+        string->capacity = capacity;
     }
 
-    string->length = strlen(value);
+    string->length = str_len;
     strcpy(string->buffer, value);
 
     return string;
@@ -17,9 +28,18 @@ String* copy_char_str(String* string, char* value)
 
 String* copy_str(String* dest, String* src)
 {
-    if (dest->capacity < src->length) {
-        dest->buffer = (char*) realloc(dest->buffer, dest->capacity * 2);
-        dest->capacity *= 2;
+    if (dest->capacity <= src->length) {
+        
+        int capacity = 1;
+
+        if (src->length > dest->capacity * 2)
+            capacity += dest->capacity * 2 + (src->length - dest->capacity * 2);
+        else
+            capacity += dest->capacity * 2;
+
+
+        dest->buffer = (char*) realloc(dest->buffer, capacity);
+        dest->capacity = capacity;
     }
 
     dest->length = src->length;
@@ -36,8 +56,7 @@ char* copy_to_buffer(char* buffer, unsigned int buffer_size, String* string)
         return NULL;
     }
 
-    strcpy(buffer, string->buffer);
-    
+    return strcpy(buffer, string->buffer);
 }
 
 char* copy_substring(char* dest, char* src, unsigned int begin, unsigned int end)
