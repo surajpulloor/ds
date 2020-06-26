@@ -38,7 +38,7 @@ bool less_than_str(String*, String*);
 bool less_than_equal_char_str(String*, char*);
 bool less_than_equal_str(String*, String*);
 
-char* substring(String*, int, int);
+String* substring(String*, int, int);
 char* substring_to_buffer(char*, unsigned int, String*, int, int);
 char* copy_substring(char*, char*, unsigned int, unsigned int);
 
