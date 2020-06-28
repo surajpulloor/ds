@@ -41,6 +41,7 @@ bool less_than_equal_str(String*, String*);
 String* substring(String*, int, int);
 char* substring_to_buffer(char*, unsigned int, String*, int, int);
 char* copy_substring(char*, char*, unsigned int, unsigned int);
+char* copy_reverse_substring(char*, char*, unsigned int, unsigned int);
 
 String* strcat_str(String*, String*);
 String* strcat_append_char_str(String*, char*);
