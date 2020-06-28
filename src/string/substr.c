@@ -1,52 +1,87 @@
 #include "ds/buffered_string.h"
 #include <string.h>
+#include <stdlib.h>
+
 
 String* substring(String* str, int begin, int end)
 {
-    if (begin < 0 || begin > str->length) {
-        printf("error: the begin bound is off limits.\n please provide a value within string bounds.\n");
-        return NULL;
-    }
+    unsigned int buffer_size = str->length + 1;
 
-    if (end < 0 || end > str->length) {
-        printf("error: the end bound is off limits.\n please provide a value within string bounds.\n");
-        return NULL;
-    }
+    String* new_string = init_string(buffer_size);
 
-    if (begin >= end) {
-        printf("error: the begin bound cannot be greater than end bound.\n");
-        return NULL;
-    }
+    substring_to_buffer(new_string->buffer, buffer_size, str, begin, end);
 
-    String* new_str = init_string(end - begin);
+    new_string->length = strlen(new_string->buffer);
 
-    copy_substring(new_str->buffer, str->buffer, begin, end);
-
-    return new_str;
+    return new_string;
+    
 }
 
 char* substring_to_buffer(char* buffer, unsigned int buffer_size, String* str, int begin, int end)
 {
-    if (begin < 0 || begin > str->length) {
-        printf("error: the begin bound is off limits.\n please provide a value within string bounds.\n");
+    int new_begin;
+    int new_end;
+
+    if (begin < 0) {
+
+        if (begin < str->length * -1) {
+            printf("error: begin is beyound the string length.\n");
+            return NULL;
+        }
+
+        new_begin = begin + str->length;
+
+    } else {
+        
+        if (begin > str->length) {
+            printf("error: begin is beyound the string length.\n");
+            return NULL;
+        }
+
+        new_begin = begin;
+    }
+
+    
+    if (end < 0) {
+
+        if (end < str->length * -1) {
+            printf("error: end is beyound the string length.\n");
+            return NULL;
+        }
+
+        new_end = end + str->length;
+
+    } else {
+        
+        if (end > str->length) {
+            printf("error: end is beyound the string length.\n");
+            return NULL;
+        }
+
+        new_end = end;
+    }
+
+
+    if (new_begin == new_end) {
+        printf("error: there's nothing to substring because begin and end points are the same.\n");
         return NULL;
     }
 
-    if (end < 0 || end > str->length) {
-        printf("error: the end bound is off limits.\n please provide a value within string bounds.\n");
+
+    int substring_length = abs(new_end - new_begin + 1);
+
+    if (buffer_size < substring_length) {
+        printf("error: the buffer is small please provide a bigger buffer. need space for %d more chars.\n", substring_length - buffer_size);
         return NULL;
     }
 
-    if (begin >= end) {
-        printf("error: the begin bound cannot be greater than end bound.\n");
-        return NULL;
-    }
 
-    if (buffer_size < end - begin) {
-        printf("error: the buffer cannot hold the substring.\n");
-        return NULL;
-    }
+    if (begin >= 0)
+        copy_substring(buffer, str->buffer, new_begin, new_end);
+    else
+        copy_reverse_substring(buffer, str->buffer, new_begin, new_end);
+    
 
-    return copy_substring(buffer, str->buffer, begin, end);
+    return buffer;
 }
 
