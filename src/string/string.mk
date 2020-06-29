@@ -18,7 +18,7 @@ _DEPS_STRING = buffered_string.h
 DEPS_STRING = $(patsubst %,$(DS_HEADER_PATH)/%,$(_DEPS_STRING))
 
 # String objects recipes
-_OBJ_STRING = init.o copy.o mul_str.o strcat.o substr.o
+_OBJ_STRING = init.o copy.o mul_str.o strcat.o substr.o get_set.o
 
 _OBJ_COMP = equals.o greater.o less.o
 

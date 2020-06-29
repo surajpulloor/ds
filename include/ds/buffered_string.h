@@ -50,6 +50,9 @@ String* strcat_prepend_char_str(char*, String*);
 String* mul_str(String*, unsigned int);
 String* mul_str_to_buffer(char*, unsigned int, String*, unsigned int);
 
+char get_c(String*, int);
+void set_c(String*, int, char);
+
 void free_string(String*);
 
 #endif

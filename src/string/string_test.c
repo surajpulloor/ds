@@ -1,5 +1,24 @@
 #include "ds/buffered_string.h"
 
+void print_str_with_indexes(String* str)
+{
+    printf("Indexs for str4: \n");
+    for (int i = 0; i < str->length; i++)
+        printf("%4d", i);
+    
+    printf("\n");
+
+    for (int i = 0; i < str->length; i++)
+        printf("%4c", str->buffer[i]);
+
+    printf("\n");
+
+    for (int i = str->length * -1; i < 0; i++)
+        printf("%4d", i);
+
+    printf("\n");
+}
+
 int main()
 {
     printf("Init...\n");
@@ -56,21 +75,7 @@ int main()
 
     printf("\nSubstring ops\n");
 
-    printf("Indexs for str4: \n");
-    for (int i = 0; i < str4->length; i++)
-        printf("%4d", i);
-    
-    printf("\n");
-
-    for (int i = 0; i < str4->length; i++)
-        printf("%4c", str4->buffer[i]);
-
-    printf("\n");
-
-    for (int i = str4->length * -1; i < 0; i++)
-        printf("%4d", i);
-
-    printf("\n");
+    print_str_with_indexes(str4);
 
     int subscripts[] = {
         44, 5,
@@ -104,12 +109,50 @@ int main()
         free_string(str8);
     }
 
+    printf("substring_to_buffer()\n");
+
     char buffer2[8];
 
     substring_to_buffer(buffer2, 8, str4, 3, -3);
 
     printf("%s\n", buffer2);
 
+
+    printf("get_c() and set_c()\n");
+
+    int indexs[] = {
+        0,
+        3,
+        5,
+        -6,
+        -8,
+        -1
+    };
+
+    printf("\nget_c()\n");
+
+    printf("get_c(%d) = %c\n", indexs[0], get_c(str4, indexs[0]));
+    printf("get_c(%d) = %c\n", indexs[1], get_c(str4, indexs[1]));
+    printf("get_c(%d) = %c\n", indexs[2], get_c(str4, indexs[2]));
+    printf("get_c(%d) = %c\n", indexs[3], get_c(str4, indexs[3]));
+    printf("get_c(%d) = %c\n", indexs[4], get_c(str4, indexs[4]));
+
+    printf("\nset_c()\n");
+    set_c(str4, indexs[0], 'd');
+    set_c(str4, indexs[1], 'h');
+    set_c(str4, indexs[2], 'y');
+    set_c(str4, indexs[3], 'l');
+    set_c(str4, indexs[4], 'f');
+
+    printf("\nget_c() after set_c()\n");
+
+    printf("get_c(%d) = %c\n", indexs[0], get_c(str4, indexs[0]));
+    printf("get_c(%d) = %c\n", indexs[1], get_c(str4, indexs[1]));
+    printf("get_c(%d) = %c\n", indexs[2], get_c(str4, indexs[2]));
+    printf("get_c(%d) = %c\n", indexs[3], get_c(str4, indexs[3]));
+    printf("get_c(%d) = %c\n\n", indexs[4], get_c(str4, indexs[4]));
+
+    print_str_with_indexes(str4);
 
     free_string(str);
     free_string(str2);
