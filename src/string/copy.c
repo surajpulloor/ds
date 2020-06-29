@@ -59,7 +59,7 @@ char* copy_to_buffer(char* buffer, unsigned int buffer_size, String* string)
     return strcpy(buffer, string->buffer);
 }
 
-char* copy_substring(char* dest, char* src, unsigned int begin, unsigned int end)
+char* copy_substring(char* dest, char* src, int begin, int end)
 {
     int i;
     for (i = 0; begin < end; begin++, i++)
@@ -71,7 +71,7 @@ char* copy_substring(char* dest, char* src, unsigned int begin, unsigned int end
 }
 
 
-char* copy_reverse_substring(char* dest, char* src, unsigned int begin, unsigned int end)
+char* copy_reverse_substring(char* dest, char* src, int begin, int end)
 {
     int i = 0;
     
