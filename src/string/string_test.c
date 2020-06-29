@@ -56,16 +56,57 @@ int main()
 
     printf("\nSubstring ops\n");
 
-    String* str5 = substring(str4, 3, 100);
+    printf("Indexs for str4: \n");
+    for (int i = 0; i < str4->length; i++)
+        printf("%4d", i);
+    
+    printf("\n");
+
+    for (int i = 0; i < str4->length; i++)
+        printf("%4c", str4->buffer[i]);
+
+    printf("\n");
+
+    for (int i = str4->length * -1; i < 0; i++)
+        printf("%4d", i);
+
+    printf("\n");
+
+    int subscripts[] = {
+        44, 5,
+        -4, -4,
+        -6, 7,
+        -1, -13
+    };
+
+    String* str5 = substring(str4, subscripts[0], subscripts[1]);
+    String* str6 = substring(str4, subscripts[2], subscripts[3]);
+    String* str7 = substring(str4,subscripts[4], subscripts[5]);
+    String* str8 = substring(str4, subscripts[6], subscripts[7]);
 
     if (str5) {
-        printf("%s\n", str5->buffer);
+        printf("substring(%d, %d) = %s\n", subscripts[0], subscripts[1], str5->buffer);
         free_string(str5);
     }
 
-    char buffer2[5];
+    if (str6) {
+        printf("substring(%d, %d) = %s\n", subscripts[2], subscripts[3], str6->buffer);
+        free_string(str6);
+    }
 
-    substring_to_buffer(buffer2, 5, str4, 3, 9);
+    if (str7) {
+        printf("substring(%d, %d) = %s\n", subscripts[4], subscripts[5], str7->buffer);
+        free_string(str7);
+    }
+
+    if (str8) {
+        printf("substring(%d, %d) = %s\n", subscripts[6], subscripts[7], str8->buffer);
+        free_string(str8);
+    }
+
+    char buffer2[8];
+
+    substring_to_buffer(buffer2, 8, str4, 3, -3);
 
     printf("%s\n", buffer2);
 
