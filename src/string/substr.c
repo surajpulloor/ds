@@ -61,7 +61,7 @@ char* substring_to_buffer(char* buffer, unsigned int buffer_size, String* str, i
 
     if (new_begin == new_end) {
         printf("error: there's nothing to substring because begin and end points are the same.\n");
-        return NULL;
+        return buffer;
     }
 
 
