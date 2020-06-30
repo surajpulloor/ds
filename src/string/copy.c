@@ -6,14 +6,14 @@ String* copy_char_str(String* string, char* value)
 {
     int str_len = strlen(value);
 
-    if (str_len >= string->capacity) {
+    if (str_len + 1 >= string->capacity) {
 
         int capacity = 1;
 
-        if (str_len > string->capacity * 2)
+        if (str_len + 1 > string->capacity * 2)
             capacity += string->capacity * 2 + (str_len - string->capacity * 2);
         else
-            capacity += string->capacity * 2;
+            capacity = string->capacity * 2;
 
 
         string->buffer = (char*) realloc(string->buffer, capacity);
@@ -28,14 +28,14 @@ String* copy_char_str(String* string, char* value)
 
 String* copy_str(String* dest, String* src)
 {
-    if (dest->capacity <= src->length) {
+    if (dest->capacity <= src->length + 1) {
         
         int capacity = 1;
 
-        if (src->length > dest->capacity * 2)
+        if (src->length + 1 > dest->capacity * 2)
             capacity += dest->capacity * 2 + (src->length - dest->capacity * 2);
         else
-            capacity += dest->capacity * 2;
+            capacity = dest->capacity * 2;
 
 
         dest->buffer = (char*) realloc(dest->buffer, capacity);
