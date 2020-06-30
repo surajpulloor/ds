@@ -22,12 +22,12 @@ void print_str_with_indexes(String* str)
 int main()
 {
     printf("Init...\n");
-    String* str = init_str();
-    String* str2 = init_str();
+    String* str = init_string(6);
+    String* str2 = init_string(6);
 
 
     printf("Copy...\n");
-    copy_char_str(str, "Hello, World");
+    copy_char_str(str, "Hello, World luke");
     
     copy_str(str2, str);
 
@@ -154,10 +154,42 @@ int main()
 
     print_str_with_indexes(str4);
 
+
+    printf("\nstrcat()\n");
+
+    String* str10 = init_string(14);
+    copy_str(str10, str4);
+
+    printf("strcat(%s, ", str4->buffer);
+
+    strcat_append_char_str(str4, "Hello World");
+
+    printf("%s) = %s\n", str3->buffer, str4->buffer);
+
+    char buffer3[30] = "Hello";
+
+    strcat_prepend_char_str(buffer3, 30, str4);
+
+    printf("strcat_prepend() = %s\n", buffer3);
+
+    printf("mul_str()\n");
+
+    String* mul = mul_str(str3, 3);
+
+    printf("mul_str() = %s\n", mul->buffer);
+
+    char buffer4[7];
+
+    mul_str_to_buffer(buffer4, 7, str3, 3);
+
+    printf("mul_str_to_buffer() = %s\n", buffer4);
+
     free_string(str);
     free_string(str2);
     free_string(str3);
     free_string(str4);
+    free_string(str10);
+    free_string(mul);
     
 
     
