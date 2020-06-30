@@ -48,7 +48,7 @@ String* strcat_append_char_str(String*, char*);
 char* strcat_prepend_char_str(char*, unsigned int, String*);
 
 String* mul_str(String*, unsigned int);
-String* mul_str_to_buffer(char*, unsigned int, String*, unsigned int);
+char* mul_str_to_buffer(char*, unsigned int, String*, unsigned int);
 
 char get_c(String*, int);
 void set_c(String*, int, char);
