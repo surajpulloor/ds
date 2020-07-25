@@ -2,12 +2,17 @@
 
 SingleLinkedList* init_list_char_ptr()
 {
-    SingleLinkedList* list = init_list(sizeof(char) * MAX_BUFFER, NULL, NULL);
-    
-    list->copy_value_to_node = copy_value_to_node_char_ptr;
-    list->copy_value_to_buffer = copy_value_to_buffer_char_ptr;
-    list->print_node_value = print_node_value_char_ptr;
-    list->setup_buffer_length = setup_buffer_length_char_ptr;
+    return init_list(
+        sizeof(char) * MAX_BUFFER, 
 
-    return list;
+        NULL, 
+        NULL,
+        
+        copy_value_to_node_char_ptr,
+        copy_value_to_buffer_char_ptr,
+
+        print_node_value_char_ptr,
+        
+        setup_buffer_length_char_ptr
+    );
 }
