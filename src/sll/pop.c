@@ -68,6 +68,9 @@ void* pop_before_v(SingleLinkedList* list, int index, void* buffer)
     if (buffer) // only copy if buffer exists
         list->copy_value_to_buffer(buffer, previousNode);
     
+    if (list->free_struct_members)
+        list->free_struct_members(previousNode);
+
     free_buffer(previousNode);
     free(previousNode);
 
@@ -117,7 +120,11 @@ void* pop_after_v(SingleLinkedList* list, int index, void* buffer)
     if (buffer) // only copy if buffer isn't empty
         list->copy_value_to_buffer(buffer, nextNode);
     
+    if (list->free_struct_members)
+        list->free_struct_members(nextNode);
+
     free_buffer(nextNode);
+    free(nextNode);
 
     if (index == list->size)
         list->rear = node;
@@ -145,6 +152,9 @@ void* pop_back_v(SingleLinkedList* list, void* buffer)
     if (buffer)
         list->copy_value_to_buffer(buffer, list->rear);
     
+    if (list->free_struct_members)
+        list->free_struct_members(list->rear);
+
     free_buffer(list->rear);
     
     node->next = NULL;
@@ -176,6 +186,9 @@ void* pop_front_v(SingleLinkedList* list, void* buffer)
     if (buffer)
         list->copy_value_to_buffer(buffer, list->front);
     
+    if (list->free_struct_members)
+        list->free_struct_members(list->front);
+        
     free_buffer(list->front);
 
     SingleLinkedListNode* nextNode = list->front->next;
