@@ -2,7 +2,7 @@
 
 SingleLinkedList* init_list_char()
 {
-    SingleLinkedList* list = init_list(sizeof(char));
+    SingleLinkedList* list = init_list(sizeof(char), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_char;
     list->copy_value_to_buffer = copy_value_to_buffer_char;
@@ -14,7 +14,7 @@ SingleLinkedList* init_list_char()
 
 SingleLinkedList* init_list_unsigned_char()
 {
-    SingleLinkedList* list = init_list(sizeof(unsigned char));
+    SingleLinkedList* list = init_list(sizeof(unsigned char), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_unsigned_char;
     list->copy_value_to_buffer = copy_value_to_buffer_unsigned_char;

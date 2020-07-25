@@ -21,6 +21,9 @@ typedef struct {
 	int size;
 	size_t type_size;
 
+	void (*init_struct_members)(SingleLinkedListNode*);
+	void (*free_struct_members)(SingleLinkedListNode*);
+
 	void (*copy_value_to_node)(SingleLinkedListNode*, void*);
 	void (*copy_value_to_buffer)(void*, SingleLinkedListNode*);
 
@@ -33,7 +36,7 @@ typedef struct {
 // **** START: INIT FUNCTIONS *** //
 
 // Main init function
-SingleLinkedList* init_list(size_t);
+SingleLinkedList* init_list(size_t, void (*)(SingleLinkedListNode*), void (*)(SingleLinkedListNode*));
 
 
 // Integer init function

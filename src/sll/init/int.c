@@ -2,7 +2,7 @@
 
 SingleLinkedList* init_list_short()
 {
-    SingleLinkedList* list = init_list(sizeof(short));
+    SingleLinkedList* list = init_list(sizeof(short), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_short;
     list->copy_value_to_buffer = copy_value_to_buffer_short;
@@ -14,7 +14,7 @@ SingleLinkedList* init_list_short()
 
 SingleLinkedList* init_list_unsigned_short()
 {
-    SingleLinkedList* list = init_list(sizeof(unsigned short));
+    SingleLinkedList* list = init_list(sizeof(unsigned short), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_unsigned_short;
     list->copy_value_to_buffer = copy_value_to_buffer_unsigned_short;
@@ -27,7 +27,7 @@ SingleLinkedList* init_list_unsigned_short()
 
 SingleLinkedList* init_list_int()
 {
-    SingleLinkedList* list = init_list(sizeof(int));
+    SingleLinkedList* list = init_list(sizeof(int), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_int;
     list->copy_value_to_buffer = copy_value_to_buffer_int;
@@ -39,7 +39,7 @@ SingleLinkedList* init_list_int()
 
 SingleLinkedList* init_list_unsigned_int()
 {
-    SingleLinkedList* list = init_list(sizeof(unsigned int));
+    SingleLinkedList* list = init_list(sizeof(unsigned int), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_unsigned_int;
     list->copy_value_to_buffer = copy_value_to_buffer_unsigned_int;
@@ -51,7 +51,7 @@ SingleLinkedList* init_list_unsigned_int()
 
 SingleLinkedList* init_list_long()
 {
-    SingleLinkedList* list = init_list(sizeof(long));
+    SingleLinkedList* list = init_list(sizeof(long), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_long;
     list->copy_value_to_buffer = copy_value_to_buffer_long;
@@ -63,7 +63,7 @@ SingleLinkedList* init_list_long()
 
 SingleLinkedList* init_list_unsigned_long()
 {
-    SingleLinkedList* list = init_list(sizeof(unsigned long));
+    SingleLinkedList* list = init_list(sizeof(unsigned long), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_unsigned_long;
     list->copy_value_to_buffer = copy_value_to_buffer_unsigned_long;
@@ -75,7 +75,7 @@ SingleLinkedList* init_list_unsigned_long()
 
 SingleLinkedList* init_list_long_long()
 {
-    SingleLinkedList* list = init_list(sizeof(long long));
+    SingleLinkedList* list = init_list(sizeof(long long), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_long_long;
     list->copy_value_to_buffer = copy_value_to_buffer_long_long;
@@ -87,7 +87,7 @@ SingleLinkedList* init_list_long_long()
 
 SingleLinkedList* init_list_unsigned_long_long()
 {
-    SingleLinkedList* list = init_list(sizeof(unsigned long long));
+    SingleLinkedList* list = init_list(sizeof(unsigned long long), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_unsigned_long_long;
     list->copy_value_to_buffer = copy_value_to_buffer_unsigned_long_long;

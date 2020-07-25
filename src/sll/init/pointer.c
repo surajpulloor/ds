@@ -2,7 +2,7 @@
 
 SingleLinkedList* init_list_char_ptr()
 {
-    SingleLinkedList* list = init_list(sizeof(char) * MAX_BUFFER);
+    SingleLinkedList* list = init_list(sizeof(char) * MAX_BUFFER, NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_char_ptr;
     list->copy_value_to_buffer = copy_value_to_buffer_char_ptr;

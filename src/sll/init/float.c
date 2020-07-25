@@ -3,7 +3,7 @@
 
 SingleLinkedList* init_list_float()
 {
-    SingleLinkedList* list = init_list(sizeof(float));
+    SingleLinkedList* list = init_list(sizeof(float), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_float;
     list->copy_value_to_buffer = copy_value_to_buffer_float;
@@ -15,7 +15,7 @@ SingleLinkedList* init_list_float()
 
 SingleLinkedList* init_list_double()
 {
-    SingleLinkedList* list = init_list(sizeof(double));
+    SingleLinkedList* list = init_list(sizeof(double), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_double;
     list->copy_value_to_buffer = copy_value_to_buffer_double;
@@ -27,7 +27,7 @@ SingleLinkedList* init_list_double()
 
 SingleLinkedList* init_list_long_double()
 {
-    SingleLinkedList* list = init_list(sizeof(long double));
+    SingleLinkedList* list = init_list(sizeof(long double), NULL, NULL);
     
     list->copy_value_to_node = copy_value_to_node_long_double;
     list->copy_value_to_buffer = copy_value_to_buffer_long_double;
