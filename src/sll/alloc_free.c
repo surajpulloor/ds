@@ -29,8 +29,13 @@ void free_list(SingleLinkedList** list)
     
     for (SingleLinkedListNode* node = (*list)->front; node; ) {
         SingleLinkedListNode* nxtNode = node->next;
+
+        if ((*list)->free_struct_members)
+            (*list)->free_struct_members(node);
+
         free_buffer(node);
         free(node);
+
         node = nxtNode;
     }
 
