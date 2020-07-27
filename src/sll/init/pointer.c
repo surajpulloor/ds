@@ -1,4 +1,4 @@
-#include "ds/single_linked_list.h"
+#include "ds/sll/single_linked_list.h"
 
 SingleLinkedList* init_list_char_ptr()
 {
