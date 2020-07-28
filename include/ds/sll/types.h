@@ -32,6 +32,15 @@ typedef struct {
 	int (*print_node_value)(SingleLinkedListNode*);
 	void (*setup_buffer_length)(SingleLinkedListNode*, void*);
 
+	// Comparison funcs
+	bool (*equal_nodes)(SingleLinkedListNode*, SingleLinkedListNode*);
+
+	bool (*less_than_nodes)(SingleLinkedListNode*, SingleLinkedListNode*);
+	bool (*less_than_equal_nodes)(SingleLinkedListNode*, SingleLinkedListNode*);
+
+	bool (*greater_than_nodes)(SingleLinkedListNode*, SingleLinkedListNode*);
+	bool (*greater_than_equal_nodes)(SingleLinkedListNode*, SingleLinkedListNode*);
+
 } SingleLinkedList;
 
 #endif
