@@ -16,4 +16,13 @@
 #include "ops/push.h"
 #include "ops/pop.h"
 
+#include "ops/search.h"
+#include "ops/append.h"
+
+#include "comp/equal.h"
+#include "comp/greater.h"
+#include "comp/less.h"
+
+#include "util.h"
+
 #endif
