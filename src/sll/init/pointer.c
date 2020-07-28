@@ -13,6 +13,14 @@ SingleLinkedList* init_list_char_ptr()
 
         print_node_value_char_ptr,
         
-        setup_buffer_length_char_ptr
+        setup_buffer_length_char_ptr,
+
+        equal_char_ptr,
+
+        less_than_char_ptr,
+        less_than_equal_char_ptr,
+
+        greater_than_char_ptr,
+        greater_than_equal_char_ptr
     );
 }
