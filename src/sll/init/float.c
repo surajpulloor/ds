@@ -3,11 +3,8 @@
 
 SingleLinkedList* init_list_float()
 {
-    return init_list(
+    return init_list_number(
         sizeof(float), 
-
-        NULL, 
-        NULL,
 
         copy_value_to_node_float,
         copy_value_to_buffer_float,
@@ -20,11 +17,8 @@ SingleLinkedList* init_list_float()
 
 SingleLinkedList* init_list_double()
 {
-    return init_list(
+    return init_list_number(
         sizeof(double), 
-
-        NULL, 
-        NULL,
 
         copy_value_to_node_double,
         copy_value_to_buffer_double,
@@ -37,11 +31,8 @@ SingleLinkedList* init_list_double()
 
 SingleLinkedList* init_list_long_double()
 {
-    return init_list(
+    return init_list_number(
         sizeof(long double), 
-
-        NULL, 
-        NULL,
 
         copy_value_to_node_long_double,
         copy_value_to_buffer_long_double,

@@ -2,11 +2,8 @@
 
 SingleLinkedList* init_list_char()
 {
-    return init_list(
+    return init_list_number(
         sizeof(char), 
-
-        NULL, 
-        NULL,
 
         copy_value_to_node_char,
         copy_value_to_buffer_char,
@@ -19,11 +16,8 @@ SingleLinkedList* init_list_char()
 
 SingleLinkedList* init_list_unsigned_char()
 {
-    return init_list(
+    return init_list_number(
         sizeof(unsigned char), 
-
-        NULL, 
-        NULL,
 
         copy_value_to_node_unsigned_char,
         copy_value_to_buffer_unsigned_char,
