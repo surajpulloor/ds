@@ -4,5 +4,6 @@
 #include "../types.h"
 
 SingleLinkedList* reverse_list(SingleLinkedList*);
+SingleLinkedList* copy_list(SingleLinkedList*);
 
 #endif
