@@ -19,7 +19,16 @@ SingleLinkedList* init_list(
 	int (*)(SingleLinkedListNode*),
 
 	// buffer length function
-	void (*)(SingleLinkedListNode*, void*)
+	void (*)(SingleLinkedListNode*, void*),
+
+	// Comparison funcs
+	bool (*equal_nodes)(SingleLinkedListNode*, SingleLinkedListNode*),
+
+	bool (*less_than_nodes)(SingleLinkedListNode*, SingleLinkedListNode*),
+	bool (*less_than_equal_nodes)(SingleLinkedListNode*, SingleLinkedListNode*),
+
+	bool (*greater_than_nodes)(SingleLinkedListNode*, SingleLinkedListNode*),
+	bool (*greater_than_equal_nodes)(SingleLinkedListNode*, SingleLinkedListNode*)
 );
 
 
