@@ -31,6 +31,21 @@ SingleLinkedList* init_list(
 	bool (*greater_than_equal_nodes)(SingleLinkedListNode*, SingleLinkedListNode*)
 );
 
+SingleLinkedList* init_list_number(
+	size_t,
+
+	// copy functions
+	void (*)(SingleLinkedListNode*, void*),
+	void (*)(void*, SingleLinkedListNode*),
+
+	// print node function
+	int (*)(SingleLinkedListNode*),
+
+	// buffer length function
+	void (*)(SingleLinkedListNode*, void*)
+
+);
+
 
 // Integer init function
 SingleLinkedList* init_list_short();

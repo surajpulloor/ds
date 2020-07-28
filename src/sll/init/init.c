@@ -15,7 +15,16 @@ SingleLinkedList* init_list(
 
 	int (*print_node_value)(SingleLinkedListNode*),
 
-	void (*setup_buffer_length)(SingleLinkedListNode*, void*)
+	void (*setup_buffer_length)(SingleLinkedListNode*, void*),
+    
+    // Comparison funcs
+	bool (*equal_nodes)(SingleLinkedListNode*, SingleLinkedListNode*),
+
+	bool (*less_than_nodes)(SingleLinkedListNode*, SingleLinkedListNode*),
+	bool (*less_than_equal_nodes)(SingleLinkedListNode*, SingleLinkedListNode*),
+
+	bool (*greater_than_nodes)(SingleLinkedListNode*, SingleLinkedListNode*),
+	bool (*greater_than_equal_nodes)(SingleLinkedListNode*, SingleLinkedListNode*)
 ) {
     SingleLinkedList* list = (SingleLinkedList*) malloc(sizeof(SingleLinkedList));
     list->front = NULL;
@@ -29,8 +38,55 @@ SingleLinkedList* init_list(
 
     list->copy_value_to_node = copy_value_to_node;
     list->copy_value_to_buffer = copy_value_to_buffer;
+
     list->print_node_value = print_node_value;
     list->setup_buffer_length = setup_buffer_length;
 
+    list->equal_nodes = equal_nodes;
+    
+    list->less_than_nodes = less_than_nodes;
+    list->less_than_equal_nodes = less_than_equal_nodes;
+    
+    list->greater_than_nodes = greater_than_nodes;
+    list->greater_than_equal_nodes = greater_than_equal_nodes;
+
+
     return list;
+}
+
+SingleLinkedList* init_list_number(
+	size_t type_size,
+
+	void (*copy_value_to_node)(SingleLinkedListNode*, void*),
+	void (*copy_value_to_buffer)(void*, SingleLinkedListNode*),
+
+
+	int (*print_node_value)(SingleLinkedListNode*),
+
+	void (*setup_buffer_length)(SingleLinkedListNode*, void*)
+
+) {
+
+    return init_list(
+        type_size, 
+
+        NULL, 
+        NULL,
+
+        copy_value_to_node,
+        copy_value_to_buffer,
+
+        print_node_value,
+
+        setup_buffer_length,
+
+        equal_number,
+
+        less_than_number,
+        less_than_equal_number,
+
+        greater_than_number,
+        greater_than_equal_number
+   );
+
 }
