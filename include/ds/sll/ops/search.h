@@ -9,7 +9,7 @@ bool search_nodes(
     unsigned int, 
     unsigned int, 
     
-    SingleLinkedListNode[], 
+    SingleLinkedListNode**, 
     unsigned int
 );
 
