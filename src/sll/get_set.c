@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void* get(SingleLinkedList* list, int index, void* buffer)
+void* get_value(SingleLinkedList* list, int index, void* buffer)
 {
     if (list == NULL) {
         printf("error: List is empty. Please insert something in it.\n");
