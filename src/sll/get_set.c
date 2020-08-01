@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void* get_value(SingleLinkedList* list, int index, void* buffer)
+SingleLinkedListNode* get_node(SingleLinkedList* list, unsigned int index)
 {
     if (list == NULL) {
         printf("error: List is empty. Please insert something in it.\n");
@@ -27,19 +27,29 @@ void* get_value(SingleLinkedList* list, int index, void* buffer)
 
             
     if (index == list->size)
-        list->copy_value_to_buffer(buffer, list->rear);
+        return list->rear;
     else {
         int i = 1;
         for (SingleLinkedListNode* node = list->front; i < list->size; i++, node = node->next)
-            if (i == index) {
-
-                if (buffer)
-                    list->copy_value_to_buffer(buffer, node);
-                break;
-
-            }
+            if (i == index) 
+                return node;
     }
-        
+}
+
+void* get_value(SingleLinkedList* list, unsigned int index, void* buffer)
+{
+    if (buffer == NULL) {
+        printf("error: please give a buffer. it's null\n");
+        return NULL;
+    }
+
+    SingleLinkedListNode* node = get_node(list, index);
+
+    if (node == NULL)
+        return NULL;
+
+    list->copy_value_to_buffer(buffer, node);
+
     return buffer;
 }
 

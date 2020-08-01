@@ -3,7 +3,8 @@
 
 #include "../types.h"
 
-void* get_value(SingleLinkedList*, int, void*);
+SingleLinkedListNode* get_node(SingleLinkedList*, unsigned int);
+void* get_value(SingleLinkedList*, unsigned int, void*);
 void set(SingleLinkedList*, int, void*);
 
 #endif
