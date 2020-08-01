@@ -14,7 +14,7 @@ bool search_nodes(
 );
 
 bool search_node(SingleLinkedList*, SingleLinkedListNode*);
-bool search_node_index(SingleLinkedList*, SingleLinkedListNode*);
+bool search_node_by_index(SingleLinkedList*, unsigned int);
 
 
 #endif
