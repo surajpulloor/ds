@@ -18,6 +18,9 @@ void print_list(SingleLinkedList* list)
 
 void print_node(SingleLinkedList* list, SingleLinkedListNode* node, bool isLast)
 {
+
+    if (node == NULL)
+        return;
     
     int len = node->buffer_length;
     int totalDashes = 19 + len;
