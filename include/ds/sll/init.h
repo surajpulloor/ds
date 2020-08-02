@@ -5,21 +5,21 @@
 
 // Main init function
 SingleLinkedList* init_list(
-	size_t,
+	size_t type_size,
 
 	// init/free_struct members
-	void (*)(SingleLinkedListNode*), 
-	void (*)(SingleLinkedListNode*),
+	void (*init_struct_members)(SingleLinkedListNode*), 
+	void (*free_struct_members)(SingleLinkedListNode*),
 
 	// copy functions
-	void (*)(SingleLinkedListNode*, void*),
-	void (*)(void*, SingleLinkedListNode*),
+	void (*copy_value_to_node)(SingleLinkedListNode*, void*),
+	void (*copy_value_to_buffer)(void*, SingleLinkedListNode*),
 
 	// print node function
-	int (*)(SingleLinkedListNode*),
+	int (*print_node_value)(SingleLinkedListNode*),
 
 	// buffer length function
-	void (*)(SingleLinkedListNode*, void*),
+	void (*setup_buffer_length)(SingleLinkedListNode*, void*),
 
 	// Comparison funcs
 	bool (*equal_nodes)(SingleLinkedListNode*, SingleLinkedListNode*),
