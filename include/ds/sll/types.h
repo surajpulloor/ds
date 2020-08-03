@@ -7,6 +7,14 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+
+#define COMP(type, op) \
+    type* value1 = (type*) node1->buffer; \
+    type* value2 = (type*) node2->buffer; \
+    \
+    return *value1 op *value2;
+
+
 typedef struct SLLNode {
 	void* buffer;
 	struct SLLNode* next;
