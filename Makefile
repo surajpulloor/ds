@@ -15,10 +15,10 @@ BIN_DIR=bin
 LIB_DIR=lib
 
 sll_test:
-	cd $(SRC)/$(SRC_SINGLE_LINKED_LIST); make -f single_linked_list_main.mk sll_test
+	cd $(SRC)/$(SRC_SINGLE_LINKED_LIST); make -f single_linked_list.mk sll_test
 
 sll_gen_lib:
-	cd $(SRC)/$(SRC_SINGLE_LINKED_LIST); make -f single_linked_list_main.mk gen_lib
+	cd $(SRC)/$(SRC_SINGLE_LINKED_LIST); make -f single_linked_list.mk gen_lib
 
 dll_test:
 	cd $(SRC)/$(SRC_DOUBLE_LINKED_LIST); make -f double_linked_list_main.mk dll_test
