@@ -3,7 +3,7 @@ ROOT_DIR=../..
 include $(ROOT_DIR)/Makefile.variable
 
 include $(MAKEFILE_DIR)/constants.mk
-include $(MAKEFILE_DIR)/inter_recipes.mk
+include $(MAKEFILE_DIR)/pre_req.mk
 
 include $(MAKEFILE_DIR)/recipes/lib.mk
 include $(MAKEFILE_DIR)/recipes/comp.mk
