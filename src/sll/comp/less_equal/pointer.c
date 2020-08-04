@@ -1,4 +1,5 @@
 #include "ds/sll/single_linked_list.h"
+#include <string.h>
 
 bool less_than_equal_char_ptr(SingleLinkedListNode* node1, SingleLinkedListNode* node2)
 {

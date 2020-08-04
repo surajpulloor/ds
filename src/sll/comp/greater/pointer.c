@@ -1,5 +1,5 @@
 #include "ds/sll/single_linked_list.h"
-
+#include <string.h>
 
 bool greater_than_char_ptr(SingleLinkedListNode* node1, SingleLinkedListNode* node2)
 {
