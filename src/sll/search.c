@@ -61,17 +61,16 @@ bool search_nodes(
             }
         }
 
-        if (node1 && node2) {
-            nodes[0] = node1;
-            nodes[1] = node2;
-
-            return true;
-        }
+        if (node1 && node2) 
+            break;
 
     }
 
 
-    return false;
+    nodes[0] = node1;
+    nodes[1] = node2;
+
+    return true;
 }
 
 bool search_node_by_value(SingleLinkedList* list, SingleLinkedListNode* searchNode)
