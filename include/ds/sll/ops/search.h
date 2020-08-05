@@ -13,7 +13,7 @@ bool search_nodes(
     unsigned int
 );
 
-bool node_exists(SingleLinkedList*, SingleLinkedListNode*);
-
+bool search_node_by_value(SingleLinkedList*, SingleLinkedListNode*);
+bool search_node(SingleLinkedList* list, SingleLinkedListNode* searchNode);
 
 #endif
