@@ -13,8 +13,7 @@ bool search_nodes(
     unsigned int
 );
 
-bool search_node(SingleLinkedList*, SingleLinkedListNode*);
-bool search_node_by_index(SingleLinkedList*, unsigned int);
+bool node_exists(SingleLinkedList*, SingleLinkedListNode*);
 
 
 #endif

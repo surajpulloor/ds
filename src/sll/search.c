@@ -74,7 +74,7 @@ bool search_nodes(
     return false;
 }
 
-bool search_node(SingleLinkedList* list, SingleLinkedListNode* searchNode)
+bool node_exists(SingleLinkedList* list, SingleLinkedListNode* searchNode)
 {
     for (SingleLinkedListNode* node = list->front; node; node = node->next)
         if (equal_nodes(list, node, searchNode))
