@@ -6,5 +6,5 @@ bool less_than_equal_char_ptr(SingleLinkedListNode* node1, SingleLinkedListNode*
     char* value1 = (char*) node1->buffer;
     char* value2 = (char*) node2->buffer;
     
-    return strcmp(value1, value2) < 0 && strcmp(value1, value2) == 0;   
+    return strcmp(value1, value2) < 0 || strcmp(value1, value2) == 0;   
 }
