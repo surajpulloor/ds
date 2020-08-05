@@ -76,6 +76,21 @@ bool search_nodes(
 
 bool node_exists(SingleLinkedList* list, SingleLinkedListNode* searchNode)
 {
+    if (list == NULL) {
+        printf("error: the list doesn't exists. please make one.\n");
+        return false;
+    }
+
+    if (list->front == NULL) {
+        printf("error: the list is empty. please populate it.\n");
+        return false;
+    }
+
+    if (searchNode == NULL) {
+        printf("error: please give the search node.\n");
+        return false;
+    }
+    
     for (SingleLinkedListNode* node = list->front; node; node = node->next)
         if (equal_nodes(list, node, searchNode))
             return true;
