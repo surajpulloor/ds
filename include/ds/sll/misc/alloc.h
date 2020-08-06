@@ -6,7 +6,7 @@
 void* alloc_buffer(SingleLinkedList*, SingleLinkedListNode*);
 void free_buffer(SingleLinkedListNode*);
 
-SingleLinkedListNode* alloc_node();
+SingleLinkedListNode* alloc_node(SingleLinkedList*);
 void free_node(SingleLinkedListNode*);
 
 #endif

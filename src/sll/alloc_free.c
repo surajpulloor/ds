@@ -44,9 +44,12 @@ void free_list(SingleLinkedList** list)
 }
 
 
-SingleLinkedListNode* alloc_node()
+SingleLinkedListNode* alloc_node(SingleLinkedList* list)
 {
-    return (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
+    SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
+    alloc_buffer(list, node);
+    
+    return node; 
 }
 
 void free_node(SingleLinkedListNode* node)
@@ -56,5 +59,6 @@ void free_node(SingleLinkedListNode* node)
         return;
     }
 
+    free_buffer(node);
     free(node);
 }
