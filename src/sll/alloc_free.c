@@ -42,3 +42,19 @@ void free_list(SingleLinkedList** list)
     free(*list);
     *list = NULL;
 }
+
+
+SingleLinkedListNode* alloc_node()
+{
+    return (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
+}
+
+void free_node(SingleLinkedListNode* node)
+{
+    if (node == NULL) {
+        printf("error: the node doesn't exists.\n");
+        return;
+    }
+
+    free(node);
+}
