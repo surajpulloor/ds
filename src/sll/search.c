@@ -73,7 +73,7 @@ bool search_nodes(
     return true;
 }
 
-bool search_node_by_value(SingleLinkedList* list, SingleLinkedListNode* searchNode)
+bool search_node_by_value(SingleLinkedList* list, void* value)
 {
     if (list == NULL) {
         printf("error: the list doesn't exists. please make one.\n");
@@ -85,14 +85,19 @@ bool search_node_by_value(SingleLinkedList* list, SingleLinkedListNode* searchNo
         return false;
     }
 
-    if (searchNode == NULL) {
-        printf("error: please give the search node.\n");
+    if (value == NULL) {
+        printf("error: please give the value to be searched.\n");
         return false;
     }
+
+    SingleLinkedListNode* searchNode = alloc_node(list);
+    list->copy_value_to_node(searchNode, value);
     
     for (SingleLinkedListNode* node = list->front; node; node = node->next)
         if (equal_nodes(list, node, searchNode))
             return true;
+
+    free_node(searchNode);
 
     return false;
 }
