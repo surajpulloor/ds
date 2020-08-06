@@ -44,11 +44,12 @@ void free_list(SingleLinkedList** list)
 }
 
 
-SingleLinkedListNode* alloc_node(SingleLinkedList* list)
+SingleLinkedListNode* alloc_node(SingleLinkedList* list, void* value)
 {
     SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
     alloc_buffer(list, node);
-    
+    list->copy_value_to_node(node, value);
+
     return node; 
 }
 

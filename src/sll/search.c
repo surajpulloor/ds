@@ -90,8 +90,7 @@ bool search_node_by_value(SingleLinkedList* list, void* value)
         return false;
     }
 
-    SingleLinkedListNode* searchNode = alloc_node(list);
-    list->copy_value_to_node(searchNode, value);
+    SingleLinkedListNode* searchNode = alloc_node(list, value);
     
     for (SingleLinkedListNode* node = list->front; node; node = node->next)
         if (equal_nodes(list, node, searchNode))
