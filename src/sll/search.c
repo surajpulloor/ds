@@ -96,7 +96,7 @@ bool search_node_by_value(SingleLinkedList* list, void* value)
         if (equal_nodes(list, node, searchNode))
             return true;
 
-    free_node(searchNode);
+    free_node(list, searchNode);
 
     return false;
 }

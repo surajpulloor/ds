@@ -48,17 +48,30 @@ SingleLinkedListNode* alloc_node(SingleLinkedList* list, void* value)
 {
     SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
     alloc_buffer(list, node);
+    
+    if (list->init_struct_members)
+        list->init_struct_members(node);
+
     list->copy_value_to_node(node, value);
+    list->setup_buffer_length(node, value);
 
     return node; 
 }
 
-void free_node(SingleLinkedListNode* node)
+void free_node(SingleLinkedList* list, SingleLinkedListNode* node)
 {
+    if (list == NULL) {
+        printf("error: the list doesn't exists. please create one.\n");
+        return;
+    }
+    
     if (node == NULL) {
         printf("error: the node doesn't exists.\n");
         return;
     }
+
+    if (list->free_struct_members)
+        list->free_struct_members(node);
 
     free_buffer(node);
     free(node);
