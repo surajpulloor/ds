@@ -25,14 +25,7 @@ SingleLinkedListNode* push_before(SingleLinkedList* list, void* value, int index
         return NULL;
     }
 
-    SingleLinkedListNode* newNode = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    alloc_buffer(list, newNode);
-
-    if (list->init_struct_members)
-        list->init_struct_members(newNode);
-
-    list->copy_value_to_node(newNode, value);
-    list->setup_buffer_length(newNode, value);
+    SingleLinkedListNode* newNode = alloc_node(list, value);
 
     SingleLinkedListNode* previousNode = NULL;
     int i = 1;
@@ -82,14 +75,7 @@ SingleLinkedListNode* push_after(SingleLinkedList* list, void* value, int index)
         return NULL;
     }
 
-    SingleLinkedListNode* newNode = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    alloc_buffer(list, newNode);
-
-    if (list->init_struct_members)
-        list->init_struct_members(newNode);
-
-    list->copy_value_to_node(newNode, value);
-    list->setup_buffer_length(newNode, value);
+    SingleLinkedListNode* newNode = alloc_node(list, value);
 
     int i = 1;
 
@@ -119,14 +105,7 @@ SingleLinkedListNode* push_back(SingleLinkedList* list, void* value)
         return NULL;
     }
 
-    SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    alloc_buffer(list, node);
-
-    if (list->init_struct_members)
-        list->init_struct_members(node);
-
-    list->copy_value_to_node(node, value);
-    list->setup_buffer_length(node, value);
+    SingleLinkedListNode* node = alloc_node(list, value);
 
     node->next = NULL;
 
@@ -149,14 +128,7 @@ SingleLinkedListNode* push_front(SingleLinkedList* list, void* value)
         return NULL;
     }
 
-    SingleLinkedListNode* node = (SingleLinkedListNode*) malloc(sizeof(SingleLinkedListNode));
-    alloc_buffer(list, node);
-
-    if (list->init_struct_members)
-        list->init_struct_members(node);
-
-    list->copy_value_to_node(node, value);
-    list->setup_buffer_length(node, value);
+    SingleLinkedListNode* node = alloc_node(list, value);
 
     list->size++;
 
