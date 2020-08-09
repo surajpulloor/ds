@@ -21,4 +21,4 @@
 
 #define SETUP_BUFFER_LENGTH(format, type) \
     char buffer[MAX_CHARS_BUFFER]; \
-    node->buffer_length = sprintf(buffer, format, *(type*) value);
+    node->buffer_length = sprintf(buffer, #format, *(type*) value);
