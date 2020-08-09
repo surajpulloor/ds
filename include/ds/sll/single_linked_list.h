@@ -25,4 +25,6 @@
 
 #include "util.h"
 
+#include "ds/macro.h"
+
 #endif
