@@ -2,21 +2,15 @@
 
 void copy_value_to_node_float(SingleLinkedListNode* node, void* value)
 {
-    float* temp = (float*) node->buffer;
-
-    *temp = *(float*) value;
+	COPY_TO_NODE(float)
 }
 
 void copy_value_to_node_double(SingleLinkedListNode* node, void* value)
 {
-    double* temp = (double*) node->buffer;
-
-    *temp = *(double*) value;
+	COPY_TO_NODE(double)
 }
 
 void copy_value_to_node_long_double(SingleLinkedListNode* node, void* value)
 {
-    long double* temp = (long double*) node->buffer;
-
-    *temp = *(long double*) value;
+	COPY_TO_NODE(long double)
 }
