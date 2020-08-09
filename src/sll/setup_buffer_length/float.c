@@ -3,18 +3,15 @@
 
 void setup_buffer_length_float(SingleLinkedListNode* node, void* value)
 {
-    char buffer[MAX_CHARS_BUFFER];
-    node->buffer_length = sprintf(buffer, "%f", *(float*) value);
+    SETUP_BUFFER_LENGTH(%f, float)
 }
 
 void setup_buffer_length_double(SingleLinkedListNode* node, void* value)
 {
-    char buffer[MAX_CHARS_BUFFER];
-    node->buffer_length = sprintf(buffer, "%lf", *(double*) value);
+    SETUP_BUFFER_LENGTH(%lf, double)
 }
 
 void setup_buffer_length_long_double(SingleLinkedListNode* node, void* value)
 {
-    char buffer[MAX_CHARS_BUFFER];
-    node->buffer_length = sprintf(buffer, "%Lf", *(long double*) value);
+	SETUP_BUFFER_LENGTH(%Lf, long double)
 }
