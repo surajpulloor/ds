@@ -2,40 +2,40 @@
 
 int print_node_value_short(SingleLinkedListNode* node)
 {
-    return printf("%hi", *(short*) node->buffer);
+	PRINT_NODE(%hi, short)
 }
 
 int print_node_value_unsigned_short(SingleLinkedListNode* node)
 {
-    return printf("%hu", *(unsigned short*) node->buffer);
+	PRINT_NODE(%hu, unsigned short)
 }
 
 int print_node_value_int(SingleLinkedListNode* node)
 {
-    return printf("%d", *(int*) node->buffer);
+	PRINT_NODE(%d, int)
 }
 
 int print_node_value_unsigned_int(SingleLinkedListNode* node)
 {
-    return printf("%u", *(unsigned int*) node->buffer);
+	PRINT_NODE(%u, unsigned int)
 }
 
 int print_node_value_long(SingleLinkedListNode* node)
 {
-    return printf("%ld", *(long*) node->buffer);
+	PRINT_NODE(%ld, long)
 }
 
 int print_node_value_unsigned_long(SingleLinkedListNode* node)
 {
-    return printf("%lu", *(unsigned long*) node->buffer);
+	PRINT_NODE(%lu, unsigned long)
 }
 
 int print_node_value_long_long(SingleLinkedListNode* node)
 {
-    return printf("%lld", *(long long*) node->buffer);
+	PRINT_NODE(%lld, long long)
 }
 
 int print_node_value_unsigned_long_long(SingleLinkedListNode* node)
 {
-    return printf("%llu", *(unsigned long long*) node->buffer);
+	PRINT_NODE(%llu, unsigned long long)
 }

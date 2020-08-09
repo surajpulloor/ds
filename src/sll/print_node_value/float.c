@@ -2,15 +2,15 @@
 
 int print_node_value_float(SingleLinkedListNode* node)
 {
-    return printf("%f", *(float*) node->buffer);
+	PRINT_NODE(%f, float)
 }
 
 int print_node_value_double(SingleLinkedListNode* node)
 {
-    return printf("%lf", *(double*) node->buffer);
+	PRINT_NODE(%lf, double)
 }
 
 int print_node_value_long_double(SingleLinkedListNode* node)
 {
-    return printf("%Lf", *(long double*) node->buffer);
+	PRINT_NODE(%Lf, long double)
 }

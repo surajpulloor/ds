@@ -2,10 +2,10 @@
 
 int print_node_value_char(SingleLinkedListNode* node)
 {
-    return printf("%c", *(char*) node->buffer);
+	PRINT_NODE(%c, char)
 }
 
 int print_node_value_unsigned_char(SingleLinkedListNode* node)
 {
-    return printf("%c", *(unsigned char*) node->buffer);
+	PRINT_NODE(%c, unsigned char)
 }
