@@ -119,9 +119,30 @@ int main()
     // free_list(&list);
 
 
-    SingleLinkedList* list = init_list_unsigned_long_long();
+    SingleLinkedList* list = init_list_int();
 
-    printf("Push Elements\n");
+    // int i = 1;
+    // push_back(list, &i);
+
+    for (int i = 1; i < 10; i++)
+        push_back(list, &i);
+
+
+    print_list(list);
+
+    int n = 122;
+    push_before(list, &n, 1);
+
+
+    print_list(list);
+
+    // SingleLinkedListNode* node = get_node(list, 6);
+
+    // int n = 9;
+    // if (search_node_by_value(list, &n))
+    //     printf("%d exists\n", n);
+
+    // printf("Push Elements\n");
     // push_back(list, "Hello,");
     // push_back(list, "best game");
     // push_back(list, "is the");
@@ -130,10 +151,49 @@ int main()
     // push_back(list, "Jacky Luke");
     // push_back(list, "Qwerty");
 
-    unsigned long long i = 54387912745637298L;
-    push_back(list, &i);
+    // printf("less_than_equal\n");
+    // if (less_than_equal_indices(list, 1, 1))
+    //     printf("Hello <= Hello\n");
+    // else
+    //     printf("Hello > Hello\n");
 
-    print_list(list);
+    if (less_than_equal_indices(list, 1, 2))
+        printf("1 < 2\n");
+
+    // SingleLinkedList* list2 = init_list_char_ptr();
+
+    // SingleLinkedListNode* node = push_back(list2, "Qwerty");
+
+    // // unsigned long long i = 54387912745637298L;
+    // // push_back(list, &i);
+
+    // print_list(list);
+
+    // print_list(list2);
+
+    // SingleLinkedListNode* nodes[2];
+    // if (search_nodes(list, 2, 7, nodes, 2)) {
+
+    //     printf("%s\n", (char*) nodes[0]->buffer);
+    //     printf("%s\n", (char*) nodes[1]->buffer);
+
+    //     if (search_node_by_value(list, nodes[0])) {
+    //         printf("%s exists\n", (char*) nodes[0]->buffer);
+    //     }
+    // }
+
+    // if (search_node_by_value(list, node)) {
+    //     printf("%s exists - node_by_value\n", (char*) node->buffer);
+    // } else {
+    //     printf("%s doesn't exists - node_by_value\n", (char*) node->buffer);
+    // }
+
+    // if (search_node(list, nodes[1])) {
+    //     printf("%s exists - search_node\n", (char*) node->buffer);
+    // } else {
+    //     printf("%s doesn't exists - search_node\n", (char*) node->buffer);
+    // }
+
 
     // char buffer[MAX_BUFFER];
     // push_before(list, list->size - 1);
@@ -148,6 +208,7 @@ int main()
 
     // print_list(list);
 
+    // free_list(&list2);
     free_list(&list);
 
 
