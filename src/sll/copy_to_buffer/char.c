@@ -2,14 +2,10 @@
 
 void copy_value_to_buffer_char(void* buffer, SingleLinkedListNode* node)
 {
-    char* temp = (char*) buffer;
-
-    *temp = *(char*) node->buffer;
+    COPY_TO_BUFFER(char)
 }
 
 void copy_value_to_buffer_unsigned_char(void* buffer, SingleLinkedListNode* node)
 {
-    unsigned char* temp = (unsigned char*) buffer;
-
-    *temp = *(unsigned char*) node->buffer;
+    COPY_TO_BUFFER(unsigned char)
 }

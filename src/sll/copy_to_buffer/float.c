@@ -2,21 +2,15 @@
 
 void copy_value_to_buffer_float(void* buffer, SingleLinkedListNode* node)
 {
-    float* temp = (float*) buffer;
-
-    *temp = *(float*) node->buffer;
+    COPY_TO_BUFFER(float)
 }
 
 void copy_value_to_buffer_double(void* buffer, SingleLinkedListNode* node)
 {
-    double* temp = (double*) buffer;
-
-    *temp = *(double*) node->buffer;
+    COPY_TO_BUFFER(double)
 }
 
 void copy_value_to_buffer_long_double(void* buffer, SingleLinkedListNode* node)
 {
-    long double* temp = (long double*) buffer;
-
-    *temp = *(long double*) node->buffer;
+    COPY_TO_BUFFER(long double)
 }
