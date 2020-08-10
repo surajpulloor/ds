@@ -3,6 +3,34 @@
 #include <stdlib.h>
 #include <string.h>
 
+SingleLinkedListNode* get_node_by_value(SingleLinkedList* list, void* value)
+{
+    if (list == NULL) {
+        printf("error: List is empty. Please insert something in it.\n");
+        return NULL;
+    }
+
+    if (list->front == NULL) {
+        printf("error: List doesn't exist. Please create one.\n");
+        return NULL;
+    }
+
+    if (value == NULL) {
+        printf("error: the value is null. please give a value.\n");
+        return NULL;
+    }
+
+    SingleLinkedListNode* search_node = alloc_node(list, value);
+    SingleLinkedListNode* node = list->front;
+
+    for (; node; node = node->next)
+        if (equal_nodes(list, node, search_node)) 
+            break;
+
+    free_node(list, search_node);
+    return node;
+}
+
 SingleLinkedListNode* get_node(SingleLinkedList* list, unsigned int index)
 {
     if (list == NULL) {

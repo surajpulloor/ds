@@ -119,22 +119,26 @@ int main()
     // free_list(&list);
 
 
-    SingleLinkedList* list = init_list_int();
+    // SingleLinkedList* list = init_list_int();
 
-    // int i = 1;
-    // push_back(list, &i);
+    // int i = 8;
+    // // push_back(list, &i);
 
-    for (int i = 1; i < 10; i++)
-        push_back(list, &i);
+    // for (int i = 1; i < 10; i++)
+    //     push_back(list, &i);
+
+    // SingleLinkedListNode* node = get_node_by_value(list, &i);
+
+    // if (node)
+    //     printf("Node value: %d\n", *(int*) node->buffer);
+
+    // print_list(list);
+
+    // int n = 122;
+    // push_before(list, &n, 1);
 
 
-    print_list(list);
-
-    int n = 122;
-    push_before(list, &n, 1);
-
-
-    print_list(list);
+    // print_list(list);
 
     // SingleLinkedListNode* node = get_node(list, 6);
 
@@ -142,14 +146,21 @@ int main()
     // if (search_node_by_value(list, &n))
     //     printf("%d exists\n", n);
 
-    // printf("Push Elements\n");
-    // push_back(list, "Hello,");
-    // push_back(list, "best game");
-    // push_back(list, "is the");
-    // push_back(list, "World game");
-    // push_back(list, "is");
-    // push_back(list, "Jacky Luke");
-    // push_back(list, "Qwerty");
+    SingleLinkedList* list = init_list_char_ptr();
+
+    printf("Push Elements\n");
+    push_back(list, "Hello,");
+    push_back(list, "best game");
+    push_back(list, "is the");
+    push_back(list, "World game");
+    push_back(list, "is");
+    push_back(list, "Jacky Luke");
+    push_back(list, "Qwerty");
+
+    SingleLinkedListNode* node = get_node_by_value(list, "Qwerty");
+
+    if (node)
+        printf("Node value: %s\n", (char*) node->buffer);
 
     // printf("less_than_equal\n");
     // if (less_than_equal_indices(list, 1, 1))
@@ -157,8 +168,8 @@ int main()
     // else
     //     printf("Hello > Hello\n");
 
-    if (less_than_equal_indices(list, 1, 2))
-        printf("1 < 2\n");
+    // if (less_than_equal_indices(list, 1, 2))
+    //     printf("1 < 2\n");
 
     // SingleLinkedList* list2 = init_list_char_ptr();
 
